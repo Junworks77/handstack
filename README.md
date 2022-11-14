@@ -22,8 +22,8 @@ HandStack의 기술 스택은 웹 사이트나 웹 앱을 만들기 위한 개�
 
 웹 개발을 위해 사용할 수 있는 다양한 기술 스택이 존재합니다. HandStack에서는 다음의 기술로 개발됩니다.
 
-H : HTML5 - 프론트엔드의 UI를 구성하기 위한 최신 HTML, CSS, Javascript 기술 요소입니다.
-A : ASP.NET Core - HandStack의 백엔드를 구성하는 기본 프레임워크입니다.
-N : Node.js - 백엔드측 비즈니스 로직을 개발 하기 위한 기술 요소입니다.
-D : Dapr & Docker - 지속 및 확장 가능한 시스템을 운영하기 위한 기반 기술입니다.
+* H : HTML5 - 프론트엔드의 UI를 구성하기 위한 최신 HTML, CSS, Javascript 기술 요소입니다.
+* A : ASP.NET Core - HandStack의 백엔드를 구성하는 기본 프레임워크입니다.
+* N : Node.js - 백엔드측 비즈니스 로직을 개발 하기 위한 기술 요소입니다.
+* D : Dapr & Docker - 지속 및 확장 가능한 시스템을 운영하기 위한 기반 기술입니다.
 
