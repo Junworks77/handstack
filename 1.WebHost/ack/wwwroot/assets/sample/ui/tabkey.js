@@ -1,5 +1,0 @@
-$w.initializeScript({
-    pageLoad: function () {
-
-    }
-});
