@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<form autocomplete="off" style="display: none;" id="frmMain">
+		<div id="wrap" class="mainContents" style="overflow-y: hidden;">
+			<div class="formFieldWrap">
+				<ul class="row">
+					<li style="padding-left: 5px">
+						<div class="formGroup hidden">
+							<span class="formControl">
+								<select id="ddlSearchType" syn-datafield="SearchType" syn-options="{width:66, dataSourceID: 'CMM023', required: true}"></select>
+							</span>
+						</div>
+					</li>
+					<li>
+						<div class="formGroup">
+							<span class="formControl">
+								<input type="text" id="txtSearch" style="width:280px" syn-datafield syn-events="['keydown']" />
+							</span>
+						</div>
+					</li>
+					<li>
+						<div class="formGroup">
+							<span class="formControl">
+								<button type="button" id="btnSearch" class="txtBtn light" syn-datafield syn-events="['click']">검색</button>
+							</span>
+						</div>
+					</li>
+					<li>
+						<div class="formGroup">
+							<span class="formControl">
+								<button type="button" id="btnConfirm" class="txtBtn item" syn-datafield syn-events="['click']">확인</button>
+							</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="gridWrap">
+				<div class="gridBox">
+					<qaf_grid id="grdCodeList" syn-datafield="CodeList" syn-events="['afterOnCellDoubleClick']"></qaf_grid>
+				</div>
+			</div>
+		</div>
+	</form>
+	<script src="/assets/bundle/js/syn.module.js" type="text/javascript"></script>
+</body>
+</html>

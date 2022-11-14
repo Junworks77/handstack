@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+	<form autocomplete="off" style="display: none;" id="form1" syn-datafield="MainForm">
+		<div>
+			<div>속성</div>
+			<pre>name: 'syn.uicontrols.$editor',
+version: '1.0',
+defaultSetting: {
+    width: '320px',
+    height: '240px',
+    contents: '',
+    dataType: 'string',
+    belongID: null,
+    transactConfig: null,
+    triggerConfig: null
+},</pre>
+		</div>
+		<hr />
+		<div>
+			<div>메서드</div>
+			<pre>
+execCommand: function (elID, command, option) - 에디터 명령 실행, http://www.quirksmode.org/dom/execCommand.html 참조
+</pre>
+		</div>
+		<hr />
+		<div>
+			<div>예시</div>
+			<syn_editor id="txtEditor" syn-datafield syn-options="{contents: 'hello world'}"></syn_editor>
+		</div>
+		<hr />
+		<div>
+			<div>기능</div>
+			<input type="button" id="btnGetValue" value="getValue" syn-events="['click']" />
+			<input type="button" id="btnSetValue" value="setValue" syn-events="['click']" />
+			<input type="button" id="btnClear" value="clear" syn-events="['click']" />
+			<input type="button" id="btnExecCommand" value="execCommand" syn-events="['click']" />
+			<input type="button" id="btnInsertImage" value="insertImage" syn-events="['click']" />
+		</div>
+	</form>
+	<script src="/assets/js/syn.loader.js" type="text/javascript"></script>
+</body>
+</html>

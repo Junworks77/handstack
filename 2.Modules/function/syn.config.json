@@ -1,0 +1,48 @@
+{
+    "ApplicationID": "HDS",
+    "ProjectID": "WBD",
+    "SystemID": "BOP01",
+    "TransactionTimeout": 60000,
+    "IsConfiguration": false,
+    "SolutionName": "HDS Solution",
+    "ProgramName": "function",
+    "IsDebugMode": true,
+    "IsApiFindServer": false,
+    "ApiFindUrl": "http://localhost:5000/api/find",
+    "FileManagerUrl": "http://localhost:5000/api/filemanager",
+    "FileManagerServer": "http://localhost:5000",
+    "FileServerType": "L",
+    "Environment": "Development",
+    "LocalStoragePath": "C:\\home\\ack\\cache\\function",
+    "LogMinimumLevel": "trace",
+    "FileLogBasePath": "C:\\home\\ack\\log\\function",
+    "DomainAPIServer": {
+        "ServerID": "SERVERD01",
+        "ServerType": "D",
+        "Protocol": "http",
+        "IP": "localhost",
+        "Port": "5000",
+        "Path": "/api/transaction",
+        "ClientIP": "127.0.0.1"
+    },
+    "DomainServerType": "D",
+    "IntranetServerIP": "127.0.0.1",
+    "IntranetServerPort": "8080",
+    "Program": {
+        "ProgramVersion": "1.0.0",
+        "LanguageID": "KO",
+        "LocaleID": "ko-KR",
+        "TerminalBranchCode": ""
+    },
+    "Transaction": {
+        "ProtocolVersion": "001",
+        "RunningEnvironment": "D",
+        "DataFormat": "J",
+        "MachineName": "",
+        "SystemCode": "DTS",
+        "SystemID": "BOP01",
+        "SystemInterfaceID": "",
+        "MachineTypeID": "SVR",
+        "DataEncryptionYN": "N"
+    }
+}

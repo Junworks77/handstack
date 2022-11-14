@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+        .pdfobject-container {
+            width: 100%;
+            max-width: 600px;
+            height: 600px;
+            margin: 2em 0;
+        }
+
+        .pdfobject {
+            border: solid 1px #666;
+        }
+	</style>
+</head>
+<body>
+	<form autocomplete="off" style="display: none;" id="form1" syn-datafield="MainForm">
+		https://pdfobject.com/#api<br />
+		https://printjs.crabbly.com/#documentation
+		<div id="pdfViewer"></div>
+		<hr />
+		<input type="button" id="btnPDFViewer" value="PDF Modern Viewer" syn-events="['click']" />
+		<input type="button" id="btnPDFExplorerViewer" value="PDF Internet Explorer Viewer" syn-events="['click']" />
+		<input type="button" id="btnPDFPrint" value="PDFPrint" syn-events="['click']" />
+		<input type="button" id="btnPrintPdfDocument" value="printPdfDocument" syn-events="['click']" />
+		<input type="button" id="btnGetPdfDocumentUrl" value="getPdfDocumentUrl" syn-events="['click']" />
+	</form>
+	<script type="text/javascript">
+		function pageLoadFiles(jsFiles, styleFiles, htmlFiles) {
+			jsFiles.push('/assets/js/pdfobject-2.2.5/pdfobject.js');
+		}
+	</script>
+	<script src="/assets/js/syn.loader.js" type="text/javascript"></script>
+</body>
+</html>

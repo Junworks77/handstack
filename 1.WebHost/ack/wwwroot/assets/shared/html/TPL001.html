@@ -1,0 +1,21 @@
+<!--새 문서 작성(CMM070) 팝업의 문서 목록-->
+<div id="div{{documentTypeID}}">
+    <div class="document-header">
+        <h2>{{documentTypeName}}</h2>
+    </div>
+
+    <div>
+        <div class="document">
+            {{#documents}}
+            <div class="document-item" id="doc_{{documentFormID}}" onclick="$this.docDocument_click('{{workCompanyNo}}', '{{workCompanyName}}', '{{documentTypeID}}', '{{documentTypeName}}', '{{documentFormID}}', '{{documentFormName}}', '{{reportID}}')">
+                <div class="document-item-info">
+                    <ul>
+                        <li>{{documentFormName}}</li>
+                        <!--<li class="document-item-comments">documentComments</li>-->
+                    </ul>
+                </div>
+            </div>
+            {{/documents}}
+        </div>
+    </div>
+</div>

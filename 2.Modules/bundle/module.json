@@ -1,0 +1,6 @@
+{
+    "ModuleID": "bundle",
+    "Name": "bundle",
+    "IsBundledWithHost": false,
+    "Version": "1.0.0"
+}

@@ -1,0 +1,136 @@
+div.textEditorControl {
+	border: solid 1px #b5b5b5;
+	padding: 3px 5px;
+	background-color: #f7f7f7;
+}
+
+	div.textEditorControl .textEditorIcon {
+		height: 23px;
+		width: 23px;
+		margin-right: 1px;
+		background: url("/assets/bundle/img/icon/textEditorIcon.png") 0 0 no-repeat;
+		border: 0;
+		text-indent: -9999px;
+		overflow: hidden;
+	}
+
+		div.textEditorControl .textEditorIcon.font {
+			background-position: 0 0;
+			width: 46px;
+		}
+
+		div.textEditorControl .textEditorIcon.size {
+			background-position: 0 -25px;
+			width: 46px;
+		}
+
+		div.textEditorControl .textEditorIcon.bold {
+			background-position: 0 -50px;
+			margin-left: 5px;
+		}
+
+		div.textEditorControl .textEditorIcon.italic {
+			background-position: 0 -75px;
+		}
+
+		div.textEditorControl .textEditorIcon.underline {
+			background-position: 0 -100px;
+		}
+
+		div.textEditorControl .textEditorIcon.undo {
+			background-position: 0 -125px;
+			margin-left: 5px;
+		}
+
+		div.textEditorControl .textEditorIcon.redo {
+			background-position: 0 -150px;
+		}
+
+		div.textEditorControl .textEditorIcon.backcolor {
+			background-position: 0 -200px;
+		}
+
+		div.textEditorControl .textEditorIcon.forecolor {
+			background-position: 0 -175px;
+			margin-left: 5px;
+		}
+
+		div.textEditorControl .textEditorIcon.jleft {
+			background-position: 0 -225px;
+			margin-left: 5px;
+		}
+
+		div.textEditorControl .textEditorIcon.jright {
+			background-position: 0 -250px;
+		}
+
+		div.textEditorControl .textEditorIcon.jcenter {
+			background-position: 0 -275px;
+		}
+
+		div.textEditorControl .textEditorIcon.ol {
+			background-position: 0 -300px;
+			margin-left: 5px;
+		}
+
+		div.textEditorControl .textEditorIcon.ul {
+			background-position: 0 -325px;
+		}
+
+		div.textEditorControl .textEditorIcon.image {
+			background-position: 0 -350px;
+		}
+
+div.editorPop {
+	padding: 10px;
+}
+
+ul.textEditor_colorScheme {
+	width: 280px;
+}
+
+	ul.textEditor_colorScheme li {
+		float: left;
+		width: 55px;
+		height: 25px;
+		margin: 1px 0 1px 1px;
+		text-indent: -9999px;
+		overflow: hidden;
+		cursor: pointer;
+	}
+
+ul.textEditor_fontFamily {
+	width: 280px;
+	padding: 5px 10px;
+}
+
+	ul.textEditor_fontFamily li {
+		padding-left: 5px;
+		line-height: 22px;
+		color: #555;
+		cursor: pointer;
+	}
+
+		ul.textEditor_fontFamily li:hover {
+			background-color: #f5f5f5;
+		}
+
+ul.textEditor_fontSize {
+	padding: 5px;
+	width: 280px;
+}
+
+	ul.textEditor_fontSize li {
+		padding: 0 0 3px 5px;
+		color: #555;
+		line-height: normal;
+		cursor: pointer;
+	}
+
+		ul.textEditor_fontSize li:hover {
+			background-color: #f5f5f5;
+		}
+
+.syn-texteditor {
+  color: #000;
+}

@@ -1,0 +1,65 @@
+.nanobar{width:100%;height:4px;z-index:9999;top:0}.bar{width:0;height:100%;transition:height .3s;background:#1B2631}
+
+.window.focused .windowtitlebar {background-color:#283747;}
+::-webkit-scrollbar-thumb {background-color:#283747;}
+.handsontable .wtBorder {background-color: #283747 !important;}
+.CodeMirror:hover {border-color: #1B2631 !important;}
+
+.fieldTabUIWrap > .tabUI {border-bottom:solid 2px #212F3C;}
+.fieldTabUIWrap > .tabUI li {border-bottom:solid 2px #212F3C;}
+.fieldTabUIWrap > .tabUI li:hover,
+.fieldTabUIWrap > .tabUI li.active {border-color:#212F3C;color:#1B2631;}
+.fieldTabUIWrap .tabContent {border-color:#212F3C;}
+
+input[type=radio].ui_radio + label {background-image:url("/assets/img/icon_radio_normal_10.png");}
+input[type=radio].ui_radio:checked + label {background-image:url("/assets/img/icon_radio_active_10.png");}
+input[type=radio].ui_radio:focus + label {border: 1px solid #1B2631 !important;}
+input[type=radio].ui_radio + label:hover {border: 1px solid #1B2631;}
+
+input[type=checkbox].ui_checkboxRadio + label {background-image:url("/assets/img/icon_radio_normal_10.png");}
+input[type=checkbox].ui_checkboxRadio:checked + label {background-image:url("/assets/img/icon_radio_active_10.png");}
+input[type=checkbox].ui_checkboxRadio:focus + label {border: 1px solid #1B2631 !important;}
+input[type=checkbox].ui_checkboxRadio + label:hover {border: 1px solid #1B2631;}
+
+input[type=checkbox].ui_checkbox + label {background-image:url("/assets/img/icon_checkbox_normal_10.png");}
+input[type=checkbox].ui_checkbox:checked + label {background-image:url("/assets/img/icon_checkbox_active_10.png");}
+input[type=checkbox].ui_checkbox:focus + label {border: 1px solid #1B2631 !important;}
+input[type=checkbox].ui_checkbox + label:hover {border: 1px solid #1B2631;}
+
+label.ui_checkbox {background-image:url("/assets/img/icon_checkbox_active_10.png") !important;}
+
+button.txtBtn {background-color:#1B2631;}
+button.txtBtn.light {color:#1B2631;}
+button.txtBtn.light:hover,button.txtBtn.light:focus {color:#fff;background-color:#212F3C;}
+button.lineBtn {border-color:#212F3C;color:#212F3C;}
+button.lineBtn:hover,button.lineBtn:focus {border-color:#212F3C;background-color:#212F3C;color:#fff;}
+
+.handsontable .htUIInput.htUIButtonOK input {border-color:#212F3C;background-color:#212F3C;color:#fff;}
+
+#simplemodal-container .simplemodal-data h3 {background-color:#212F3C;}
+
+#alertmodal-container .alertmodal-data .btn-area input[type="button"] {color:#fff;background-color:#1B2631;}
+#alertmodal-container .alertmodal-data .btn-area input[type="button"].btn-default {color:#1B2631;}
+
+select:hover, 
+textarea:hover, 
+input[type="text"]:hover, 
+input[type="tel"]:hover, 
+input[type="number"]:hover, 
+input[type="date"]:hover, 
+input[type="password"]:hover, 
+input[type="tel"]:hover, 
+input[type="email"]:hover,
+input[type="text"]:focus, 
+input[type="tel"]:focus, 
+input[type="number"]:focus, 
+input[type="date"]:focus, 
+input[type="password"]:focus, 
+input[type="tel"]:focus, 
+input[type="email"]:focus {border-color:#1B2631;}
+
+.tail-select:hover .select-label, .tail-select.idle .select-label, .tail-select.active .select-label,
+.tail-select:focus .select-label, .tail-select.idle .select-label, .tail-select.active .select-label 
+{box-shadow:none;border-color:#1B2631;}
+
+.gridWrap .gridUtil .gridTitle h3:before {background-color:#1B2631;}

@@ -1,0 +1,382 @@
+﻿@charset "utf-8";
+
+.page.page-enote > .header > .wrapper-nav-tabs {
+    padding: 5px 5px 0
+}
+
+.page.page-enote > .header {
+    border-bottom: 1px solid #ddd;
+    box-shadow: 1px 1px 4px rgba(0,0,0,.1)
+}
+
+.page-enote > .header > .wrapper-title {
+    border: none;
+    font-size: 116.6666%
+}
+
+    .page-enote > .header > .wrapper-title .page-name {
+        cursor: pointer
+    }
+
+        .page-enote > .header > .wrapper-title .page-name:before {
+            content: "\f0c9";
+            border-right: none;
+            font-size: 116.6666%;
+            padding-top: 4px
+        }
+
+    .page-enote > .header > .wrapper-title .wrapper-toolbar {
+        margin: 15px 10px 5px
+    }
+
+.page-enote.enote-file > .header > .wrapper-title .wrapper-toolbar, .page-enote.enote-image > .header > .wrapper-title .wrapper-toolbar {
+    margin: 10px
+}
+
+.page-enote > .header > .wrapper-title .wrapper-toolbar .form-control.title-simple-search {
+    height: 22px;
+    border-radius: 26px;
+    position: relative;
+    margin-right: -25px;
+    padding-left: 10px;
+    padding-right: 25px
+}
+
+.page-enote > .header > .wrapper-title .wrapper-toolbar .btn-title-search {
+    padding: 3px 15px 2px;
+    border-radius: 26px;
+    z-index: 3
+}
+
+.page-enote > .header > .wrapper-title .wrapper-toolbar .btn-group-filter > .btn {
+    padding: 2px 15px 1px 15px;
+    border-radius: 26px;
+    z-index: 3
+}
+
+.page-enote > .header > .wrapper-header-search {
+    padding-top: 0;
+    position: absolute;
+    top: 53px;
+    left: 0;
+    right: 0;
+    box-shadow: 1px 1px 4px rgba(0,0,0,.1)
+}
+
+.page-enote.enote-file > .header > .wrapper-header-search, .page-enote.enote-image > .header > .wrapper-header-search {
+    top: 41px
+}
+
+.page-enote > .header > .wrapper-header-search .wrapper-form {
+    padding: 5px 10px;
+    max-width: none
+}
+
+.page-enote > .header > .wrapper-nav-tabs {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    z-index: 0
+}
+
+    .page-enote > .header > .wrapper-nav-tabs > .nav-tabs {
+        margin: 0;
+        padding: 0;
+        border-bottom: none;
+        white-space: nowrap;
+        position: relative;
+        transition: all ease .2s;
+        left: 0
+    }
+
+        .page-enote > .header > .wrapper-nav-tabs > .nav-tabs > li {
+            border-radius: 0;
+            margin: 0;
+            background-color: #fff;
+            border-top: none;
+            border-bottom-width: 2px;
+            border-bottom-color: transparent;
+            float: none;
+            display: inline-block
+        }
+
+            .page-enote > .header > .wrapper-nav-tabs > .nav-tabs > li:before, .page-enote > .header > .wrapper-nav-tabs > .nav-tabs > li:after {
+                display: none
+            }
+
+            .page-enote > .header > .wrapper-nav-tabs > .nav-tabs > li.active {
+                background-color: #fff;
+                border-bottom-color: #005b9e
+            }
+
+            .page-enote > .header > .wrapper-nav-tabs > .nav-tabs > li:hover {
+                background-color: #f5f5f5
+            }
+
+            .page-enote > .header > .wrapper-nav-tabs > .nav-tabs > li > a {
+                color: #aaa;
+                padding: 10px 15px
+            }
+
+            .page-enote > .header > .wrapper-nav-tabs > .nav-tabs > li.active > a {
+                color: #005b9e;
+                font-weight: bold
+            }
+
+    .page-enote > .header > .wrapper-nav-tabs > .tab-option {
+        position: absolute;
+        top: 5px;
+        bottom: 0;
+        right: 0;
+        background-color: #fff;
+        z-index: 3;
+        user-select: none
+    }
+
+        .page-enote > .header > .wrapper-nav-tabs > .tab-option > span {
+            font-size: 150%;
+            display: inline-block;
+            padding: 5px;
+            cursor: pointer
+        }
+
+        .page-enote > .header > .wrapper-nav-tabs > .tab-option .tab-plus {
+            margin: 0 10px
+        }
+
+            .page-enote > .header > .wrapper-nav-tabs > .tab-option .tab-move-left:before, .page-enote > .header > .wrapper-nav-tabs > .tab-option .tab-move-right:before, .page-enote > .header > .wrapper-nav-tabs > .tab-option .tab-plus:before {
+                font-family: font-icon;
+                display: inline-block;
+                font-size: 100%;
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale
+            }
+
+        .page-enote > .header > .wrapper-nav-tabs > .tab-option .tab-move-left:before {
+            content: "\f104"
+        }
+
+        .page-enote > .header > .wrapper-nav-tabs > .tab-option .tab-move-right:before {
+            content: "\f105"
+        }
+
+        .page-enote > .header > .wrapper-nav-tabs > .tab-option .tab-plus:before {
+            content: "+"
+        }
+
+.page-enote > .footer > .wrapper-toolbar {
+    margin: 10px
+}
+
+.page.page-enote > .contents {
+    margin-top: 0
+}
+
+.page.page-enote.enote-todo > .contents, .page.page-enote.enote-memo > .contents {
+    padding: 0
+}
+
+.page.page-enote.enote-file > .contents, .page.page-enote.enote-image > .contents {
+    padding: 10px
+}
+
+.page.page-enote > .contents .todo, .page.page-enote > .contents .memo, .page.page-enote > .contents .file, .page.page-enote > .contents .image {
+    display: none
+}
+
+.page.page-enote.enote-todo > .contents .todo, .page.page-enote.enote-memo > .contents .memo, .page.page-enote.enote-file > .contents .file, .page.page-enote.enote-image > .contents .image {
+    display: block
+}
+
+.page.page-enote.enote-file > .header .nav-tabs, .page.page-enote.enote-file > .header .tab-option {
+    display: none
+}
+
+.enote-list {
+    border-bottom: 5px solid #fff;
+    background-color: #f1f1f1
+}
+
+    .enote-list > ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 20px;
+        box-shadow: 1px 1px 4px rgba(0,0,0,.1);
+        border-radius: 10px
+    }
+
+        .enote-list > ul:first-child {
+            margin-top: 0
+        }
+
+        .enote-list > ul > li {
+            position: relative;
+            padding: 5px 10px 5px 45px;
+            background-color: #fff;
+            border-bottom: 1px dotted #ccc;
+            cursor: pointer;
+            transition: background ease .2s,border ease .2s;
+            border-right: 1px solid transparent
+        }
+
+            .enote-list > ul > li:last-child {
+                border-bottom: none
+            }
+
+            .enote-list > ul > li:first-child {
+                border-radius: 10px 10px 0 0
+            }
+
+            .enote-list > ul > li:last-child {
+                border-radius: 0 0 10px 10px
+            }
+
+            .enote-list > ul > li:first-child:last-child {
+                border-radius: 10px
+            }
+
+        .enote-list > ul:not(.enote-nodata) > li:not(.group-title):not(.more-list):hover, .enote-list > ul:not(.enote-nodata) > li.ui-sortable-helper {
+            background-color: #f1f9ff;
+            border-right: 3px solid #005b9e
+        }
+
+            .enote-list > ul:not(.enote-nodata) > li:not(.group-title):not(.more-list):hover .note, .enote-list > ul:not(.enote-nodata) > li.ui-sortable-helper .note {
+                color: #005b9e;
+                font-weight: bold
+            }
+
+        .enote-list > ul:not(.enote-nodata) > li:not(.group-title):not(.more-list):active {
+            box-shadow: 0 0 4px rgba(0,0,0,.2)
+        }
+
+        .enote-list > ul .check {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            cursor: default
+        }
+
+            .enote-list > ul .check > .form-checkbox {
+                position: absolute;
+                top: 50%;
+                left: 15px;
+                margin-top: -9px
+            }
+
+        .enote-list > ul .attached-link {
+            position: absolute;
+            right: 10px;
+            top: 14px;
+            color: #777
+        }
+
+        .enote-list > ul .enote-article {
+            margin: 10px 5px 10px 0;
+            padding-right: 10px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis
+        }
+
+            .enote-list > ul .enote-article .icon-list-new {
+                margin-right: 3px;
+                margin-left: 0
+            }
+
+            .enote-list > ul .enote-article .label {
+                margin-right: 3px
+            }
+
+            .enote-list > ul .enote-article .note {
+                vertical-align: middle
+            }
+
+                .enote-list > ul .enote-article .note br {
+                    display: none;
+                    margin: 0 2px
+                }
+
+        .enote-list > ul .enote-time {
+            margin: 5px 0;
+            text-align: right;
+            font-size: 91.6666%;
+            color: #bbb
+        }
+
+    .enote-list > .group-title {
+        padding: 15px 15px 15px 65px;
+        font-weight: bold;
+        position: relative
+    }
+
+        .enote-list > .group-title .check {
+            position: absolute;
+            top: 50%;
+            margin-top: -9px;
+            left: 35px
+        }
+
+        .enote-list > .group-title a {
+            color: #333;
+            display: block;
+            text-decoration: none
+        }
+
+            .enote-list > .group-title a .collapse-arrow {
+                position: absolute;
+                right: 25px
+            }
+
+                .enote-list > .group-title a .collapse-arrow:before {
+                    content: "\f107";
+                    font-family: font-icon;
+                    display: inline-block;
+                    font-size: 100%;
+                    text-rendering: auto;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale
+                }
+
+            .enote-list > .group-title a.collapsed .collapse-arrow:before {
+                content: "\f106"
+            }
+
+    .enote-list > .more-list {
+        text-align: center;
+        padding: 10px 5px;
+        cursor: pointer
+    }
+
+        .enote-list > .more-list:after {
+            content: "\f107";
+            font-family: font-icon;
+            display: inline-block;
+            font-size: 100%;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale
+        }
+
+        .enote-list > .more-list.hidden {
+            display: block !important
+        }
+
+            .enote-list > .more-list.hidden:after, .enote-list > .more-list.hidden > span, .enote-list > ul.collapse:not(.in) + .more-list {
+                display: none !important
+            }
+
+    .enote-list > ul.enote-nodata {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        box-shadow: none
+    }
+
+        .enote-list > ul.enote-nodata > li {
+            border-radius: 10px;
+            padding-left: 10px;
+            text-align: center;
+            cursor: default
+        }

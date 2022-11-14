@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+/*skin*/
+header {background-color:#9283BE !important !important;}
+header .head_top {background-color:#50417B !important;}
+
+button.txtBtn {background-color:#50417B !important;}
+button.txtBtn.light {color:#50417B !important;}
+button.lineBtn {border-color:#46286B !important;}
+
+.container {background-color:#9283BE !important;}
+.container .lnbSection nav {background-color:#9283BE !important;}
+
+#alertmodal-container .alertmodal-data .btn-area input[type="button"] {color:#fff;background-color:#50417B !important;}
+#alertmodal-container .alertmodal-data .btn-area input[type="button"].btn-default {color:#50417B !important;background-color:#E2DEEE !important;}

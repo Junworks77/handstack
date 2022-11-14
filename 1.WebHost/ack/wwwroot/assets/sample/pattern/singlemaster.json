@@ -1,0 +1,74 @@
+﻿{
+    "ProgramID": "SUV",
+    "BusinessID": "YSW",
+    "SystemID": "BOP01",
+    "TransactionID": "SingleMaster",
+    "ModifiedDate": "2020-02-11 00:00:00",
+    "DataSource": {
+        "CHM010": {
+            "Description": "기초코드 데이터를 조회합니다.",
+            "CodeColumnID": "CodeID",
+            "ValueColumnID": "CodeValue",
+            "CreateDate": "2020-09-17",
+            "DataSource": [
+                {
+                    "BusinessID": 1,
+                    "CodeID": "0",
+                    "CodeValue": "전체본부",
+                    "SelectYN": false,
+                    "LocaleID": "ko-KR"
+                },
+                {
+                    "BusinessID": 1,
+                    "CodeID": "1",
+                    "CodeValue": "총판본부",
+                    "SelectYN": false,
+                    "LocaleID": "ko-KR"
+                },
+                {
+                    "BusinessID": 1,
+                    "CodeID": "2",
+                    "CodeValue": "지역본부",
+                    "SelectYN": false,
+                    "LocaleID": "ko-KR"
+                },
+                {
+                    "BusinessID": 1,
+                    "CodeID": "3",
+                    "CodeValue": "본부없음",
+                    "SelectYN": false,
+                    "LocaleID": "ko-KR"
+                }
+            ]
+        },
+        "CHM020": {
+            "Description": "기초코드 데이터를 조회합니다.",
+            "CodeColumnID": "CodeID",
+            "ValueColumnID": "CodeValue",
+            "CreateDate": "2020-09-17",
+            "DataSource": [
+                {
+                    "BusinessID": 1,
+                    "CodeID": "0",
+                    "CodeValue": "본부명",
+                    "SelectYN": false,
+                    "LocaleID": "ko-KR"
+                },
+                {
+                    "BusinessID": 1,
+                    "CodeID": "1",
+                    "CodeValue": "본부코드",
+                    "SelectYN": false,
+                    "LocaleID": "ko-KR"
+                },
+                {
+                    "BusinessID": 1,
+                    "CodeID": "2",
+                    "CodeValue": "본부장명",
+                    "SelectYN": false,
+                    "LocaleID": "ko-KR"
+                }
+            ]
+        }
+    }
+}

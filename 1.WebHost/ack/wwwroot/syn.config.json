@@ -1,0 +1,67 @@
+﻿{
+    "SystemID": "HANDSTACK",
+    "ApplicationID": "HDS",
+    "ProjectID": "SYN",
+    "SystemVersion": "1.0.0",
+    "TransactionTimeout": 180000,
+    "IsConfiguration": false,
+    "HostName": "WebClient",
+    "SolutionName": "HDS Solution",
+    "UIEventLogLevel": "Verbose",
+    "IsClientCaching": false,
+    "IsDebugMode": true,
+    "IsViewMappingModel": true,
+    "BaseDirectory": "/",
+    "SharedAssetUrl": "/assets/shared/",
+    "IsApiFindServer": false,
+    "ApiFindUrl": "http://localhost:8000/api/find",
+    "ManagedServer": "http://localhost:8001",
+    "FileManagerServer": "http://localhost:8004",
+    "FindClientIPServer": "https://checkip.amazonaws.com",
+    "BundlingServer": "",
+    "FileServerType": "L",
+    "FileBusinessIDSource": "None",
+    "Environment": "Development",
+    "DomainAPIServer": {
+        "ServerID": "SERVERD01",
+        "ServerType": "D",
+        "Protocol": "http",
+        "IP": "localhost",
+        "Port": "8002",
+        "Path": "/api/transaction",
+        "ClientIP": "localhost"
+    },
+    "DomainServerType": "D",
+    "IntranetServerIP": "localhost",
+    "IntranetServerPort": "8080",
+    "Program": {
+        "ProgramName": "ack",
+        "ProgramVersion": "1.0.0",
+        "LanguageID": "KO",
+        "LocaleID": "ko-KR",
+        "BranchCode": ""
+    },
+    "Transaction": {
+        "ProtocolVersion": "001",
+        "SimulationType": "P",
+        "DataFormat": "J",
+        "SystemInterfaceID": "",
+        "MachineTypeID": "WEB",
+        "EncryptionType": "P",
+        "EncryptionKey": "G",
+        "CompressionYN": "N"
+    },
+    "AuthenticationContext": {
+        "LoginUser": {
+            "CompanyID": "handstack",
+            "DepartmentID": "dev",
+            "UserClass": "0",
+            "UserID": "handstack",
+            "UserName": "홍길동",
+            "Claims": [ "all" ],
+            "PersonalTel": "",
+            "BusinessTel": "",
+            "EMail": "handstack@handshake.kr"
+        }
+    }
+}

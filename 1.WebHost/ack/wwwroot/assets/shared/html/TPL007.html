@@ -1,0 +1,7 @@
+<!--사용자 (HRM020) 화면의 첨부파일목록-->
+{{#user_files}}
+<li class="col-12 leading-4 p-1 cursor-pointer">
+    <i class="vertical-middle ri-attachment-2" id="file_{{FILE_ID}}" onclick="$this.userFileDownload('{{FILE_ID}}')"> {{FILE_NAME}}</i>
+    <button type="button" class="icon-delete" onclick="$this.deleteUserFile('{{FILE_ID}}')"></button>
+</li>
+{{/user_files}}

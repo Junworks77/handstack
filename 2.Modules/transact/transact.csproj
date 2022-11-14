@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+        <Nullable>enable</Nullable>
+        <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+        <BaseOutputPath></BaseOutputPath>
+    </PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DebugType>none</DebugType>
+		<Optimize>true</Optimize>
+	</PropertyGroup>
+
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="MediatR" Version="11.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.9" />
+        <PackageReference Include="RestSharp" Version="106.12.0" />
+        <PackageReference Include="Polly" Version="7.2.3" />
+        <PackageReference Include="ChoETL.JSON.NETStandard" Version="1.2.1.22" />
+        <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+        <PackageReference Include="Serilog.AspNetCore" Version="6.0.1" />
+        <PackageReference Include="Serilog.Extensions.Hosting" Version="5.0.1" />
+        <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\3.Infrastructure\HandStack.Core\HandStack.Core.csproj" />
+        <ProjectReference Include="..\..\3.Infrastructure\HandStack.Logger\HandStack.Logger.csproj" />
+        <ProjectReference Include="..\..\3.Infrastructure\HandStack.Web\HandStack.Web.csproj" />
+        <ProjectReference Include="..\dataflow\dataflow.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="wwwroot\**" />
+        <None Update="wwwroot\**">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Include="Contracts\**" />
+        <None Update="Contracts\**">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <Content Update="module.json">
+            <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="(robocopy $(SolutionDir)2.Modules\transact\bin\Debug\net6.0 C:\home\ack\modules\transact /S /E /COPY:DAT /PURGE) ^&amp; IF %25ERRORLEVEL%25 LEQ 1 exit 0" />
+    </Target>
+</Project>

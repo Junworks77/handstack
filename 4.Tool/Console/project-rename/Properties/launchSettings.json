@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "project-rename": {
+      "commandName": "Project",
+      "commandLineArgs": "/source=C:\\projects\\ack\\2.Modules\\template /target=C:\\projects\\ack\\2.Modules\\destination /find=template /replace=destination"
+    }
+  }
+}

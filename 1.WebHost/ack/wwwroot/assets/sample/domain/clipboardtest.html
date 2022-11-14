@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Tiny Clipboard Viewer</title>
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <style type="text/css">
+        .redlined {
+            border: red solid 1px;
+        }
+    </style>
+    <script>
+        htmlPresent = false;
+        function bindEvents() {
+            $('#divPasteBin').bind('paste', function (e) {
+                var data = e.originalEvent.clipboardData || window.clipboardData;
+                var html = "";
+                $.each(data.types, function (index, value) {
+                    if ('text/html' === value || 'text/rtf' === value) {
+                        htmlPresent = true;
+                        idForDiv = value.replace(/\//g, "");
+                        html += "<p id='typeLabel'><strong>Clipboard Data Type: " + value + "</strong>";
+                        html += "<br />";
+                        html += "<div class='redlined' id='";
+                        html += idForDiv;
+                        html += "'>";
+                        html += data.getData(value);
+                        html += "</div>";
+                        // if (index !== data.types.length - 1){
+                        // 	html += "<hr />";
+                        // }
+                        html += "</p>";
+                        $('#divClipboardDatas').html(html);
+                    }
+                });
+
+                if (document.getElementById('texthtml')) {
+                    html = "<p><strong>RAW HTML:</strong></p>";
+                    html += "<textarea style='width: 100%;' rows='30' id='rawHTML'>";
+                    html += document.getElementById('texthtml').innerHTML;
+                    html += "</textarea>";
+                    $('#typeLabel').before(html);
+                }
+                e.preventDefault();
+                if (!htmlPresent) {
+                    html = "<p><strong>NO HTML CONTENT FOUND IN CLIPBOARD!</p>";
+                    $('#divClipboardDatas').html(html);
+                }
+            });
+        }
+        window.onload = () => {
+            bindEvents();
+        };
+    </script>
+</head>
+<body>
+    <h2>Clipboard Viewer</h2>
+    <p>For the pasted data to be run through TinyMCE's processing algorithm the 'text/html' data type must be available.</p>
+    <p>Paste in the red box below:</p>
+    <div contenteditable=true id="divPasteBin" class="redlined">
+        <br />
+    </div>
+    <div id="divClipboardDatas">
+    </div>
+</body>
+</html>

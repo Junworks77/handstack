@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/assets/bundle/css/syn.bundle.css">
+</head>
+<body>
+    <form autocomplete="off" style="display: none;" id="form1" syn-datafield="MainForm">
+        <label syn-i18n="Word" class="w120">기안자</label>
+        <br />
+        <div syn-i18n="Message" class="w120">테스트</div>
+        <br />
+        <input syn-i18n="{
+					key: 'Interpolate', options: {
+					bindSource: 'placeholder'
+				}}" type="text" id="txtApplicationID" syn-datafield="ApplicationID" />
+
+        <div>
+            <div>예시</div>
+            <syn_grid id="grdGrid" syn-i18n="{
+					key: 'Word', options: {
+					PersonID: 'Word',
+					SUBJECTNAME: 'Message',
+					UserName: 'Interpolate'
+				}}" syn-datafield syn-options="{autoColumnSize: true,
+				columns: [
+					['PersonID', '사용자ID', 200, false, 'button', false, 'center', null, null, {placeholder: '빈 값', sorting: true, clearBorder: true, color: 'red', bold: true, toCurrency: true}],
+					['UserName', '사용자', 200, false, 'safehtml', false, 'left'],
+					['MaritalStatus', '혼인여부', 200, false, {
+						columnType: 'checkbox2',
+						isSelectAll: true
+					}, false, 'center'],
+					['ReligionYN', '종교여부', 200, false, {
+						columnType: 'radio'
+					}, false, 'center'],
+					['SUBJECTID', '학과코드ID', 140, true, 'text', false, 'left','M01'],
+					['SUBJECTNAME', '학과명', 160, false, {
+						columnType: 'codehelp',
+						dataSourceID: 'CH005',
+						local: false,
+						codeColumnID: 'SUBJECTID'
+					}, false, 'left','M01'],
+					['GenderType', '성별ID', 200, false, 'text', false, 'left'],
+					['GenderTypeName', '성별', 200, false, 'text', false, 'left'],
+					['CreateDateTime', '입력일자', 200, false, 'date', false, 'left']
+				],
+				keyLockedColumns: ['PersonID', 'UserName'],
+				isContainFilterHeader: true,
+				dropdownMenu: true,
+				autoInsertRow: true,
+				controlText: '데모예제',
+				importFileColumns: 'all',
+			}" style="width: 960px; border: 1px solid;"></syn_grid>
+        </div>
+    </form>
+    <script src="/assets/js/syn.loader.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+{
+    "ModuleID": "transact",
+    "Name": "transact",
+    "IsBundledWithHost": false,
+    "Version": "1.0.0",
+    "ModuleConfig": {
+        "SystemID": "HANDSTACK",
+        "BusinessServerUrl": "http://127.0.0.1:8002/api/transaction",
+        "CircuitBreakResetSecond": 60,
+        "DefaultCommandTimeout": 180,
+        "IsExceptionDetailText": true,
+        "IsLogServer": false,
+        "IsContractFileWatchingUpdate": true,
+        "ContractBasePath": "C:\\home\\ack\\modules\\transact\\Contracts",
+        "AvailableEnvironment": "P,D,S",
+        "LogServerUrl": "http://127.0.0.1:8006/api/log",
+        "IsCodeDataCache": true,
+        "CodeDataCacheTimeout": 20,
+        "TransactionLogFilePath": "C:\\home\\ack\\log\\transact\\transaction.log",
+        "UseApiAuthorize": false,
+        "BypassAuthorizeIP": [
+            "localhost",
+            "1.1.1.142",
+            "1.1.1.143",
+            "172.25.64.1",
+            "1.1.1.73"
+        ],
+        "WithOrigins": [
+            "http://127.0.0.1",
+            "http://127.0.0.1:5000",
+            "http://localhost",
+            "http://localhost:5000"
+        ],
+        "RouteCommandUrl": {
+            "HDSZZWCD": "http://localhost:5000/batch/api/execution",
+            "HDSZZWTD": "http://localhost:5000/task/api/execution",
+            "HDSZZWDT": "http://localhost:5000/dbclient/api/query",
+            "HDSZZWDD": "event://dbclient.Events.DbClientRequest",
+            "HDSZZWAD": "http://localhost:5000/webapi/api/fetch",
+            "HDSZZWFD": "http://localhost:5000/function/api/execution",
+            "HDSZZWRD": "http://localhost:5000/repository/api/request",
+            "HDSZZWPD": "http://localhost:5000/dataflow/api/publish",
+            "HDSZZDCD": "http://localhost:5000/batch/api/execution",
+            "HDSZZDTD": "http://localhost:5000/task/api/execution",
+            "HDSZZDDT": "http://localhost:5000/dbclient/api/query",
+            "HDSZZDDD": "event://dbclient.Events.DbClientRequest",
+            "HDSZZDAD": "http://localhost:5000/webapi/api/fetch",
+            "HDSZZDFD": "http://localhost:5000/function/api/execution",
+            "HDSZZDRD": "http://localhost:5000/repository/api/request",
+            "HDSZZDPD": "http://localhost:5000/dataflow/api/publish"
+        },
+        "EventAction": {
+            "execution": "request",
+            "refresh": "notification",
+            "initialize": "notification"
+        },
+        "SubscribeAction": {
+            "status": "request",
+            "refresh": "notification"
+        },
+        "PublicTransactions": [
+            {
+                "ApplicationID": "HDS",
+                "ProjectID": "ZZD",
+                "TransactionID": "*"
+            },
+            {
+                "ApplicationID": "HDS",
+                "ProjectID": "ZZW",
+                "TransactionID": "*"
+            }
+        ]
+    }
+}

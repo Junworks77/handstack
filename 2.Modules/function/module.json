@@ -1,0 +1,63 @@
+{
+    "ModuleID": "function",
+    "Name": "function",
+    "IsBundledWithHost": false,
+    "Version": "1.0.0",
+    "ModuleConfig": {
+        "SystemID": "HANDSTACK",
+        "BusinessServerUrl": "http://127.0.0.1:8002/api/transaction",
+        "CircuitBreakResetSecond": 60,
+        "DefaultCommandTimeout": 180,
+        "IsExceptionDetailText": true,
+        "IsLogServer": false,
+        "IsContractFileWatchingUpdate": true,
+        "LogServerUrl": "http://127.0.0.1:8006/api/log",
+        "ContractBasePath": "C:\\home\\ack\\modules\\function\\Contracts",
+        "TransactionLogFilePath": "C:\\home\\ack\\log\\function\\transaction.log",
+        "ProfileLogFilePath": "C:\\home\\ack\\log\\function\\profile.log",
+        "NodeFunctionConfig": {
+            "LocalStoragePath": "C:\\home\\ack\\cache\\function",
+            "NodeScriptMapBasePath": "",
+            "LogMinimumLevel": "trace", // trace, debug, info, warn, error, fatal
+            "FileLogBasePath": "C:\\home\\ack\\log\\function",
+            "TimeoutMS": -1,
+            "IsSingleThread": true,
+            "WatchGracefulShutdown": true,
+            "EnableFileWatching": true,
+            "WatchFileNamePatterns": [ "featureMain.js", "featureSQL.xml", "syn.config.json" ],
+            "NodeAndV8Options": "--inspect", // --inspect-brk https://nodejs.org/api/cli.html#cli_options
+            "EnvironmentVariables": "" // Key1=Value1;Key2=Value2;Key3=Value3;
+        },
+        "EventAction": {
+            "execute": "request",
+            "refresh": "notification",
+            "initialize": "notification"
+        },
+        "SubscribeAction": {
+            "status": "request",
+            "refresh": "notification"
+        },
+        "FunctionSource": [
+            {
+                "ApplicationID": "HDS",
+                "ProjectID": "ATM,CMM,EMM,EPM,EST,HRM,MPG,OFC,SMP,TMT,TST,ZZW,DAP,RPT,KKO,SIB,ZZD,ESM,HQB",
+                "DataSourceID": "DB01",
+                "DataProvider": "MySQL",
+                "ConnectionString": "Server=localhost;Port=3306;Database=EasyWork;Uid=handstack;Pwd=handstack~!@34;PersistSecurityInfo=True;SslMode=none;Charset=utf8;Allow User Variables=True",
+                "WorkingDirectoryPath": "C:\\Temp\\POC\\WBD",
+                "Description": "Node.js 기능 거래",
+                "CreateDateTime": "2020-02-01T01:01:01"
+            },
+            {
+                "ApplicationID": "HDS",
+                "ProjectID": "ATM,CMM,EMM,EPM,EST,HRM,MPG,OFC,SMP,TMT,TST,ZZW,DAP,RPT,KKO,SIB,ZZD,ESM,HQB",
+                "DataSourceID": "DB02",
+                "DataProvider": "SqlServer",
+                "ConnectionString": "Data Source=localhost;Initial Catalog=QrameSolution_TransactLog;User ID=handstack;Password=roqkfwk~!@34;Pooling=true;Min Pool Size=60;Max Pool Size=180;",
+                "WorkingDirectoryPath": "C:\\Temp\\POC\\ZZD",
+                "Description": "CSharp 기능 거래 테스트",
+                "CreateDateTime": "2020-02-01T01:01:01"
+            }
+        ]
+    }
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <style type="text/css">
+        .border {
+            border: solid 1px #000 !important;
+        }
+
+        .border-0 {
+            border-width: 0px !important;
+        }
+
+        .border-b {
+            border-bottom: solid 1px #000;
+        }
+
+        .inline-block {
+            display: inline-block;
+        }
+
+        .border {
+            border: solid 1px #ccc;
+        }
+
+        .border-0 {
+            border-width: 0px !important
+        }
+
+        .border-1 {
+            border-width: 1px
+        }
+
+        .border-2 {
+            border-width: 2px
+        }
+
+        .border-4 {
+            border-width: 4px
+        }
+
+        .text-xs {
+            font-size: 0.75rem;
+            line-height: 1rem
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+            line-height: 1.25rem
+        }
+
+        .text-left {
+            text-align: left
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .text-right {
+            text-align: right
+        }
+
+        .tg {
+            border-collapse: collapse;
+            border-spacing: 0;
+            height: 86px;
+        }
+
+            .tg td {
+                border-color: black;
+                border-style: solid;
+                border-width: 1px;
+                font-size: 12px;
+                overflow: hidden;
+                padding: 2px;
+                word-break: normal;
+                background-color: #fff;
+            }
+
+        .label {
+            text-align: center;
+            background-color: #f6f6f6 !important;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .wp60 {
+            width: 60px;
+        }
+
+        .min-w-80 {
+            min-width: 80px !important
+        }
+
+        .approval_header {
+            background-color: #f6f6f6 !important;
+            vertical-align: middle;
+        }
+
+            .approval_header.text-center {
+                height: 16px;
+                line-height: 16px;
+                padding-top: 2px;
+            }
+
+        .approval_line {
+            border-color: #000 !important;
+        }
+
+        .approval_img_stamp {
+            background-color: #fff;
+            border: 2px solid #fff;
+            width: 32px;
+            height: 32px !important;
+            text-align: center;
+            margin: 4px auto !important;
+            font-size: 14px;
+            color: #000;
+            vertical-align: middle;
+            line-height: 32px;
+        }
+
+        .approval_stamp {
+            background-color: #fff;
+            border: 2px solid #01080a;
+            width: 32px;
+            height: 32px !important;
+            border-radius: 75px;
+            text-align: center;
+            margin: 4px auto !important;
+            font-size: 14px;
+            color: #01080a;
+            vertical-align: middle;
+            line-height: 32px;
+        }
+
+            .approval_stamp.red {
+                border: 2px solid #dc3545;
+                color: #dc3545;
+            }
+
+            .approval_stamp.yellow {
+                border: 2px solid #fbbc42;
+                color: #fbbc42;
+            }
+
+            .approval_stamp.blue {
+                border: 2px solid #1c4595;
+                color: #1c4595;
+            }
+
+    </style>
+    <div style="width:100%;">
+        <table class="tg" style="position:absolute;top:0;right:0;">
+            <tbody>
+                <tr>
+                    <td rowspan="2" class="approval_header center">
+                        결<br />재
+                    </td>
+                    <!--<td class="approval_header text-center">직급</td>-->
+                    {{APPROVER_POSITIONS}}
+                </tr>
+                <tr>
+                    <!--<td><div class="inline-block min-w-80 m-auto approval_line text-center"><div class="m-2 h-8 approval_stamp blue">승인</div><div class="m-1">홍길동</div><div class="m-1">2021-01-01</div></div></td>-->
+                    {{APPROVER_LINES}}
+                </tr>
+            </tbody>
+        </table>
+        <div class="p-1 text-xs" style="position:absolute;top:105px;right:0;">
+            문서번호: {{APPROVAL_DOCUMENT_NO}}
+        </div>
+    </div>
+</body>
+</html>

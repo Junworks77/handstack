@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/assets/bundle/css/syn.bundle.css">
+</head>
+<body>
+	<form autocomplete="off" style="display: none;" id="form1" syn-datafield="MainForm">
+		<div>
+			<syn_chartjs id="chtChart" syn-datafield="ChartDetail" style="width:100%; height: 320px;" syn-options="{
+				type: 'line',
+				labelID: 'YEAR',
+				series: [{
+					columnID: '4Y020',
+					label: '문화산업경영학과',
+                    dataType: 'int'
+				},{
+					columnID: '4Y030',
+					label: '정보경영학과',
+                    dataType: 'int'
+				},{
+					columnID: '4Y050',
+					label: '컴퓨터응용기술학과',
+                    dataType: 'int'
+				},{
+					columnID: '4Y060',
+					label: '디지털미디어학과',
+                    dataType: 'int'
+				},{
+					columnID: '4Y070',
+					label: '부동산경영학과',
+                    dataType: 'int'
+				}]
+			}"></syn_chartjs>
+		</div>
+		<div>
+			<div class="formGroup">
+				<span class="formControl">
+					<span><input id="rdoTotMember" name="group1" type="radio" syn-datafield="" checked="checked" value="0" syn-events="['change']" syn-options="{textContent: '전체조회', toQafControl: true}"></span>
+					<span><input id="rdoReaMember" name="group1" type="radio" syn-datafield="" value="2" syn-events="['change']" syn-options="{textContent: '실회원', toQafControl: true}"></span>
+					<span><input id="rdoCurMember" name="group1" type="radio" syn-datafield="" value="1" syn-events="['change']" syn-options="{textContent: '당월가입회원', toQafControl: true}"></span>
+					<span><input id="rdoPreMember" name="group1" type="radio" syn-datafield="" value="-1" syn-events="['change']" syn-options="{textContent: '전월가입회원', toQafControl: true}"></span>
+				</span>
+			</div>
+			<input id="chkUseYN1" type="checkbox" syn-datafield="UseYN1" value="custom value 1" checked="checked" syn-options="{textContent: '사용여부', toQafControl: false}">
+			<input id="chkUseYN2" type="checkbox" syn-datafield="UseYN2" value="custom value 2" syn-options="{textContent: '사용여부', toQafControl: true}">
+		</div>
+		<div>
+			<syn_codepicker id="chpSubjectID" syn-datafield="SUBJECTID" syn-options="{belongID: 'L01', dataSourceID: 'CH005', local: false, isMultiSelect: false, textBelongID: ['L01', 'M01'], textDataFieldID: 'CODETEXT'}"></syn_codepicker>
+		</div>
+		<div>
+			<syn_codepicker id="chpUNIVERSITYCD" syn-datafield="UNIVERSITYCD" syn-options="{belongID: 'M01', dataSourceID: 'CH009', local: false, isMultiSelect: false}"></syn_codepicker>
+		</div>
+		<div>
+			<syn_codepicker id="chpMASTERSCHOOLCD" syn-datafield="MASTERSCHOOLCD" syn-options="{belongID: 'M01', dataSourceID: 'CH009', local: false, isMultiSelect: true}"></syn_codepicker>
+		</div>
+		<div>
+			<syn_codepicker id="chpTRANSFERSCHOOLCD" syn-datafield="TRANSFERSCHOOLCD" syn-options="{belongID: 'M01', dataSourceID: 'CH009', local: false, isMultiSelect: true}"></syn_codepicker>
+		</div>
+		<div>
+			<syn_datepicker id="dtpDatePicker" syn-datafield></syn_datepicker>
+		</div>
+		<div>
+			<syn_colorpicker id="dtpColorPicker" syn-datafield></syn_colorpicker>
+		</div>
+		<div>
+			<select id="ddlFileExtension" syn-datafield syn-options="{dataSourceID: 'CMM001', parameters: '@GROUPCODE:MS001;', local: true, toQafControl: true, required: false}" multiple style="width: 200px; height: 23px;"></select>
+		</div>
+		<div>
+			<select id="ddlBusinessRank" syn-datafield syn-options="{dataSourceID: 'CMM002', parameters: '@GROUPCODE:MS002;', local: true, toQafControl: false, required: false}" multiple style="width: 200px; height: 200px;"></select>
+		</div>
+		<div>
+			<input id="rdoUseYN1" name="rdoUseYN" type="radio" syn-datafield="RadioUseYN" value="value 1" syn-events="['change']" syn-options="{textContent: '사용', toQafControl: true}">
+			<input id="rdoUseYN2" name="rdoUseYN" type="radio" syn-datafield="RadioUseYN" value="value 2" syn-events="['change']" syn-options="{textContent: '미사용', toQafControl: true}">
+			<input id="rdoUseYN3" name="rdoUseYN" type="radio" syn-datafield="RadioUseYN" value="value 3" syn-events="['change']" checked="checked" syn-options="{textContent: '알수없음', toQafControl: true}">
+		</div>
+		<div>
+			<textarea id="txtTextarea" syn-datafield syn-options="{width: '800px'}" syn-events="['blur']" style="width: 800px; height:240px;">
+using System;
+
+namespace Example
+{
+    /// &lt;summary>
+    /// Represents a person employed at the company
+    /// &lt;/summary>
+    public class Employee : Person
+    {
+            #region Properties
+
+            /// &lt;summary>
+            /// Gets or sets the first name.
+            /// &lt;/summary>
+            /// &lt;value>The first name.&lt;/value>
+        public string FirstName {get; set; }
+
+            #endregion
+
+            /// &lt;summary>
+            /// Calculates the salary.
+            /// &lt;/summary>
+            /// &lt;param name="grade">The grade.&lt;/param>
+            /// &lt;returns>&lt;/returns>
+            public decimal CalculateSalary(int grade)
+        {
+            if (grade > 10)
+                return 1000;
+            return 500;
+        }
+    }
+}
+</textarea>
+		</div>
+		<div>
+			txtApplicationID - <input id="txtApplicationID" type="text" syn-datafield syn-options="{editType: 'numeric', formatNumber: false, dataType: 'int'}" value="0">
+			txtSpinnerID - <input id="txtSpinnerID" type="text" syn-datafield syn-options="{editType: 'spinner', dataType: 'int', minCount: -10, maxCount: 10}" value="0">
+			txtCreateDate - <input id="txtCreateDate" type="text" syn-datafield syn-options="{editType: 'date'}">
+			txtHour - <input id="txtHour" type="text" syn-datafield syn-options="{editType: 'hour'}">
+			txtMinute - <input id="txtMinute" type="text" syn-datafield syn-options="{editType: 'minute'}">
+			txtYearMonth - <input id="txtYearMonth" type="text" syn-datafield syn-options="{editType: 'yearmonth'}">
+			txtHomePhone - <input id="txtHomePhone" type="text" syn-datafield syn-options="{editType: 'homephone'}">
+			txtMobilePhone - <input id="txtMobilePhone" type="text" syn-datafield syn-options="{editType: 'mobilephone'}">
+			txtEmail - <input id="txtEmail" type="text" syn-datafield syn-options="{editType: 'email'}">
+			txtCodeGroupID - <input id="txtCodeGroupID" type="text" syn-datafield syn-options="{editType: 'text'}">
+			txtJuminID - <input id="txtJuminID" type="text" syn-datafield syn-options="{editType: 'juminno'}">
+			txtBusinessID - <input id="txtBusinessID" type="text" autofocus syn-datafield syn-options="{editType: 'businessno'}">
+			txtCustomFormat - <input id="txtCustomFormat" type="text" syn-datafield syn-options="{editType: 'text', maskPattern: '(99) SSSS-AAAA'}">
+			txtMaxLength - <input id="txtMaxLength" maxlength="10" type="text" syn-datafield syn-options="{editType: 'text'}">
+		</div>
+		<div>
+			<syn_editor id="txtEditor" syn-datafield syn-options="{contents: 'hello world'}"></syn_editor>
+		</div>
+		<div>
+			<syn_grid id="grdGrid" syn-datafield syn-options="{
+				columns: [
+                ['PersonID', '사용자ID', 200, false, 'button', false, 'center', null, null, {sorting: true, clearBorder: true, color: 'red', bold: true}],
+	            ['UserName', '사용자', 200, false, 'safehtml', false, 'left'],
+	            ['MaritalStatus', '혼인여부', 200, false, {
+                    columnType: 'checkbox2',
+					isSelectAll: true
+                }, false, 'center'],
+	            ['ReligionYN', '종교여부', 200, false, {
+                    columnType: 'radio'
+                }, false, 'center'],
+	            ['SUBJECTID', '학과코드ID', 140, true, 'text', false, 'left','M01'],
+	            ['SUBJECTNAME', '학과명', 160, false, {
+                    columnType: 'codehelp',
+                    dataSourceID: 'CH005',
+                    local: false,
+                    codeColumnID: 'SUBJECTID'
+                }, false, 'left','M01'],
+	            ['GenderType', '성별ID', 200, false, 'text', false, 'left'],
+	            ['GenderTypeName', '성별', 200, false, 'text', false, 'left'],
+	            ['CreateDateTime', '입력일자', 200, false, 'date', false, 'left']
+				],
+				keyLockedColumns: ['PersonID', 'UserName'],
+				isContainFilterHeader: false,
+				dropdownMenu: true,
+				autoInsertRow: true,
+				controlText: '데모예제',
+				importFileColumns: 'all'
+			}" syn-events="['afterSelectionEnd', 'beforeKeyDown', 'afterCreateRow']" style="width: 960px; border: 1px solid;"></syn_grid>
+		</div>
+		<div>
+			<input type="button" id="btnGetValueRow" value="getValue Row" syn-events="['click']" />
+			<input type="button" id="btnGetValueList" value="getValue List" syn-events="['click']" />
+		</div>
+		<div>
+			<syn_htmleditor id="txtHtmlEditor" syn-datafield="HtmlEditor" style="width:100%; height: 320px;" syn-options="{}"></syn_htmleditor>
+		</div>
+	</form>
+	<script src="/assets/bundle/lib/tinymce-5.6.0/tinymce.min.js"></script>
+	<script src="/assets/js/syn.loader.js" type="text/javascript"></script>
+</body>
+</html>

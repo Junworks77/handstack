@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/assets/bundle/css/syn.bundle.css">
+</head>
+<body>
+	<form autocomplete="off" style="display: none;" id="form1" syn-datafield="MainForm">
+		<div>
+			<div>
+				콤보박스
+			</div>
+			<select id="ddlComboBox1" syn-datafield syn-options="{dataSourceID: 'CMM001', toQafControl: true, required: true}" style="width: 200px; height: 23px;"></select>
+			<select id="ddlComboBox2" syn-datafield syn-options="{dataSourceID: 'CMM002', toQafControl: true, required: false}" style="width: 200px; height: 23px;" multiple></select>
+			<select id="ddlComboBox3" syn-datafield syn-options="{dataSourceID: 'CMM003', toQafControl: true, required: true}" style="width: 200px; height: 23px;"></select>
+			<select id="ddlComboBox4" syn-datafield syn-options="{dataSourceID: 'CMM004', toQafControl: true, required: true}" style="width: 200px; height: 23px;" multiple></select>
+			<select id="ddlComboBox5" syn-datafield syn-options="{dataSourceID: 'CH000', parameters: '@GROUPCODE:EW002;', toQafControl: true, local: false, required: true}" style="width: 200px; height: 23px;"></select>
+			<select id="ddlComboBox6" syn-datafield syn-events="['change']" syn-options="{dataSourceID: 'MONTHWEEK', toQafControl: true, local: true, required: true}" style="width: 200px; height: 23px;"></select>
+			<input type="text" id="txtYear" value="2021" />
+			<input type="text" id="txtMonth" value="07" />
+			<button type="button" id="btnUpdateDataSource" syn-events="['click']">
+				월 주차 갱신
+			</button>
+		</div>
+		<div>
+			코드도움
+			<syn_codepicker id="chpCodePicker1" syn-datafield syn-options="{dataSourceID: 'CH000', parameters: '@GROUPCODE:EW002;', local: false, isMultiSelect: false}"></syn_codepicker>
+			<syn_codepicker id="chpCodePicker2" syn-datafield syn-options="{dataSourceID: 'CH000', parameters: '@GROUPCODE:EW003;', local: false, isMultiSelect: true}"></syn_codepicker>
+		</div>
+		<div>
+			그리드
+			<div>
+				<button type="button" syn-datafield id="btnAddRow" syn-options="{triggerConfig: {
+						triggerEvent:'click',
+						triggerID: 'grdGrid',
+						action: '$grid.insertRow',
+						params: {
+							options:{focusColumnID: 'PersonID'}
+						}
+					}}">
+					행추가
+				</button>
+				<button type="button" syn-datafield id="btnRemoveRow" syn-options="{triggerConfig: {
+						triggerEvent:'click',
+						triggerID: 'grdGrid',
+						action: '$grid.removeRow',
+						params: {
+							options:{focusColumnID: 'PersonID'}
+						}
+					}}">
+					행삭제
+				</button>
+				<input type="button" id="btnDataRefresh" value="그리드 콤보박스 dataRefresh" syn-events="['click']" />
+			</div>
+			<syn_grid id="grdGrid" syn-datafield syn-options="{columns: [
+                ['PersonID', '사용자ID', 200, false, 'numeric', false, 'left', ['R01']],
+	            ['UserName', '사용자', 200, false, {
+                    columnType: 'codehelp',
+                    dataSourceID: 'CH000',
+					parameters: '@GROUPCODE:EW002;',
+                    local: false,
+                    codeColumnID: 'PersonID'
+                }, false, 'left'],
+	            ['GenderType', '성별ID', 200, false,'text', false, 'left'],
+	            ['GenderTypeName', '성별', 200, false,{
+                    columnType: 'dropdown',
+                    dataSourceID: 'CH000',
+					parameters: '@GROUPCODE:EW003;',
+                    local: false,
+                    codeColumnID: 'GenderType'
+                }, false,'left']
+            ]}" style="width: 960px; border: 1px solid;"></syn_grid>
+		</div>
+	</form>
+	<script src="/assets/js/syn.loader.js" type="text/javascript"></script>
+</body>
+</html>

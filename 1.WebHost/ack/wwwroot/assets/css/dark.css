@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+/*dark*/
+
+body {
+    background-color:transparent;
+    scrollbar-face-color: #000;
+    scrollbar-track-color: #000;
+    scrollbar-arrow-color: none;
+    scrollbar-highlight-color: #000;
+    scrollbar-3dlight-color: none;
+    scrollbar-shadow-color: #000;
+    scrollbar-darkshadow-color: none;
+
+    scrollbar-color:rgba(0,0,0,0.1) rgba(255,255,255,0.05);
+    scrollbar-width:thin; /*thin, none 처리시 숨김 */}
+
+::-webkit-scrollbar {width:10px;height:10px;}
+::-webkit-scrollbar-track {background-color:transparent;}
+::-webkit-scrollbar-track-piece {background-color:rgba(0,0,0,0.2);border-radius:0;}
+::-webkit-scrollbar-thumb {border-radius:3px;background-color:rgba(0,0,0,0.2);}
+::-webkit-scrollbar-button {background-color:transparent;width:20px;height:10px;}
+::-webkit-scrollbar-button:start,
+::-webkit-scrollbar-button:end {display:none;background-color:transparent;}
+::-webkit-scrollbar-button:vertical:increment {}
+::-webkit-scrollbar-button:vertical:decrement {}
+::-webkit-scrollbar-corner {}
+::-webkit-resizer {background-color:transparent;}
+
+select {background-color:transparent;background-image:url("/img/icon_select_dark.png");border-color:#494c50;color:#fff;}
+input:read-only {background-color:rgba(238,242,252,0.1) !important;}
+input:read-only:active,
+input:read-only:hover,
+input:read-only:focus {border-color:#494c50 !important;background:rgba(238,242,252,0.1) !important;}
+
+input[type="text"] {border-color:#494c50;background-color:transparent;color:#fff;}
+
+input[type=radio].ui_radio + label,
+input[type=checkbox].ui_radio + label {color:#fff;}
+
+button.txtBtn.light {color:#fff;background-color:rgba(238,242,252,0.1);}
+button.txtBtn {background-color:#f96160;}
+button.lineBtn {background-color:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:#fff;}
+button.lineBtn:hover {color:#f96160;border-color:#f96160;}
+
+header {background-color:#181c1f;}
+header .head_top {background-color:#111;}
+header nav .gnbArea > li .subMenuList,
+header nav .gnbArea > li:hover > a,
+header nav .gnbArea > li.active > a {background-color:#040404;}
+header nav .gnbArea > li:hover > a:after,
+header nav .gnbArea > li.active > a:after {background-image:url("/img/gnb_sub_corner_dark.png");}
+header .head_top .shortcutButtonGroup button:after {background-color:#f39191;}
+header .headUtil .searchForm .textBox {background-color:rgba(255,255,255,0.1);}
+
+.container {background-color:#181c1f;}
+.container .lnbSection nav {background-color:transparent;}
+.container .lnbSection nav .lnbArea > li .subMenuList > li:hover > a, 
+.container .lnbSection nav .lnbArea > li .subMenuList > li.active > a {background-color:rgba(0,0,0,0.5);}
+
+aside.statusSection {background-color:#282c31;border-color:rgba(89,93,110,0.3);}
+.mainContents,
+.container .mainFrame {background-color:#282c31;}
+
+.container .mainTabUI > li {background-color:rgba(255,255,255,0.02);}
+.container .mainTabUI > li.active {background-color:#282c31;}
+.container .mainTabUI > li.active span,
+.container .mainTabUI > li.active .btn_close {color:#fff;}
+
+.mainContents {background-color:#282c31;}
+.mainContents .head h2,
+.mainContents .head h3,
+.gridWrap .gridUtil .gridTitle h3 {color:#fff;}
+.mainContents .head h3:before,
+.gridWrap .gridUtil .gridTitle h3:before {background-color:#f96160;}
+.formFieldWrap {background-color:#272b2f;border-color:rgba(174,174,174,0.22);}
+.formGroup > label {background-color:rgba(255,255,255,0.05);color:#fff;}
+.row {border-color:rgba(174,174,174,0.22) !important;}
+
+.formControl.inputGroup button,
+.formControl.codePicker .inGroup button {background-color:rgba(238,242,252,0.1);}
+.formControl.inputGroup.required button,
+.formControl.codePicker .inGroup.required button {background-color:rgba(245,119,123,0.1);}
+
+.gridWrap .gridBox > div {border-color:rgba(174,174,174,0.22);}
+.gridWrap .gridUtil .gridTotal .totalBox span {color:#ddd;}
+.gridWrap .gridBox .gridButton {background-color:rgba(255,255,255,0.05);}
+
+.fieldTabUIWrap > .tabUI {border-bottom-color:#fff;}
+.fieldTabUIWrap > .tabUI li {color:rgba(255,255,255,0.5);border-bottom-color:transparent;}
+.fieldTabUIWrap > .tabUI li:hover,
+.fieldTabUIWrap > .tabUI li.active {border-color:#fff;color:#fff;background-color:rgba(255,255,255,0.02);border-bottom-color:#2c3035;}
+.fieldTabUIWrap .tabContent {background-color:rgba(255,255,255,0.02);border-color:#fff;}
+
+
+/*handsontable*/
+.handsontable tr {background-color:transparent;}
+.handsontable th {background-color:rgba(255,255,255,0.05);}
+.handsontable tr:first-child th, .handsontable tr:first-child td {border-color:rgba(174,174,174,0.22);}
+.handsontable span.colHeader {color:#fff;}
+.handsontable .changeType {background-color:rgba(255,255,255,0.05);}

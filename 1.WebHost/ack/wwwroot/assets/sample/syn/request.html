@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>request</title>
+  <link rel="stylesheet" type="text/css" href="/css/site.css">
+</head>
+<body>
+    <form autocomplete="off" style="display: none;" id="form1" syn-datafield="MainForm">
+        <div id="wrap" class="sub">
+            <div class="bx_sep">
+                <header>
+                    syn.request ($r)
+                </header>
+                <div class="tb_ly_a">
+                    <table>
+                        <colgroup>
+                            <col style="width:25%" />
+                            <col />
+                        </colgroup>
+                        <tr>
+                            <th scope="col">
+                                $request.query
+                            </th>
+                            <td>
+                                <input type="text" id="txtQuery" value="" />
+                                <input type="button" id="btnQuery" value="값 조회" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $request.url
+                            </th>
+                            <td>
+                                <input type="text" id="txtUrl" value="" />
+                                <input type="button" id="btnUrl" value="주소 반환" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $request.setCookie
+                            </th>
+                            <td>
+                                <input type="button" id="btnSetCookie" value="쿠키 값 설정('hello')" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $request.getCookie
+                            </th>
+                            <td>
+                                <input type="text" id="txtGetCookie" value="" />
+                                <input type="button" id="btnGetCookie" value="쿠키 값 조회" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $request.deleteCookie
+                            </th>
+                            <td>
+                                <input type="button" id="btnDeleteCookie" value="쿠키 값 삭제" syn-events="['click']" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="/assets/js/syn.loader.js" type="text/javascript"></script>
+</body>
+</html>

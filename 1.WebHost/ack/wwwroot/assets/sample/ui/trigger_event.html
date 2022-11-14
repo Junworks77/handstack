@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/assets/bundle/css/syn.bundle.css">
+</head>
+<body>
+    <form autocomplete="off" style="display: none;" id="form1" syn-datafield="MainForm">
+<button type="button" syn-datafield id="btnUIFunction" syn-options="{triggerConfig: {
+		triggerEvent:'click',
+		triggerID: 'txtApplicationID',
+		action: 'change',
+		params: {
+			options:{value: 'btnUIFunction triggerEvent'}
+		}
+	}}">
+    화면 모듈 메서드 호출
+</button>
+<button type="button" syn-datafield id="btnControlFunction" syn-options="{triggerConfig: {
+		triggerEvent:'click',
+		triggerID: 'txtApplicationID',
+		action: '$textbox.setValue',
+		params: {
+			options:{value: 'btnControlFunction triggerEvent'}
+		}
+	}}">
+    컨트롤 메서드 호출
+</button>
+        <input type="text" id="txtApplicationID" syn-datafield="ApplicationID" syn-events="['change']" />
+    </form>
+    <script src="/assets/js/syn.loader.js" type="text/javascript"></script>
+</body>
+</html>

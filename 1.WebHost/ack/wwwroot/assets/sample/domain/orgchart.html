@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<style>
+        #chart-container {
+            position: relative;
+            height: 420px;
+            border: 1px solid #aaa;
+            margin: 0.5rem;
+            overflow: auto;
+			text-align: center;
+        }
+
+		.orgchart { background: #fff !important; }
+		.orgchart .middle-level .title { background-color: #006699 !important; }
+		.orgchart .middle-level .content { border-color: #006699 !important; }
+		.orgchart .top-level .title { background-color: #009933 !important; }
+		.orgchart .top-level .content { border-color: #009933 !important; }
+
+		.orgchart .second-menu-icon {
+			transition: opacity .5s;
+			opacity: 0;
+			right: -5px;
+			top: -5px;
+			z-index: 2;
+			position: absolute;
+		}
+		.orgchart .second-menu-icon::before { background-color: rgba(68, 157, 68, 0.5); }
+		.orgchart .second-menu-icon:hover::before { background-color: #449d44; }
+		.orgchart .node:hover .second-menu-icon { opacity: 1; }
+		.orgchart .node .second-menu {
+			display: none;
+			position: absolute;
+			top: 0;
+			right: -70px;
+			border-radius: 35px;
+			box-shadow: 0 0 10px 1px #999;
+			background-color: #fff;
+			z-index: 1;
+		}
+		.orgchart .node .second-menu .avatar {
+			width: 60px;
+			height: 60px;
+			border-radius: 30px;
+			float: left;
+			margin: 5px;
+		}
+	</style>
+</head>
+<body>
+	<form autocomplete="off" style="display: none;" id="form1" syn-datafield="MainForm">
+		<div>
+			<div id="chart-container"></div>
+
+			<syn_contextmenu id="ctxTreeItem" syn-datafield syn-options="{
+                target: '#chart-container',
+                delegate: 'div.node',
+				menu: [
+					{ title: '팝업 메뉴', cmd: 'POPUP' }
+				]
+			}" syn-events="['beforeOpen', 'select']"></syn_contextmenu>
+		</div>
+		<hr />
+		<div>
+			<textarea id="txtSourceData" style="height:200px;">[ 
+	{
+	    "id": 12,
+	    "parentId": 6,
+	    "typeId": 0,
+	    "name": "London",
+	    "title": 5546919.064936,
+	    "field3": 12667955.381901
+	},
+	{
+	    "id": 1,
+	    "parentId": 7,
+	    "typeId": 0,
+	    "name": "New York",
+		"className": "middle-level",
+	    "title": 2297941.24812,
+	    "field3": 7451762.537854
+	},
+	{
+	    "id": 2,
+	    "parentId": 5,
+	    "typeId": 0,
+	    "name": "Dubai",
+	    "title": 9832458.096596,
+	    "field3": 32491698.248662
+	},
+	{
+	    "id": 3,
+	    "parentId": 6,
+	    "typeId": 0,
+	    "name": "Paris",
+	    "title": 22700818.88167,
+	    "field3": 76902823.758745
+	},
+	{
+	    "id": 4,
+	    "parentId": 8,
+	    "typeId": 0,
+	    "name": "Stockholm",
+	    "title": 3742748.296602,
+	    "field3": 10250567.674588
+	},
+	{
+	    "id": 5,
+	    "parentId": 9,
+	    "typeId": 0,
+	    "name": "Middle East",
+	    "title": 9832458.096596,
+	    "field3": 32491698.248662
+	},
+	{
+	    "id": 6,
+	    "parentId": 9,
+	    "typeId": 0,
+	    "name": "Europe",
+	    "title": 31990486.243208,
+	    "field3": 99821346.815234
+	},
+	{
+	    "id": 7,
+	    "parentId": 9,
+	    "typeId": 0,
+	    "name": "NorthAmerica",
+	    "title": 2297941.24812,
+	    "field3": 7451762.537854
+	},
+	{
+	    "id": 8,
+	    "parentId": 6,
+	    "typeId": 0,
+	    "name": "Scandinavia",
+	    "title": 3742748.296602,
+	    "field3": 10250567.674588
+	},
+	{
+	    "id": 9,
+	    "parentId": null,
+		"className": "top-level",
+	    "typeId": 0,
+	    "name": "World",
+	    "title": 44120885.587924,
+	    "field3": 139764807.60175
+	},
+	{
+	    "id": 10,
+	    "parentId": 12,
+	    "typeId": 1,
+	    "name": "BOND-1001",
+	    "title": 3985.331955,
+	    "node2": 2,
+	    "field3": 20567.245997,
+	    "node3": 3,
+	    "field4": 1
+	}
+]</textarea>
+			<input type="button" id="btnFlat2Recursive" value="Flat2Recursive" syn-events="['click']" />
+			<input type="button" id="btnRecursive2Flat" value="Recursive2Flat" syn-events="['click']" />
+			<input type="button" id="btnFindRecursiveData" value="FindRecursiveData" syn-events="['click']" />
+			<input type="button" id="btnGetHierarchy" value="GetHierarchy" syn-events="['click']" />
+			<input type="button" id="btnAddParent" value="AddParent" syn-events="['click']" />
+			<input type="button" id="btnAddSiblings" value="AddSiblings" syn-events="['click']" />
+			<input type="button" id="btnAddChildren" value="AddChildren" syn-events="['click']" />
+			<input type="button" id="btnRemoveNode" value="RemoveNode" syn-events="['click']" />
+			<input type="button" id="btnExportPNG" value="ExportPNG" syn-events="['click']" />
+		</div>
+	</form>
+	<script type="text/javascript">
+		function pageLoadFiles(jsFiles, styleFiles, htmlFiles) {
+			styleFiles.push('/assets/lib/orgchart-3.1.1/jquery.orgchart.css');
+			styleFiles.push('/assets/lib/jquery-ui-contextmenu-1.18.1/jquery-ui.css');
+
+			styleFiles.push('/assets/js/UIControls/ContextMenu/ContextMenu.css');
+
+			jsFiles.push('/assets/lib/jquery-ui-contextmenu-1.18.1/jquery-ui.js');
+			jsFiles.push('/assets/lib/jquery-ui-contextmenu-1.18.1/jquery.ui-contextmenu.js');
+			jsFiles.push('/assets/js/UIControls/ContextMenu/ContextMenu.js');
+
+			jsFiles.push('/assets/lib/orgchart-3.1.1/jquery.orgchart.js');
+			jsFiles.push('/assets/lib/html2canvas-1.0.0/html2canvas.js');
+		}
+	</script>
+	<script src="/assets/js/syn.loader.js" type="text/javascript"></script>
+</body>
+</html>

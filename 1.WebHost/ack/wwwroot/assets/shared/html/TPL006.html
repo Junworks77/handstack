@@ -1,0 +1,16 @@
+<!--업무문서 상세(EST030, EST090) 화면의 결재의견목록-->
+{{#document_comments}}
+<li class="col-12 mt-2 p-4 border rounded" id="comment_{{COMMENT_NO}}">
+    <div class="mb-1">
+        <div>
+            <i class="vertical-middle text-xl ri-user-line"></i>
+            <div class="inline wp-140">
+                {{EMPLOYEE_NAME}} {{POSITION_NAME}}
+            </div>
+            <div class="ml-7 text-xs fg-gray-400">{{REGIST_DT}}</div>
+            <i class="cursor-pointer fg-black icon-delete text-2xl vertical-middle {{COMMENT_STATUS}}" style="margin-top: -48px;float: right;top: 0px;" onclick="$this.deleteComment('{{COMMENT_NO}}', '{{COMMENT_STATUS}}')"></i>
+        </div>
+    </div>
+    <div class="p-2 break-words">{{{COMMENT}}}</div>
+</li>
+{{/document_comments}}

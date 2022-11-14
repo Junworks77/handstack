@@ -1,0 +1,492 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>extension</title>
+  <link rel="stylesheet" type="text/css" href="/css/site.css">
+</head>
+<body>
+    <form autocomplete="off" style="display: none;" id="form1" syn-datafield="MainForm">
+        <div id="wrap" class="sub">
+            <div class="bx_sep">
+                <header>
+                    syn.extension ($)
+                </header>
+                <div class="tb_ly_a">
+                    <table>
+                        <colgroup>
+                            <col style="width:25%" />
+                            <col />
+                        </colgroup>
+                        <tr>
+                            <th scope="col">
+                                String.prototype.trim
+                            </th>
+                            <td>
+                                <input type="text" id="txtTrim" value="   hello world !   " />
+                                <input type="button" id="btnTrim" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                String.prototype.includes
+                            </th>
+                            <td>
+                                <input type="text" id="txtIncludes" value="" />
+                                <input type="button" id="btnIncludes" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$date.toUTC
+                            </th>
+                            <td>
+                                <input type="text" id="txtToUTC" value="2019-10-23T08:00:00.000Z" />
+                                <input type="button" id="btnToUTC" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$date.clear
+                            </th>
+                            <td>
+                                <input type="text" id="txtClear" value="" />
+                                <input type="button" id="btnClear" value="초기화" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$date.now
+                            </th>
+                            <td>
+                                <input type="text" id="txtNow" value="" />
+                                <input type="button" id="btnNow" value="초기화" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$date.clone
+                            </th>
+                            <td>
+                                <input type="text" id="txtClone" value="" />
+                                <input type="button" id="btnClone" value="Clone" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$date.isBetween
+                            </th>
+                            <td>
+                                <input type="text" id="txtIsBetween" value="" />
+                                <input type="button" id="btnIsBetween" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$date.equals
+                            </th>
+                            <td>
+                                <input type="text" id="txtEquals" value="" />
+                                <input type="button" id="btnEquals" value="Equals" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$date.isToday
+                            </th>
+                            <td>
+                                <input type="text" id="txtIsToday" value="" />
+                                <input type="button" id="btnIsToday" value="Today" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$date.toString
+                            </th>
+                            <td>
+                                <input type="text" id="txtToString" value="" />
+                                <input type="button" id="btnToString" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$date.addDay
+                            </th>
+                            <td>
+                                <input type="text" id="txtAddDay" value="" />
+                                <input type="button" id="btnAddDay" value="addDay" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$date.addWeek
+                            </th>
+                            <td>
+                                <input type="text" id="txtAddWeek" value="" />
+                                <input type="button" id="btnAddWeek" value="addWeek" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$date.addMonth
+                            </th>
+                            <td>
+                                <input type="text" id="txtAddMonth" value="" />
+                                <input type="button" id="btnAddMonth" value="addMonth" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$date.addYear
+                            </th>
+                            <td>
+                                <input type="text" id="txtAddYear" value="" />
+                                <input type="button" id="btnAddYear" value="addYear" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$date.getFirstDate
+                            </th>
+                            <td>
+                                <input type="text" id="txtGetFirstDate" value="" />
+                                <input type="button" id="btnGetFirstDate" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$date.getLastDate
+                            </th>
+                            <td>
+                                <input type="text" id="txtGetLastDate" value="" />
+                                <input type="button" id="btnGetLastDate" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$date.diff
+                            </th>
+                            <td>
+                                <input type="text" id="txtDiff" value="" />
+                                <input type="button" id="btnDiff" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$date.toTicks
+                            </th>
+                            <td>
+                                <input type="text" id="txtToTicks" value="" />
+                                <input type="button" id="btnToTicks" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$date.isDate
+                            </th>
+                            <td>
+                                <input type="text" id="txtIsDate" value="" />
+                                <input type="button" id="btnIsDate" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$string.toDate
+                            </th>
+                            <td>
+                                <input type="text" id="txttoDate" value="" />
+                                <input type="button" id="btntoDate" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$string.br
+                            </th>
+                            <td>
+                                <input type="text" id="txtBr" value="\r\n" />
+                                <input type="button" id="btnBr" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$string.toHtmlChar
+                            </th>
+                            <td>
+                                <input type="text" id="txtToHtmlChar" value="&, \, <, >" />
+                                <input type="button" id="btnToHtmlChar" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$string.toCharHtml
+                            </th>
+                            <td>
+                                <input type="text" id="txtToCharHtml" value="" />
+                                <input type="button" id="btnToCharHtml" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$string.isAscii
+                            </th>
+                            <td>
+                                <input type="text" id="txtIsAscii" value="" />
+                                <input type="button" id="btnIsAscii" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$string.toAscii
+                            </th>
+                            <td>
+                                <input type="text" id="txtToAscii" value="" />
+                                <input type="button" id="btnToAscii" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$string.length
+                            </th>
+                            <td>
+                                <input type="text" id="txtLength" value="Hello World" />
+                                <input type="button" id="btnLength" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$string.isNumber
+                            </th>
+                            <td>
+                                <input type="text" id="txtIsNumber" value="123456789" />
+                                <input type="button" id="btnIsNumber" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$string.capitalize
+                            </th>
+                            <td>
+                                <input type="text" id="txtCapitalize" value="hello world" />
+                                <input type="button" id="btnCapitalize" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$string.toNumber
+                            </th>
+                            <td>
+                                <input type="text" id="txtToNumber" value="" />
+                                <input type="button" id="btnToNumber" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$string.toNumberString
+                            </th>
+                            <td>
+                                <input type="text" id="txtToNumberString" value="" />
+                                <input type="button" id="btnToNumberString" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$string.toCurrency
+                            </th>
+                            <td>
+                                <input type="text" id="txtToCurrency" value="100000000000" />
+                                <input type="button" id="btnToCurrency" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.$string.digits
+                            </th>
+                            <td>
+                                <input type="text" id="txtDigits" value="" />
+                                <input type="button" id="btnDigits" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.array.digits
+                            </th>
+                            <td>
+                                <input type="text" id="txtDistinct" value="" />
+                                <input type="button" id="btnDistinct" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.array.sort
+                            </th>
+                            <td>
+                                <input type="text" id="txtSort" value="" />
+                                <input type="checkbox" id="chkSort" checked="checked" />
+                                <label for="chkSort">정순 정렬</label>
+                                <input type="button" id="btnSort" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.array.objectSort
+                            </th>
+                            <td>
+                                <input type="text" id="txtObjectSort" value="" />
+                                <input type="checkbox" id="chkObjectSort" checked="checked" />
+                                <label for="chkObjectSort">정순 정렬</label>
+                                <input type="button" id="btnObjectSort" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.array.shuffle
+                            </th>
+                            <td>
+                                <input type="text" id="txtsShuffle" value="" />
+                                <input type="button" id="btnShuffle" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.array.lastIndexOf
+                            </th>
+                            <td>
+                                <input type="text" id="txtLastIndexOf" name="txtLast" value="" />
+                                <input type="button" id="btnLastIndexOf" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.array.clear
+                            </th>
+                            <td>
+                                <input type="text" id="txtArrClear" value="" />
+                                <input type="button" id="btnArrAddClear" value="호출" syn-events="['click']" />
+                                <input type="button" id="btnArrClear" value="Clear" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.array.add
+                            </th>
+                            <td>
+                                <input type="text" id="txtAdd" value="" />
+                                <input type="button" id="btnAdd" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.array.addAt
+                            </th>
+                            <td>
+                                <input type="text" id="txtAddAt" value="" />
+                                <input type="button" id="btnAddAt" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.array.remove
+                            </th>
+                            <td>
+                                <input type="text" id="txtRemove" value="'Apple', 'Banana', 'Mango', 'Cherry'" />
+                                <input type="button" id="btnRemove" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.array.removeAt
+                            </th>
+                            <td>
+                                <input type="text" id="txtRemoveAt" value="'Apple', 'Banana', 'Mango', 'Cherry'" />
+                                <input type="button" id="btnRemoveAt" value="Remove" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.array.contains
+                            </th>
+                            <td>
+                                <input type="text" id="txtContains" value="Contain Apple!" />
+                                <input type="button" id="btnContains" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.array.addProp
+                            </th>
+                            <td>
+                                <input type="text" id="txtAddProp" value="" />
+                                <input type="button" id="btnAddProp" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.number.toCurrency
+                            </th>
+                            <td>
+                                <input type="text" id="txtNumberToCurrency" value="" />
+                                <input type="button" id="btnNumberToCurrency" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.number.isRange
+                            </th>
+                            <td>
+                                <input type="text" id="txtIsRange" value="" />
+                                <input type="button" id="btnIsRange" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.number.limit
+                            </th>
+                            <td>
+                                <input type="text" id="txtLimit" value="" />
+                                <input type="button" id="btnLimit" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.number.limitAbove
+                            </th>
+                            <td>
+                                <input type="text" id="txtLimitAbove" value="" />
+                                <input type="button" id="btnLimitAbove" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.number.limitBelow
+                            </th>
+                            <td>
+                                <input type="text" id="txtLimitBelow" value="" />
+                                <input type="button" id="btnLimitBelow" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.number.mod
+                            </th>
+                            <td>
+                                <input type="text" id="txtMod" value="" />
+                                <input type="button" id="btnMod" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                syn.lib.number.percent
+                            </th>
+                            <td>
+                                <input type="text" id="txtPercent" value="" />
+                                <input type="button" id="btnPercent" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="/assets/js/syn.loader.js" type="text/javascript"></script>
+</body>
+</html>

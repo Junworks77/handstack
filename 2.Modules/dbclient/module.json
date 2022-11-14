@@ -1,0 +1,75 @@
+{
+    "ModuleID": "dbclient",
+    "Name": "dbclient",
+    "IsBundledWithHost": false,
+    "Version": "1.0.0",
+    "ModuleConfig": {
+        "SystemID": "HANDSTACK",
+        "BusinessServerUrl": "http://127.0.0.1:8002/api/transaction",
+        "CircuitBreakResetSecond": 60,
+        "DefaultCommandTimeout": 180,
+        "IsExceptionDetailText": true,
+        "IsLogServer": false,
+        "IsContractFileWatchingUpdate": true,
+        "LogServerUrl": "http://127.0.0.1:8006/api/log",
+        "ContractBasePath": "C:\\home\\ack\\modules\\dbclient\\Contracts",
+        "TransactionLogFilePath": "C:\\home\\ack\\log\\dbclient\\transaction.log",
+        "ProfileLogFilePath": "C:\\home\\ack\\log\\dbclient\\profile.log",
+        "EventAction": {
+            "execute": "request",
+            "refresh": "notification",
+            "initialize": "notification"
+        },
+        "SubscribeAction": {
+            "status": "request",
+            "refresh": "notification"
+        },
+        "DataSource": [
+            {
+                "ApplicationID": "HDS",
+                "ProjectID": "ATM,CMM,EMM,EPM,EST,HRM,MPG,OFC,SMP,TMT,TST,ZZW,DAP,RPT,KKO,SIB,ZZD,ESM,HQB",
+                "DataSourceID": "DB01",
+                "DataProvider": "MySQL",
+                "ConnectionString": "Server=localhost;Port=3306;Database=EasyWork;Uid=handstack;Pwd=handstack~!@34;PersistSecurityInfo=True;SslMode=none;Charset=utf8;Allow User Variables=True",
+                "IsEncryption": "N",
+                "Description": "그룹웨어 데이터베이스"
+            },
+            {
+                "ApplicationID": "HDS",
+                "ProjectID": "ATM,CMM,EMM,EPM,EST,HRM,MPG,OFC,SMP,TMT,TST,ZZW,DAP,RPT,KKO,SIB,ZZD",
+                "DataSourceID": "DB02",
+                "DataProvider": "SqlServer",
+                "ConnectionString": "Data Source=localhost;Initial Catalog=QrameSolution_TransactLog;User ID=handstack;Password=roqkfwk~!@34;Pooling=true;Min Pool Size=60;Max Pool Size=180;",
+                "IsEncryption": "N",
+                "Description": "거래 이력 데이터베이스"
+            },
+            {
+                "ApplicationID": "HDS",
+                "ProjectID": "ATM,CMM,EMM,EPM,EST,HRM,MPG,OFC,SMP,TMT,TST,ZZW,DAP,RPT,KKO,SIB,ZZD",
+                "DataSourceID": "DB97",
+                "DataProvider": "Oracle",
+                "ConnectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=XE)));User Id=system;Password=admin~!@34;Connection Timeout=120;",
+                "IsEncryption": "N",
+                "Description": "POC 로컬 데이터베이스"
+            },
+            {
+                "ApplicationID": "HDS",
+                "ProjectID": "ATM,CMM,EMM,EPM,EST,HRM,MPG,OFC,SMP,TMT,TST,ZZW,DAP,RPT,KKO,SIB,ZZD",
+                "DataSourceID": "DB98",
+                "DataProvider": "PostgreSQL",
+                "ConnectionString": "User ID=postgres;Password=admin~!@34;Host=localhost;Port=5432;Database=postgres;Pooling=true;Minimum Pool Size=0;Maximum Pool Size=100;ConnectionLifetime=0;",
+                "IsEncryption": "N",
+                "Description": "POC 로컬 데이터베이스"
+            },
+            {
+                "ApplicationID": "HDS",
+                "ProjectID": "ATM,CMM,EMM,EPM,EST,HRM,MPG,OFC,SMP,TMT,TST,ZZW,DAP,RPT,KKO,SIB,ZZD",
+                "DataSourceID": "DB99",
+                "DataProvider": "SQLite",
+                "ConnectionString": "URI=file:C:\\home\\ack\\sqlite\\HDS\\HDS.db;Pooling=True;Max Pool Size=100;Version=3;",
+                "IsEncryption": "N",
+                "Description": "POC 로컬 데이터베이스"
+            }
+        ]
+    }
+}

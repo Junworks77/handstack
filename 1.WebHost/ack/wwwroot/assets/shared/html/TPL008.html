@@ -1,0 +1,7 @@
+<!--업무문서 (EST020, EST030, EST040) 화면의 수신자 목록-->
+{{#document_outside_receivers}}
+<li class="col-12 h-4 leading-4 mb-1" id="receiver_{{RECEPTION_NO}}">
+    <i class="vertical-middle text-xl mr-1 ri-{{RECEIVER_TYPE_NAME}}-line"></i> {{RECIPIENT}}
+    <button type="button" data-group="delete" class="icon-delete float-right mt-1 cursor-pointer" onclick="$this.deleteOutsideReceiverInfo('{{RECEPTION_NO}}', '{{RECEIVER_TYPE_NAME}}')"></button>
+</li>
+{{/document_outside_receivers}}

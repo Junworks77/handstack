@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/assets/bundle/css/syn.bundle.css">
+</head>
+<body>
+    Tree 기반의 메뉴와 같은 계층형 구조의 데이터를 처리
+    <form autocomplete="off" style="display: none;" id="form1" syn-datafield="MainForm">
+        <textarea id="txtSourceData" style="height:200px;">[ 
+	{
+	    "id": 0,
+	    "parentId": 6,
+	    "typeId": 0,
+	    "field0": "London",
+	    "field2": 5546919.064936,
+	    "field3": 12667955.381901
+	},
+	{
+	    "id": 1,
+	    "parentId": 7,
+	    "typeId": 0,
+	    "field0": "New York",
+	    "field2": 2297941.24812,
+	    "field3": 7451762.537854
+	},
+	{
+	    "id": 2,
+	    "parentId": 5,
+	    "typeId": 0,
+	    "field0": "Dubai",
+	    "field2": 9832458.096596,
+	    "field3": 32491698.248662
+	},
+	{
+	    "id": 3,
+	    "parentId": 6,
+	    "typeId": 0,
+	    "field0": "Paris",
+	    "field2": 22700818.88167,
+	    "field3": 76902823.758745
+	},
+	{
+	    "id": 4,
+	    "parentId": 8,
+	    "typeId": 0,
+	    "field0": "Stockholm",
+	    "field2": 3742748.296602,
+	    "field3": 10250567.674588
+	},
+	{
+	    "id": 5,
+	    "parentId": 9,
+	    "typeId": 0,
+	    "field0": "Middle East",
+	    "field2": 9832458.096596,
+	    "field3": 32491698.248662
+	},
+	{
+	    "id": 6,
+	    "parentId": 9,
+	    "typeId": 0,
+	    "field0": "Europe",
+	    "field2": 31990486.243208,
+	    "field3": 99821346.815234
+	},
+	{
+	    "id": 7,
+	    "parentId": 9,
+	    "typeId": 0,
+	    "field0": "NorthAmerica",
+	    "field2": 2297941.24812,
+	    "field3": 7451762.537854
+	},
+	{
+	    "id": 8,
+	    "parentId": 6,
+	    "typeId": 0,
+	    "field0": "Scandinavia",
+	    "field2": 3742748.296602,
+	    "field3": 10250567.674588
+	},
+	{
+	    "id": 9,
+	    "parentId": null,
+	    "typeId": 0,
+	    "field0": "World",
+	    "field2": 44120885.587924,
+	    "field3": 139764807.60175
+	},
+	{
+	    "id": 10,
+	    "parentId": 0,
+	    "typeId": 1,
+	    "field0": "BOND-1001",
+	    "field2": 3985.331955,
+	    "node2": 2,
+	    "field3": 20567.245997,
+	    "node3": 3,
+	    "field4": 1
+	}
+]</textarea>
+        <input type="button" id="btnFlat2Recursive" value="Flat2Recursive" syn-events="['click']" />
+        <input type="button" id="btnRecursive2Flat" value="Recursive2Flat" syn-events="['click']" />
+        <input type="button" id="btnFindRecursiveData" value="FindRecursiveData" syn-events="['click']" />
+    </form>
+    <script src="/assets/js/syn.loader.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+﻿.syn-jsoneditor {
+  color: #000;
+}
+
+.jsoneditor-modal .pico-modal-header {
+    background: #f0f0f0;
+    color: #222;
+}
+
+.jsoneditor-modal .pico-close {
+    color: #222;
+}
+
+.jsoneditor-modal a {
+    color: #f0f0f0;
+}
+
+.jsoneditor-modal .selectr-selected .selectr-tag {
+    background-color: #f0f0f0;
+}
+
+.jsoneditor-modal .jsoneditor-button-group.jsoneditor-button-group-value-asc input.jsoneditor-button-asc,
+.jsoneditor-modal .jsoneditor-button-group.jsoneditor-button-group-value-desc input.jsoneditor-button-desc {
+    background: #f0f0f0;
+    border-color: #f0f0f0;
+    color: #222;
+}
+
+div.jsoneditor-tree div.jsoneditor-date {
+    color: #222;
+}
+
+.jsoneditor-popover {
+    color: #222;
+}
+
+.jsoneditor {
+    border: thin solid #f0f0f0;
+}
+
+.jsoneditor-menu {
+    color: #222;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+    .jsoneditor-menu > button,
+    .jsoneditor-menu > .jsoneditor-modes > button {
+        color: #222;
+    }
+
+.jsoneditor-contextmenu .jsoneditor-menu li button.jsoneditor-selected,
+.jsoneditor-contextmenu .jsoneditor-menu li button.jsoneditor-selected:hover,
+.jsoneditor-contextmenu .jsoneditor-menu li button.jsoneditor-selected:focus {
+    color: #222;
+}
+
+.jsoneditor-menu a {
+    color: #222;
+}
+
+.jsoneditor-results {
+    color: #222;
+}
+
+.selectr-tag {
+    color: #222;
+}
+
+.selectr-option.active {
+    color: #222;
+}

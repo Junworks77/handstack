@@ -1,0 +1,60 @@
+.ui_progressbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+    z-index: 10000
+}
+
+    .ui_progressbar .overlay {
+        width: 100%;
+        height: 100%;
+        display: block;
+        background-color: #eee;
+        opacity: 0.4;
+    }
+
+    .ui_progressbar span {
+        display: inline-block;
+        vertical-align: middle
+    }
+
+    .ui_progressbar .progressBar {
+        background-color: rgba(55,55,55,0.7);
+        border-radius: 5px;
+        padding: 10px;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        margin-left: -100px;
+        min-width: 200px;
+        max-width: 500px
+    }
+
+    .ui_progressbar .loading {
+        width: 32px;
+        height: 32px;
+        margin: auto;
+        border: 12px solid #EAF0F6;
+        border-radius: 50%;
+        border-top: 12px solid #FF7A59;
+        animation: spinner 4s linear infinite;
+    }
+
+    .ui_progressbar .message {
+        color: #fff;
+        padding-left: 10px;
+        line-height: 16px
+    }
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

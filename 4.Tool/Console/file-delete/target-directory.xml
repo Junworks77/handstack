@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- DeletePath - 삭제 대상 폴더경로 -->
+<!-- RemoveSeconds - 폴더내 파일 작성일자 삭제 기준 (초) 1분(60), 1시간(3600), 1일(86400), 7일(604800) -->
+<NewDataSet>
+    <Target>
+        <DeletePath>D:\MSSQL2CSV\Backup</DeletePath>
+        <RemoveSeconds>-86400</RemoveSeconds>
+    </Target>
+</NewDataSet>

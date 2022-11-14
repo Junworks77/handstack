@@ -1,0 +1,579 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+</head>
+<body>
+    <form autocomplete="off" style="display: none;" id="form1" syn-datafield="MainForm">
+        <div id="main" role="main" class="mainContents">
+            <!--div class="head">
+                <h2 class="title">주문품목추가</h2>
+                <div class="buttonGroup">
+                    <button type="button" syn-events="['click']" class="txtBtn" id="btnAddRow">
+                        품목추가
+                    </button>
+                    <button type="button" syn-events="['click']" class="txtBtn" id="searchBtn">
+                        품목검색
+                    </button>
+                    <button type="button" syn-events="['click']" class="txtBtn" id="listBtn">
+                        배본내역조회
+                    </button>
+                    <button type="button" syn-events="['click']" class="txtBtn" id="orderKeepBtn">
+                        주문보류품목
+                    </button>
+                </div>
+            </div-->
+            <div class="row">
+                <!--TabContents-->
+                <div class="col-6 pr-10">
+                    <dl class="headWrap">
+                        <dt class="title"><h3>회원선택</h3></dt>
+                    </dl>
+                    <div class="formFieldWrap">
+                        <ul class="row">
+                            <li class="col-6">
+                                <div class="formGroup">
+                                    <label class="w110">회원선택</label>
+                                    <span class="formControl">
+                                        <select id="select1" syn-events="['change']" syn-datafield="" syn-options="{belongID: [''], dataSourceID: '', local: false, required: true}"></select>
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="col-6">
+                                <div class="formGroup">
+                                    <label class="w110">학제변경</label>
+                                    <span class="formControl">
+                                        <select id="select2" syn-events="['change']" syn-datafield="" syn-options="{belongID: [''], dataSourceID: '', local: false, required: true}"></select>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <dl class="headWrap">
+                        <dt class="title"><h3>교재선택</h3></dt>
+                    </dl>
+                    <div class="fieldTabUIWrap">
+                        <ul class="tabUI">
+                            <li id="AreaTab1" class="active" syn-events="['click']">
+                                <a class="">우영전용교재</a>
+                            </li>
+                            <li id="AreaTab2" class="" syn-events="['click']">
+                                <a class="">스마트 배플리 교재</a>
+                            </li>
+                            <li id="AreaTab3" class="" syn-events="['click']">
+                                <a class="">병행교재</a>
+                            </li>
+                        </ul>
+                        <div class="tabContent">
+                            <div id="Area1" class="block">
+                                <div class="gridWrap">
+                                    <div class="gridBox">
+                                        <dl class="gridUtil head">
+                                            <dt class="gridTitle"><h3>우영전용교재</h3></dt>
+                                        </dl>
+                                        <div class="formFieldWrap">
+                                            <ul class="row">
+                                                <li class="col-6">
+                                                    <div class="formGroup">
+                                                        <label class="w110">단계</label>
+                                                        <span class="formControl">
+                                                            <select id="select3" syn-events="['change']" syn-datafield="" syn-options="{belongID: [''], dataSourceID: '', local: false, required: true}"></select>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="col-6">
+                                                    <div class="formGroup">
+                                                        <span class="formControl">
+                                                            <input type="checkbox" class="ui_checkbox" checked id="chk1"><label for="chk1" class="">학제외 교재</label>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <syn_grid id="grdGrid1" syn-events="['afterSelectionEnd']" syn-datafield="CodeDetail" syn-options="{height:680, columns: [
+                                            ['', '교재 이름', 120, false, 'text', false, 'right','','']
+                                         ]}">
+                                            </syn_grid>
+                                        </div>
+                                        <div class="formFieldWrap">
+                                            <ul class="row">
+                                                <li class="col-12">
+                                                    <div class="formGroup">
+                                                        <label class="w110">주문옵션</label>
+                                                        <span class="formControl">
+                                                            <span><input type="checkbox" class="ui_checkbox" checked id="chk2"><label for="chk2" class="">1권</label></span>
+                                                            <span><input type="checkbox" class="ui_checkbox" checked id="chk3"><label for="chk3" class="">2권</label></span>
+                                                            <span><input type="checkbox" class="ui_checkbox" checked id="chk4"><label for="chk4" class="">3권</label></span>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="Area2" class="hidden">
+                                <div class="gridWrap">
+                                    <div class="gridBox">
+                                        <dl class="gridUtil head">
+                                            <dt class="gridTitle"><h3>스마트베풀리교재</h3></dt>
+                                        </dl>
+                                        <div class="formFieldWrap">
+                                            <ul class="row">
+                                                <li class="col-12">
+                                                    <div class="formGroup">
+                                                        <label class="w110">학습교재</label>
+                                                        <span class="formControl">
+                                                            <input type="checkbox" class="ui_radio" checked id="chk5"><label for="chk5" class="">기본</label>
+                                                            <input type="checkbox" class="ui_radio" checked id="chk6"><label for="chk6" class="">리딩</label>
+                                                            <input type="checkbox" class="ui_radio" checked id="chk7"><label for="chk7" class="">조회</label>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <syn_grid id="grdGrid2" syn-events="['afterSelectionEnd']" syn-datafield="CodeDetail2" syn-options="{height:680, columns: [
+                                            ['', '교재 이름', 120, false, 'text', false, 'right','','']
+                                         ]}">
+                                            </syn_grid>
+                                        </div>
+                                        <div class="formFieldWrap">
+                                            <ul class="row">
+                                                <li class="col-12">
+                                                    <div class="formGroup">
+                                                        <label class="w110">주문옵션</label>
+                                                        <span class="formControl">
+                                                            <input type="checkbox" class="ui_radio" checked id="chk8"><label for="chk8" class="">1권</label>
+                                                            <input type="checkbox" class="ui_radio" checked id="chk9"><label for="chk9" class="">2권</label>
+                                                            <input type="checkbox" class="ui_radio" checked id="chk10"><label for="chk10" class="">3권</label>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="Area3" class="hidden">
+                                <div class="gridWrap">
+                                    <div class="gridBox">
+                                        <dl class="gridUtil head">
+                                            <dt class="gridTitle"><h3>병행교재</h3></dt>
+                                        </dl>
+                                        <div class="formFieldWrap">
+                                            <ul class="row">
+                                                <li class="col-6">
+                                                    <div class="formGroup">
+                                                        <label class="w110">단계</label>
+                                                        <span class="formControl">
+                                                            <select id="select4" syn-events="['change']" syn-datafield="" syn-options="{belongID: [''], dataSourceID: '', local: false, required: true}"></select>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="col-6">
+                                                    <div class="formGroup">
+                                                        <span class="formControl">
+                                                            <input type="checkbox" class="ui_radio" checked id="chk11"><label for="chk11" class="">학제외 교재</label>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <syn_grid id="grdGrid3" syn-events="['afterSelectionEnd']" syn-datafield="CodeDetail3" syn-options="{height:680, columns: [
+                                            ['', '교재 이름', 120, false, 'text', false, 'right','','']
+                                         ]}">
+                                            </syn_grid>
+                                        </div>
+                                        <div class="formFieldWrap">
+                                            <ul class="row">
+                                                <li class="col-12">
+                                                    <div class="formGroup">
+                                                        <label class="w110">주문옵션</label>
+                                                        <span class="formControl">
+                                                            <input type="checkbox" class="ui_radio" checked id="chk12"><label for="chk12" class="">1권</label>
+                                                            <input type="checkbox" class="ui_radio" checked id="chk13"><label for="chk13" class="">2권</label>
+                                                            <input type="checkbox" class="ui_radio" checked id="chk14"><label for="chk14" class="">3권</label>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <dl class="headWrap">
+                        <dt class="title"><h3>시리즈 정보</h3></dt>
+                    </dl>
+                    <ul class="row">
+                        <li class="col-3 pr-10">
+                            <div class="pic">
+                                <figure><img id="bookIMG" onerror="this.src='/assets/img/location-sugang-image-01.png';" style="width:100%;height:182px;" /></figure>
+                            </div>
+                        </li>
+                        <li class="col-9">
+                            <div class="formFieldWrap">
+                                <ul class="row">
+                                    <li class="col-12">
+                                        <div class="formGroup">
+                                            <label class="w130">시리즈명</label>
+                                            <span class="formControl">
+                                                <input type="text" class="item textBox" id="textBox1" value="">
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="row">
+                                    <li class="col-12">
+                                        <div class="formGroup">
+                                            <label class="w130">교재구분</label>
+                                            <span class="formControl">
+                                                <input type="text" class="item textBox" id="textBox2" value="">
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="row">
+                                    <li class="col-6">
+                                        <div class="formGroup">
+                                            <label class="w130">약호</label>
+                                            <span class="formControl">
+                                                <input type="text" class="item textBox" id="textBox3" value="">
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li class="col-6">
+                                        <div class="formGroup">
+                                            <label class="w130">프로그램</label>
+                                            <span class="formControl">
+                                                <input type="text" class="item textBox" id="textBox4" value="">
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="row">
+                                    <li class="col-6">
+                                        <div class="formGroup">
+                                            <label class="w130">레벨</label>
+                                            <span class="formControl">
+                                                <input type="text" class="item textBox" id="textBox5" value="">
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li class="col-6">
+                                        <div class="formGroup">
+                                            <label class="w130">학년정보</label>
+                                            <span class="formControl">
+                                                <input type="text" class="item textBox" id="textBox6" value="">
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="row">
+                                    <li class="col-12">
+                                        <div class="formGroup">
+                                            <label class="w130">개발사</label>
+                                            <span class="formControl">
+                                                <input type="text" class="item textBox" id="textBox7" value="">
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <dl class="headWrap">
+                        <dt class="title"><h3>상세 정보</h3></dt>
+                    </dl>
+                    <div class="formFieldWrap">
+                        <ul class="row">
+                            <li class="col-12">
+                                <div class="formGroup">
+                                    <label class="w130">학습대상</label>
+                                    <span class="formControl">
+                                        <textarea id="textareaBox1"></textarea>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="row">
+                            <li class="col-12">
+                                <div class="formGroup">
+                                    <label class="w130">전체학습목표</label>
+                                    <span class="formControl">
+                                        <textarea id="textareaBox2"></textarea>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="row">
+                            <li class="col-12">
+                                <div class="formGroup">
+                                    <label class="w130">교재특징</label>
+                                    <span class="formControl">
+                                        <textarea id="textareaBox3"></textarea>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <dl class="headWrap">
+                        <dt class="title"><h3> 품목 정보</h3></dt>
+                        <dd class="gridButton">
+                            <div class="buttonGroup">
+                                <div class="formGroup">
+                                    <select id="select5" syn-events="['change']" syn-datafield="" syn-options="{belongID: [''], dataSourceID: '', local: false, required: true}"></select>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                    <div class="detailArea">
+                        <dl class="headWrap sub">
+                            <dt class="title"><h3>기본 정보</h3></dt>
+                        </dl>
+                        <div class="formFieldWrap">
+                            <ul class="row">
+                                <li class="col-12">
+                                    <div class="formGroup">
+                                        <label class="w130">품목명</label>
+                                        <span class="formControl">
+                                            <input type="text" class="item textBox" id="textBox8" value="">
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="row">
+                                <li class="col-6">
+                                    <div class="formGroup">
+                                        <label class="w130">세트수</label>
+                                        <span class="formControl">
+                                            <input type="text" class="item textBox" id="textBox9" value="">
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="col-6">
+                                    <div class="formGroup">
+                                        <label class="w130">판매상태</label>
+                                        <span class="formControl">
+                                            <input type="text" class="item textBox" id="textBox10" value="">
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="row">
+                                <li class="col-6">
+                                    <div class="formGroup">
+                                        <label class="w130">소비자가</label>
+                                        <span class="formControl">
+                                            <input type="text" class="item textBox" id="textBox11" value="">
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="col-6">
+                                    <div class="formGroup">
+                                        <label class="w130">분할납부</label>
+                                        <span class="formControl">
+                                            <input type="text" class="item textBox" id="textBox12" value="">
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <dl class="headWrap sub">
+                            <dt class="title"><h3>부품 구성</h3></dt>
+                        </dl>
+                        <div>
+                            <syn_grid id="grdGrid4" syn-events="['afterSelectionEnd']" syn-datafield="CodeDetail4" syn-options="{height:680, columns: [
+                                        ['', '교재 이름', 120, false, 'text', false, 'right','','']
+                                     ]}">
+                            </syn_grid>
+                        </div>
+                        <div class="formFieldWrap">
+                            <ul class="row">
+                                <li class="col-12">
+                                    <div class="formGroup">
+                                        <label class="w130">학습목표</label>
+                                        <span class="formControl">
+                                            <input type="text" class="item textBox" id="textBox13" value="">
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form autocomplete="off" id="form2" syn-datafield="MainForm2" style="display:none;">
+        <div id="form2" style="" class="simplemodal-data">
+            <div class="mainContents">
+                <div class="boardWrap">
+                    <div class="head">
+                        <h3>배본이력</h3>
+                    </div>
+                    <!--TabContents-->
+                    <div class="fieldTabUIWrap">
+                        <ul class="tabUI">
+                            <li id="AreaTab1" class="active" syn-events="['click']">
+                                <a class="">영어교실</a>
+                            </li>
+                            <li id="AreaTab2" class="" syn-events="['click']">
+                                <a class="">영어숲</a>
+                            </li>
+                        </ul>
+                        <div class="tabContent">
+                            <div id="Area1" class="block">
+                                <div class="gridWrap">
+                                    <div class="gridBox">
+                                        <dl class="gridUtil head">
+                                            <dt class="gridTitle">영어교실</dt>
+                                        </dl>
+                                        <div>
+                                            <syn_grid id="grdGrid5" syn-events="['afterSelectionEnd']" syn-datafield="CodeDetail5" syn-options="{height:420, columns: [
+                                                ['data1', '배본일', 120, false, 'text', false, 'right','',''],
+                                                ['data2', '약호', 120, false, 'text', false, 'right','',''],
+                                                ['data3', '권', 120, false, 'text', false, 'right','',''],
+                                                ['data4', '금액(원)', 120, false, 'text', false, 'right','',''],
+                                                ['data5', '학습단계', 120, false, 'text', false, 'right','','']
+                                             ]}">
+                                            </syn_grid>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="Area2" class="hidden">
+                                <div class="gridWrap">
+                                    <div class="gridBox">
+                                        <dl class="gridUtil head">
+                                            <dt class="gridTitle">영어숲</dt>
+                                        </dl>
+                                        <div>
+                                            <syn_grid id="grdGrid6" syn-events="['afterSelectionEnd']" syn-datafield="CodeDetail6" syn-options="{height:420, columns: [
+                                                ['data1', 'NO', 120, false, 'text', false, 'right','',''],
+                                                ['data2', '생성일', 120, false, 'text', false, 'right','',''],
+                                                ['data3', '확정일', 120, false, 'text', false, 'right','',''],
+                                                ['data4', '교재유형', 120, false, 'text', false, 'right','',''],
+                                                ['data5', '교재정보', 120, false, 'text', false, 'right','','']
+                                             ]}">
+                                            </syn_grid>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonWrap">
+                        <button type="button" id="btnClose" class="txtBtn icon-delete-big" syn-events="['click']">닫기</button>
+                    </div>
+                    <iframe src="" name="main_frame" id="board_frame" style="display:none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form autocomplete="off" id="form3" syn-datafield="MainForm3" style="display:none;">
+        <div id="form3" style="" class="simplemodal-data">
+            <div class="mainContents">
+                <div class="boardWrap">
+                    <div class="head">
+                        <dt class="gridTitle"><h3> 품목 정보</h3></dt>
+                    </div>
+                    <div class="gridWrap">
+                        <div class="gridBox">
+                            <div class="formFieldWrap">
+                                <ul class="row">
+                                    <li class="col-10">
+                                        <div class="formGroup">
+                                            <label>품목 검색</label>
+                                            <span class="formControl">
+                                                <input type="text" id="txtTITLE" syn-datafield="TITLE" syn-options="{belongID: ['I01','M01']}" />
+                                                <button type="button" id="btnClose" class="txtBtn item" syn-events="['click']">검색</button>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li class="col-2">
+                                        <strong><label style="padding-left:60px; padding-top:12px;">※제품명 또는 약호를 입력하세요!</label></strong>
+                                    </li>
+                                </ul>
+                            </div>
+                            <dl class="gridUtil head">
+                                <dt class="gridTitle">품목</dt>
+                            </dl>
+                            <div>
+                                <syn_grid id="grdGrid7" syn-events="['afterSelectionEnd']" syn-datafield="CodeDetail7" syn-options="{height:420, columns: [
+                                                ['data1', '제품명', 120, false, 'text', false, 'right','',''],
+                                                ['data2', '약호', 120, false, 'text', false, 'right','',''],
+                                                ['data3', '권', 120, false, 'text', false, 'right','',''],
+                                                ['data4', '단계', 120, false, 'text', false, 'right','','']
+                                             ]}">
+                                </syn_grid>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonWrap">
+                        <button type="button" id="btnClose" class="txtBtn icon-delete-big" syn-events="['click']">닫기</button>
+                    </div>
+                    <iframe src="" name="main_frame" id="board_frame" style="display:none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form autocomplete="off" id="form4" syn-datafield="MainForm4" style="display:none;">
+        <div id="form4" style="" class="simplemodal-data">
+            <div class="mainContents">
+                <div class="boardWrap">
+                    <div class="head">
+                        <dt class="gridTitle"><h3> 주문 보류 품목</h3></dt>
+                    </div>
+                    <div class="gridWrap">
+                        <div class="gridBox">
+                            <div class="formFieldWrap">
+                                <ul class="row">
+                                    <li class="col-10">
+                                        <div class="formGroup">
+                                            <label class="w150">품목 검색</label>
+                                            <span class="formControl">
+                                                <input type="text" id="txtItem" syn-datafield="" syn-options="{belongID: ['','']}" />
+                                                <button type="button" id="btnClose" class="txtBtn item" syn-events="['click']">검색</button>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li class="col-2">
+                                        <strong><label style="padding-left:60px; padding-top:12px;">※제품명 또는 약호를 입력하세요!</label></strong>
+                                    </li>
+                                </ul>
+                            </div>
+                            <dl class="gridUtil head">
+                                <dt class="gridTitle">품목</dt>
+                            </dl>
+                            <div>
+                                <syn_grid id="grdGrid8" syn-events="['afterSelectionEnd']" syn-datafield="CodeDetail8" syn-options="{height:420, columns: [
+                                                ['data1', '제품명', 120, false, 'text', false, 'right','',''],
+                                                ['data2', '약호', 120, false, 'text', false, 'right','',''],
+                                                ['data3', '권', 120, false, 'text', false, 'right','',''],
+                                                ['data4', '단계', 120, false, 'text', false, 'right','',''],
+                                                ['data5', '주문보류구분', 120, false, 'text', false, 'right','','']
+                                             ]}">
+                                </syn_grid>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonWrap">
+                        <button type="button" id="btnClose" class="txtBtn icon-delete-big" syn-events="['click']">닫기</button>
+                    </div>
+                    <iframe src="" name="main_frame" id="board_frame" style="display:none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="/assets/js/syn.loader.js" type="text/javascript"></script>
+</body>
+</html>

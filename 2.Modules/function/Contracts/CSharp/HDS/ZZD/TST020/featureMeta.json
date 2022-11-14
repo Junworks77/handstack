@@ -1,0 +1,53 @@
+{
+    "Header": {
+        "ApplicationID": "HDS",
+        "ProjectID": "ZZD",
+        "TransactionID": "TST020",
+        "DataSourceID": "DB01",
+        "LanguageType": "CSharp",
+        "Use": true,
+        "Description": "MSSQL 거래 테스트"
+    },
+	"Commands": [
+        {
+            "ID": "GF01",
+            "Seq": 0,
+            "Use": true,
+            "Timeout": 0,
+            "EntryType": "DynamicRun.Sources.Simple",
+            "EntryMethod": "Method2",
+            "Description": "Form 반환 거래 로직",
+            "ModifiedDateTime": "2020-02-10 00:00:00",
+            "Params": [
+                {
+                    "id": "ApplicationID",
+                    "type": "String",
+                    "length": 3,
+                    "value": null
+                },
+                {
+                    "id": "CodeGroupID",
+                    "type": "String",
+                    "length": 3,
+                    "value": null
+                }
+            ]
+        },
+		{
+			"ID": "LF01",
+			"Seq": 0,
+			"Use": true,
+			"Timeout": 0,
+			"Description": "Grid 반환 거래 로직",
+			"ModifiedDateTime": "2020-02-10 00:00:00",
+			"Params": [
+				{
+					"id": "ApplicationID",
+					"type": "String",
+					"length": 3,
+					"value": null
+				}
+			]
+		}
+	]
+}

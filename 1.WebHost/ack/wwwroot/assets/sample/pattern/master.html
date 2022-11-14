@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>AA010</title>
+	<link rel="stylesheet" type="text/css" href="/assets/bundle/css/syn.bundle.css">
+</head>
+<body>
+	<form autocomplete="off" style="display: none;" id="form1" syn-datafield="MainForm" style="width:960px;">
+		<div id="main" role="main">
+			<div>
+				<div class="header" style="width:960px;margin-bottom:10px;">
+					<div class="wrapper-title">
+						<div class="wrapper-toolbar">
+							<div class="pull-left"><span class="page-name">기본 정보 관리</span></div>
+						</div>
+					</div>
+				</div>
+				<ul class="wrapper-form" style="width:960px;margin-bottom:10px;">
+					<li style="width:320px; height:32px;">
+						<div class="title" style="width:110px;">어플리케이션 코드</div>
+						<div class="form">
+							<div class="control-set">
+								<div class="control">
+									<input type="text" id="txtApplicationCode" class="form-control" syn-datafield="ApplicationCode" syn-options="{belongID: 'R01'}">
+								</div>
+							</div>
+						</div>
+					</li>
+					<li style="width:320px; height:32px;">
+						<div class="title" style="width:110px;">어플리케이션명</div>
+						<div class="form">
+							<div class="control-set">
+								<div class="control">
+									<input type="text" id="txtApplicationName" class="form-control" syn-datafield="ApplicationName" syn-events="['click']" syn-options="{belongID: 'R01'}">
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="wrapper-toolbar">
+					<div class="pull-left">
+						<span class="title" style="margin-left:10px;">어플리케이션</span>
+					</div>
+					<div class="pull-right">
+						<div class="control-set">
+							<button type="button" class="btn btn-default btn-sm" syn-datafield id="btnAddRow" syn-options="{triggerConfig: {
+								triggerEvent:'click',
+								triggerID: 'grdGrid',
+								action: '$grid.insertRow',
+								params: {
+									options:{focusColumnID: 'ApplicationCode'}
+								}
+							}}">
+								행추가
+							</button>
+							<button type="button" class="btn-sm" syn-datafield id="btnRemoveRow" syn-options="{triggerConfig: {
+								triggerEvent:'click',
+								triggerID: 'grdGrid',
+								action: '$grid.removeRow',
+								params: {
+									options:{focusColumnID: 'ApplicationCode'}
+								}
+							}}">
+								행삭제
+							</button>
+							<button type="button" class="btn-sm" syn-datafield id="btnApplicationName" syn-options="{triggerConfig: {
+								triggerEvent:'click',
+								triggerID: 'txtApplicationName',
+								action: 'click',
+								params: {
+									options:{callText: 'hello world'}
+								}
+							}}">
+								txtApplicationName click
+							</button>
+						</div>
+					</div>
+				</div>
+				<div style="width:960px;">
+					<syn_grid id="grdGrid" syn-datafield="CodeDetail" syn-options="{columns: [
+	                    ['ApplicationID', '어플리케이션ID', 93, true, 'numeric', true, 'left', 'R01'],
+	                    ['ApplicationCode', '어플리케이션코드', 103, false, {
+                            columnType: 'text',
+                            validator: 'require'
+                        }, false, 'left', 'R01'],
+	                    ['ApplicationName', '어플리케이션명', 162, false, 'text', false, 'left', 'R01'],
+	                    ['Description', '설명', 245, false, {
+                            columnType: 'dropdown',
+                            dataSourceID: 'CMM001',
+                            codeColumnID: 'CreateUserID'
+                        }, false, 'left', 'R01'],
+	                    ['UseYN', '사용여부', 57, false, 'checkbox', false, 'center', 'R01'],
+	                    ['CreateUserID', '입력자ID', 88, true, 'numeric', true, 'left', 'R01'],
+	                    ['CreateUserName', '입력담당자', 88, false, {
+                            columnType: 'codehelp',
+                            dataSourceID: 'ZAB003',
+                            local: false,
+                            codeColumnID: 'CreateUserID'
+                        }, true, 'left', ''],
+	                    ['CreateDateTime', '입력일자', 156, false, 'text', true, 'left', '']
+                    ]}" syn-events="['afterSelectionEnd']" style="width: 960px; border: 1px solid;"></syn_grid>
+				</div>
+				<div class="footer">
+					<div class="wrapper-title" style="border-left:solid;border-top:solid;border-color:#D4D4D4;border-width:0.5px">
+						<div class="wrapper-toolbar">
+							<div class="pull-left">
+								<div class="control-set">
+									<div class="control">
+										<button type="button" class="btn btn-default" syn-datafield id="btnGridRetrieve" value="조회" syn-options="{transactConfig: {
+												triggerEvent:'click',
+												functionID: 'R01',
+												inputs: [{ type: 'Row' }],
+												outputs: [{ type: 'Grid', dataFieldID: 'CodeDetail' }]}
+											}">
+											조회
+										</button>
+										<button type="button" class="btn btn-primary" style="color:white;" syn-datafield id="btnGridSave" syn-events="['click']">저장</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<script src="/assets/js/syn.loader.js" type="text/javascript"></script>
+</body>
+</html>

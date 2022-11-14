@@ -1,0 +1,186 @@
+﻿{
+    "ProgramID": "SYN",
+    "BusinessID": "HSW",
+    "SystemID": "BOP01",
+    "TransactionID": "HSS130",
+    "ModifiedDate": "",
+    "DataSource": {
+    },
+    "Transactions": [
+        {
+            "FunctionID": "R01",
+            "Inputs": [
+                {
+                    "RequestType": "Row",
+                    "DataFieldID": "MainForm",
+                    "Items": {
+                        "ApplicationID": {
+                            "FieldID": "ApplicationID",
+                            "DataType": "int"
+                        },
+                        "ProjectID": {
+                            "FieldID": "ProjectID",
+                            "DataType": "string"
+                        },
+                        "ProjectDirectoryID": {
+                            "FieldID": "ProjectDirectoryID",
+                            "DataType": "string"
+                        },
+                        "ProjectItemID": {
+                            "FieldID": "ProjectItemID",
+                            "DataType": "string"
+                        }
+                    }
+                },
+                {
+                    "RequestType": "List",
+                    "DataFieldID": "Transaction",
+                    "Items": {
+                        "WorkItemID": {
+                            "FieldID": "WorkItemID",
+                            "DataType": "string"
+                        },
+                        "PK_ServiceID": {
+                            "FieldID": "PK_ServiceID",
+                            "DataType": "string"
+                        },
+                        "ServiceID": {
+                            "FieldID": "ServiceID",
+                            "DataType": "string"
+                        },
+                        "ReturnType": {
+                            "FieldID": "ReturnType",
+                            "DataType": "string"
+                        },
+                        "ReturnTypeName": {
+                            "FieldID": "ReturnTypeName",
+                            "DataType": "string"
+                        },
+                        "CommandType": {
+                            "FieldID": "CommandType",
+                            "DataType": "string"
+                        },
+                        "TransactionTypeName": {
+                            "FieldID": "TransactionTypeName",
+                            "DataType": "string"
+                        },
+                        "TransactionScope": {
+                            "FieldID": "TransactionScope",
+                            "DataType": "bool"
+                        },
+                        "Description": {
+                            "FieldID": "Description",
+                            "DataType": "string"
+                        },
+                        "CreateUserID": {
+                            "FieldID": "CreateUserID",
+                            "DataType": "int"
+                        },
+                        "CreateUserName": {
+                            "FieldID": "CreateUserName",
+                            "DataType": "string"
+                        },
+                        "CreateDateTime": {
+                            "FieldID": "CreateDateTime",
+                            "DataType": "string"
+                        }
+                    }
+                }
+            ],
+            "Outputs": [
+                {
+                    "ResponseType": "Form",
+                    "DataFieldID": "MainForm",
+                    "Items": {
+                        "WorkItemID": {
+                            "FieldID": "WorkItemID",
+                            "DataType": "string"
+                        },
+                        "DependencyValue": {
+                            "FieldID": "DependencyValue",
+                            "DataType": "string"
+                        },
+                        "TransactionID": {
+                            "FieldID": "TransactionID",
+                            "DataType": "string"
+                        },
+                        "ProjectType": {
+                            "FieldID": "ProjectType",
+                            "DataType": "string"
+                        },
+                        "CreateUserID": {
+                            "FieldID": "CreateUserID",
+                            "DataType": "int"
+                        },
+                        "CreateUserName": {
+                            "FieldID": "CreateUserName",
+                            "DataType": "string"
+                        },
+                        "CreateDateTime": {
+                            "FieldID": "CreateDateTime",
+                            "DataType": "string"
+                        },
+                        "Description": {
+                            "FieldID": "Description",
+                            "DataType": "string"
+                        }
+                    }
+                },
+                {
+                    "ResponseType": "Grid",
+                    "DataFieldID": "Transaction",
+                    "Items": {
+                        "WorkItemID": {
+                            "FieldID": "WorkItemID",
+                            "DataType": "string"
+                        },
+                        "PK_ServiceID": {
+                            "FieldID": "PK_ServiceID",
+                            "DataType": "string"
+                        },
+                        "ServiceID": {
+                            "FieldID": "ServiceID",
+                            "DataType": "string"
+                        },
+                        "ReturnType": {
+                            "FieldID": "ReturnType",
+                            "DataType": "string"
+                        },
+                        "ReturnTypeName": {
+                            "FieldID": "ReturnTypeName",
+                            "DataType": "string"
+                        },
+                        "CommandType": {
+                            "FieldID": "CommandType",
+                            "DataType": "string"
+                        },
+                        "TransactionTypeName": {
+                            "FieldID": "TransactionTypeName",
+                            "DataType": "string"
+                        },
+                        "TransactionScope": {
+                            "FieldID": "TransactionScope",
+                            "DataType": "bool"
+                        },
+                        "Description": {
+                            "FieldID": "Description",
+                            "DataType": "string"
+                        },
+                        "CreateUserID": {
+                            "FieldID": "CreateUserID",
+                            "DataType": "int"
+                        },
+                        "CreateUserName": {
+                            "FieldID": "CreateUserName",
+                            "DataType": "string"
+                        },
+                        "CreateDateTime": {
+                            "FieldID": "CreateDateTime",
+                            "DataType": "string"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

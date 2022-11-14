@@ -1,0 +1,18 @@
+<!--업무문서 작성(EST020), 확인(EST030) 화면의 결재선목록-->
+{{#document_approvers}}
+<li class="col-12 p-1">
+    <div class="wp-100 m-0 m-auto border text-center">
+        <div class="ml-0 mr-0 m-1 h-6 border-b text-sm">{{POSITION_NAME}}</div>
+        <div class="m-2 h-8 {{^APPROVAL_STAMP_URL}}approval_stamp{{/APPROVAL_STAMP_URL}} {{STATUS_COLOR}}">
+            {{#APPROVAL_STAMP_URL}}
+            <img src="{{APPROVAL_STAMP_URL}}" onerror="this.parentElement.textContent = '{{STATUS_NAME}}';this.style.display = 'none';" style="max-width: 32px;max-height: 32px;" />
+            {{/APPROVAL_STAMP_URL}}
+            {{^APPROVAL_STAMP_URL}}
+            {{STATUS_NAME}}
+            {{/APPROVAL_STAMP_URL}}
+
+        </div>
+        <div class="m-2 mt-2">{{EMPLOYEE_NAME}}</div>
+    </div>
+</li>
+{{/document_approvers}}

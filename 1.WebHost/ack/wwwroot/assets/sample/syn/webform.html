@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>webform</title>
+  <link rel="stylesheet" type="text/css" href="/css/site.css">
+</head>
+<body>
+    <form autocomplete="off" style="display: none;" id="form1" syn-datafield="MainForm">
+        <div id="wrap" class="sub">
+            <div class="bx_sep">
+                <header>
+                    syn.$webform ($w)
+                </header>
+                <div class="tb_ly_a">
+                    <table>
+                        <colgroup>
+                            <col style="width:25%" />
+                            <col />
+                        </colgroup>
+                        <tr>
+                            <th scope="col">
+                                $w.version
+                            </th>
+                            <td>
+                                <input type="text" id="txtVersion" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $w.localeID
+                            </th>
+                            <td>
+                                <input type="text" id="txtLocaleID" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $w.defaultControlOptions
+                            </th>
+                            <td>
+                                <input type="text" id="txtDefaultControlOptions" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $w.setStorage
+                            </th>
+                            <td>
+                                <input type="text" id="txtSetStorage" />
+                                <section>
+                                    <input type="checkbox" id="chkLocalStorage" syn-events="['click']" checked />
+                                    <label for="chkLocalStorage">LocalStorage</label>
+                                    <input type="button" id="btnSetStorage" value="Storage 저장" syn-events="['click']" />
+                                </section>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $w.getStorage
+                            </th>
+                            <td>
+                                <input type="text" id="txtGetStorage" />
+                                <section>
+                                    <input type="button" id="btnGetStorage" value="Storage 조회" syn-events="['click']" />
+                                </section>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $w.removeStorage
+                            </th>
+                            <td>
+                                <input type="text" id="txtRemoveStorage" />
+                                <section>
+                                    <input type="button" id="btnRemoveStorage" value="Storage 삭제" syn-events="['click', 'blur']" />
+                                </section>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $w.innerHTML
+                            </th>
+                            <td>
+                                <input type="text" id="txtInnerHTML" value="Click me to change my HTML content!" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $w.innerText
+                            </th>
+                            <td>
+                                <p id="txtInnerText2">Hello innerText</p>
+                                <input type="text" id="txtInnerText" value="Click the button get the text content of the <p> element!" />
+                                <section>
+                                    <input type="button" id="btnInnerText" value="Text값 반환" syn-events="['click']" />
+                                </section>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $w.activeControl
+                            </th>
+                            <td>
+                                <input type="text" id="txtActiveControl" value="Click the button get the type of the focus element!" />
+                                <section>
+                                    <input type="button" id="btnActiveControl" value="Type값 반환" syn-events="['click']" />
+                                </section>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $w.hasAutoFocus
+                            </th>
+                            <td>
+                                <input type="text" id="txtHasAutoFocus" value="AutoFocus" />
+                                <section>
+                                    <input type="button" id="btnHasAutoFocus" value="AutoFocus" syn-events="['click']" />
+                                </section>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $w.createSelection
+                            </th>
+                            <td>
+                                <input type="text" id="txtCreateSelection" value="Creation Selection" />
+                                <section>
+                                    <input type="button" id="btnCreateSelection" value="Creation Selection" syn-events="['click']" />
+                                </section>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $w.getClassRegEx
+                            </th>
+                            <td>
+                                <input type="text" id="txtGetClassRegEx" class="view" value="GetClassRegEx" />
+                                <section>
+                                    <input type="button" id="btnGetClassRegEx" value="GetClassRegEx" syn-events="['click']" />
+                                </section>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $w.argumentsExtend
+                            </th>
+                            <td>
+                                <input type="text" id="txtArgumentsExtend" value="" />
+                                <section>
+                                    <input type="button" id="btnArgumentsExtend" value="호출" syn-events="['click']" />
+                                </section>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $w.loadJSON
+                            </th>
+                            <td>
+                                <input type="text" id="txtLoadJSON" value="" />
+                                <section>
+                                    <input type="button" id="btnLoadJSON" value="JSON파일 호출" syn-events="['click']" />
+                                </section>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $w.start
+                            </th>
+                            <td>
+                                <input type="text" id="txtStart" value="" />
+                                <section>
+                                    <input type="button" id="btnStart" value="페이지 로딩 시작 시간" syn-events="['click']" />
+                                </section>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="/assets/js/syn.loader.js" type="text/javascript"></script>
+</body>
+</html>

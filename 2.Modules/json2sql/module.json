@@ -1,0 +1,6 @@
+{
+    "ModuleID": "json2sql",
+    "Name": "json2sql",
+    "IsBundledWithHost": false,
+    "Version": "1.0.0"
+}
