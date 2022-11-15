@@ -1,23 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
         <Nullable>enable</Nullable>
         <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+        <PlatformTarget>AnyCPU</PlatformTarget>
         <BaseOutputPath></BaseOutputPath>
+        <OutputType>Library</OutputType>
     </PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 		<DebugType>none</DebugType>
 		<Optimize>true</Optimize>
 	</PropertyGroup>
-
-    <ItemGroup>
-        <None Include="wwwroot\**" />
-        <None Update="wwwroot\**">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-    </ItemGroup>
 
     <ItemGroup>
         <FrameworkReference Include="Microsoft.AspNetCore.App" />

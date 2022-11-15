@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 using HandStack.Web.Modules;
+using System;
 
 namespace logger
 {
@@ -22,6 +23,14 @@ namespace logger
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment? webHostEnvironment)
         {
+        }
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("logger");
         }
     }
 }

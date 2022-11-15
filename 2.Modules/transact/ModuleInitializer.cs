@@ -19,6 +19,7 @@ using Serilog;
 
 using transact.Entity;
 using transact.Extensions;
+using System;
 
 namespace transact
 {
@@ -187,6 +188,14 @@ namespace transact
                     app.UseCors(ModuleID);
                 }
             }
+        }
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("transact");
         }
     }
 }

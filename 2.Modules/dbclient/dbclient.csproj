@@ -3,11 +3,13 @@
         <TargetFramework>net6.0</TargetFramework>
         <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
         <PublishWithAspNetCoreTargetManifest>true</PublishWithAspNetCoreTargetManifest>
+        <RuntimeIdentifiers>win-x64;linux-x64</RuntimeIdentifiers>
         <TargetLatestRuntimePatch>false</TargetLatestRuntimePatch>
         <Nullable>enable</Nullable>
         <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
         <BaseOutputPath></BaseOutputPath>
         <PlatformTarget>AnyCPU</PlatformTarget>
+        <OutputType>Library</OutputType>
     </PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

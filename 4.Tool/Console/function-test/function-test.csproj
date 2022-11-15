@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>function_test</RootNamespace>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>function_test</RootNamespace>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\2.Modules\function\function.csproj" />
-    <ProjectReference Include="..\..\..\3.Infrastructure\HandStack.Web\HandStack.Web.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\2.Modules\function\function.csproj" />
+        <ProjectReference Include="..\..\..\3.Infrastructure\HandStack.Web\HandStack.Web.csproj" />
+    </ItemGroup>
 
 </Project>

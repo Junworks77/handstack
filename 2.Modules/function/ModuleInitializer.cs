@@ -30,6 +30,7 @@ using HandStack.Web;
 using HandStack.Web.Modules;
 
 using Serilog;
+using System;
 
 namespace function
 {
@@ -254,6 +255,14 @@ namespace function
                     }
                 });
             }
+        }
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("function");
         }
     }
 }

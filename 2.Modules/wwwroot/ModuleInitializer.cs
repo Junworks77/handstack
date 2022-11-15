@@ -10,6 +10,7 @@ using Microsoft.Extensions.FileProviders;
 
 using HandStack.Web;
 using HandStack.Web.Modules;
+using System;
 
 namespace wwwroot
 {
@@ -73,6 +74,14 @@ namespace wwwroot
                     }
                 });
             }
+        }
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("wwwroot");
         }
     }
 }

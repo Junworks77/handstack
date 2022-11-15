@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 using HandStack.Web;
 using HandStack.Web.Modules;
+using System;
 
 namespace template
 {
@@ -33,6 +34,14 @@ namespace template
             if (module != null)
             {
             }
+        }
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("template");
         }
     }
 }

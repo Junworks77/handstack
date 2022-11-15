@@ -101,10 +101,17 @@ namespace ack.Extensions
                 var files = binariesFolder.GetFileSystemInfos("*.dll", SearchOption.AllDirectories);
                 foreach (var file in files)
                 {
-                    Assembly assembly;
+                    Assembly? assembly = null;
                     try
                     {
-                        assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(file.FullName);
+                        if (file.FullName.IndexOf($"{Path.DirectorySeparatorChar}runtimes{Path.DirectorySeparatorChar}") > -1)
+                        {
+                     
+                        }
+                        else
+                        {
+                            assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(file.FullName);
+                        }
                     }
                     catch (FileLoadException fileLoadException)
                     {
@@ -126,7 +133,7 @@ namespace ack.Extensions
                         }
                     }
 
-                    if (Path.GetFileNameWithoutExtension(assembly.ManifestModule.Name) == module.ModuleID)
+                    if (assembly != null && Path.GetFileNameWithoutExtension(assembly.ManifestModule.Name) == module.ModuleID)
                     {
                         module.Assembly = assembly;
                     }

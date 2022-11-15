@@ -4,7 +4,9 @@
         <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
         <Nullable>enable</Nullable>
         <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+        <PlatformTarget>AnyCPU</PlatformTarget>
         <BaseOutputPath></BaseOutputPath>
+        <OutputType>Library</OutputType>
     </PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
