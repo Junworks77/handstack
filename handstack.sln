@@ -69,10 +69,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "syncrypto", "4.Tool\Console
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "function-test", "4.Tool\Console\function-test\function-test.csproj", "{AFC63CF6-8AEF-4B66-88E2-4F499AD0C38B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "restorerefs", "4.Tool\Console\restorerefs\restorerefs.csproj", "{3019931A-08ED-43CA-847C-BC1ABCC3ED8E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webrefs", "4.Tool\Console\webrefs\webrefs.csproj", "{1EA45215-B2D0-4438-8977-4B60058ED4DE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,14 +143,6 @@ Global
 		{AFC63CF6-8AEF-4B66-88E2-4F499AD0C38B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFC63CF6-8AEF-4B66-88E2-4F499AD0C38B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFC63CF6-8AEF-4B66-88E2-4F499AD0C38B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3019931A-08ED-43CA-847C-BC1ABCC3ED8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3019931A-08ED-43CA-847C-BC1ABCC3ED8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3019931A-08ED-43CA-847C-BC1ABCC3ED8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3019931A-08ED-43CA-847C-BC1ABCC3ED8E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1EA45215-B2D0-4438-8977-4B60058ED4DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1EA45215-B2D0-4438-8977-4B60058ED4DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1EA45215-B2D0-4438-8977-4B60058ED4DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1EA45215-B2D0-4438-8977-4B60058ED4DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -179,8 +167,6 @@ Global
 		{3AD4BB16-6D7D-42A2-AC45-E8870E72FBFA} = {62D4FF65-F118-4D0E-8518-C6F4679EA63E}
 		{B3DE8D6F-C503-41DD-966C-CAAA53C80066} = {A2BED698-3342-407F-B10B-53B32168CCFE}
 		{AFC63CF6-8AEF-4B66-88E2-4F499AD0C38B} = {A2BED698-3342-407F-B10B-53B32168CCFE}
-		{3019931A-08ED-43CA-847C-BC1ABCC3ED8E} = {A2BED698-3342-407F-B10B-53B32168CCFE}
-		{1EA45215-B2D0-4438-8977-4B60058ED4DE} = {A2BED698-3342-407F-B10B-53B32168CCFE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0075CE72-935C-4F87-A6BA-989C82F06F8F}
