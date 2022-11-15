@@ -1,4 +1,6 @@
-﻿namespace HandStack.Web.Entity
+﻿using System.Collections.Generic;
+
+namespace HandStack.Web.Entity
 {
     public partial class Addtional
     {

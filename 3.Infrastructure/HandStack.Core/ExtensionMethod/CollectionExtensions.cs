@@ -1,4 +1,7 @@
-﻿namespace HandStack.Core.ExtensionMethod
+﻿using System;
+using System.Collections.Generic;
+
+namespace HandStack.Core.ExtensionMethod
 {
     public static class CollectionExtensions
     {

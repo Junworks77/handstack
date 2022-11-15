@@ -1,4 +1,6 @@
-﻿namespace HandStack.Core.ExtensionMethod
+﻿using System;
+
+namespace HandStack.Core.ExtensionMethod
 {
     /// <code>
     /// // Format for Number 레퍼런스

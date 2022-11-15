@@ -1,4 +1,6 @@
-﻿using HandStack.Web.MessageContract.Enumeration;
+﻿using System.Collections.Generic;
+
+using HandStack.Web.MessageContract.Enumeration;
 
 namespace HandStack.Web.MessageContract.DataObject
 {

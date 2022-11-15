@@ -5,7 +5,7 @@
     "Version": "1.0.0",
     "ModuleConfig": {
         "SystemID": "HANDSTACK",
-        "BusinessServerUrl": "http://127.0.0.1:8002/api/transaction",
+        "BusinessServerUrl": "http://localhost:5000/api/transaction",
         "CircuitBreakResetSecond": 60,
         "DefaultCommandTimeout": 180,
         "IsExceptionDetailText": true,
@@ -13,7 +13,7 @@
         "IsContractFileWatchingUpdate": true,
         "ContractBasePath": "C:\\home\\ack\\modules\\transact\\Contracts",
         "AvailableEnvironment": "P,D,S",
-        "LogServerUrl": "http://127.0.0.1:8006/api/log",
+        "LogServerUrl": "http://localhost:5000/api/log",
         "IsCodeDataCache": true,
         "CodeDataCacheTimeout": 20,
         "TransactionLogFilePath": "C:\\home\\ack\\log\\transact\\transaction.log",

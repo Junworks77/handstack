@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
 
@@ -34,7 +35,7 @@ namespace HandStack.Web.Helpers
             {
                 return false;
             }
-            catch (Exception)
+            catch
             {
                 return false;
             }

@@ -1,4 +1,6 @@
-﻿namespace HandStack.Core.ExtensionMethod
+﻿using System;
+
+namespace HandStack.Core.ExtensionMethod
 {
     /// <code>
     /// Console.WriteLine("{0}", (3.3m).RoundUp() == 4m);

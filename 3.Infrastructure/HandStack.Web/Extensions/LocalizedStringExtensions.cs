@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc.Localization;
+﻿using System;
+using System.Linq;
+
+using Microsoft.AspNetCore.Mvc.Localization;
 
 namespace HandStack.Core.Extensions
 {

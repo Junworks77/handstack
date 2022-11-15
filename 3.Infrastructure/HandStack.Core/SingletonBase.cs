@@ -1,4 +1,6 @@
-﻿namespace HandStack.Core
+﻿using System;
+
+namespace HandStack.Core
 {
     public abstract class SingletonBase<T>
     {

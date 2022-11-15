@@ -1,4 +1,6 @@
-﻿namespace HandStack.Web.Modules
+﻿using System;
+
+namespace HandStack.Web.Modules
 {
     public class MissingModuleManifestException : Exception
     {

@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
+using System.Linq;
 
 using HandStack.Core.DataModel;
 using HandStack.Core.DataModel.Rules;
@@ -75,5 +77,4 @@ namespace HandStack.Web.MessageContract.Entitie
             return dataReader.ToObjectList<Repository>()?.FirstOrDefault();
         }
     }
-
 }

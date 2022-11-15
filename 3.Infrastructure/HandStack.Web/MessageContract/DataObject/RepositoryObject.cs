@@ -1,4 +1,7 @@
-﻿namespace HandStack.Web.MessageContract.DataObject
+﻿using System;
+using System.Collections.Generic;
+
+namespace HandStack.Web.MessageContract.DataObject
 {
     public class RepositoryObject
     {

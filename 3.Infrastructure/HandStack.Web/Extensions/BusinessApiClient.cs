@@ -6,6 +6,9 @@ using HandStack.Web.Entity;
 using HandStack.Web.MessageContract.DataObject;
 
 using Serilog;
+using System.Collections.Generic;
+using System;
+using System.Threading.Tasks;
 
 namespace HandStack.Web.Extensions
 {

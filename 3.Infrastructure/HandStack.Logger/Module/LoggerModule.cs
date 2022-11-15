@@ -1,4 +1,6 @@
-﻿namespace HandStack.Logger.Logging.Module
+﻿using System;
+
+namespace HandStack.Logger.Logging.Module
 {
     public abstract class LoggerModule
     {

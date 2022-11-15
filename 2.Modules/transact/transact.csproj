@@ -32,7 +32,6 @@
         <ProjectReference Include="..\..\3.Infrastructure\HandStack.Core\HandStack.Core.csproj" />
         <ProjectReference Include="..\..\3.Infrastructure\HandStack.Logger\HandStack.Logger.csproj" />
         <ProjectReference Include="..\..\3.Infrastructure\HandStack.Web\HandStack.Web.csproj" />
-        <ProjectReference Include="..\dataflow\dataflow.csproj" />
     </ItemGroup>
 
     <ItemGroup>

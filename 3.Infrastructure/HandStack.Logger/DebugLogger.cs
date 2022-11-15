@@ -1,4 +1,6 @@
-﻿namespace HandStack.Logger.Logging
+﻿using System;
+
+namespace HandStack.Logger.Logging
 {
     public class DebugLogger
     {

@@ -1,4 +1,6 @@
-﻿namespace HandStack.Data.SqlFormatter
+﻿using System.Collections.Generic;
+
+namespace HandStack.Data.SqlFormatter
 {
     internal struct SqlFormatterOptions
     {

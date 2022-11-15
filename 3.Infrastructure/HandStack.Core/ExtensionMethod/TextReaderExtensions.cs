@@ -1,4 +1,8 @@
-﻿namespace HandStack.Core.ExtensionMethod
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+
+namespace HandStack.Core.ExtensionMethod
 {
     public static class TextReaderExtensions
     {

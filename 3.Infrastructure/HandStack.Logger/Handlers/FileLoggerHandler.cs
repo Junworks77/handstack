@@ -1,4 +1,7 @@
-﻿using HandStack.Logger.Logging.Formatters;
+﻿using System;
+using System.IO;
+
+using HandStack.Logger.Logging.Formatters;
 
 namespace HandStack.Logger.Logging.Handlers
 {

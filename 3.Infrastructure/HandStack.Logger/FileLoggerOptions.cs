@@ -1,4 +1,6 @@
-﻿namespace HandStack.Logger
+﻿using System;
+
+namespace HandStack.Logger
 {
     public class FileLoggerOptions
     {

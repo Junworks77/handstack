@@ -1,4 +1,7 @@
-﻿namespace HandStack.Web.Entity
+﻿using System;
+using System.Collections.Generic;
+
+namespace HandStack.Web.Entity
 {
     public class ApplicationMember
     {

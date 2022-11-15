@@ -1,4 +1,6 @@
-﻿namespace HandStack.Core.DataModel
+﻿using System.Collections.Generic;
+
+namespace HandStack.Core.DataModel
 {
     public abstract class EntityObject : BaseEntity
     {

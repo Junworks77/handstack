@@ -3,6 +3,7 @@
 using Newtonsoft.Json;
 
 using HandStack.Web.MessageContract.Enumeration;
+using System.Collections.Generic;
 
 namespace HandStack.Web.Messages
 {

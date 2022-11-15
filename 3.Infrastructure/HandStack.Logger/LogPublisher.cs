@@ -1,4 +1,7 @@
-﻿namespace HandStack.Logger.Logging
+﻿using System;
+using System.Collections.Generic;
+
+namespace HandStack.Logger.Logging
 {
     internal class FilteredHandler : ILoggerHandler
     {

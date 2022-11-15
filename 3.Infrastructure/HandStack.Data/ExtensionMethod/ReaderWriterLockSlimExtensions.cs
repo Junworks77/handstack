@@ -1,4 +1,7 @@
-﻿namespace HandStack.Data.ExtensionMethod
+﻿using System;
+using System.Threading;
+
+namespace HandStack.Data.ExtensionMethod
 {
     public static partial class ReaderWriterLockSlimExtensions
     {

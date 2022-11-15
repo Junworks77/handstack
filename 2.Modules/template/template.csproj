@@ -13,13 +13,6 @@
 	</PropertyGroup>
 
     <ItemGroup>
-        <None Include="wwwroot\**" />
-        <None Update="wwwroot\**">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-    </ItemGroup>
-
-    <ItemGroup>
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
 
@@ -40,6 +33,10 @@
     </ItemGroup>
 
     <ItemGroup>
+        <None Include="wwwroot\**" />
+        <None Update="wwwroot\**">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
         <Content Update="module.json">
             <CopyToPublishDirectory>Never</CopyToPublishDirectory>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

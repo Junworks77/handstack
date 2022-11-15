@@ -1,4 +1,7 @@
-﻿namespace HandStack.Web.Helper
+﻿using System;
+using System.Collections.Generic;
+
+namespace HandStack.Web.Helper
 {
     public static class MimeHelper
     {

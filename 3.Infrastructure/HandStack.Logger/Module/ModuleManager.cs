@@ -1,4 +1,7 @@
-﻿namespace HandStack.Logger.Logging.Module
+﻿using System;
+using System.Collections.Generic;
+
+namespace HandStack.Logger.Logging.Module
 {
     public class ModuleManager
     {

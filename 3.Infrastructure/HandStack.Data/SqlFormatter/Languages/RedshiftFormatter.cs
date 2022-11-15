@@ -1,4 +1,6 @@
-﻿using HandStack.Data.SqlFormatter.Core;
+﻿using System;
+
+using HandStack.Data.SqlFormatter.Core;
 
 namespace HandStack.Data.SqlFormatter.Languages
 {

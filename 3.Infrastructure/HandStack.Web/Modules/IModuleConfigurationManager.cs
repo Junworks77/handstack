@@ -1,4 +1,6 @@
-﻿namespace HandStack.Web.Modules
+﻿using System.Collections.Generic;
+
+namespace HandStack.Web.Modules
 {
     public interface IModuleConfigurationManager
     {

@@ -1,4 +1,6 @@
-﻿namespace HandStack.Web.MessageContract.DataObject
+﻿using System.Collections.Generic;
+
+namespace HandStack.Web.MessageContract.DataObject
 {
     public partial class BearerToken
     {

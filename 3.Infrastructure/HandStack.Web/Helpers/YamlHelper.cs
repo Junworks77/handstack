@@ -7,6 +7,7 @@ using HandStack.Web.Enumeration;
 
 using YamlDotNet.Core;
 using YamlDotNet.Serialization;
+using System;
 
 namespace HandStack.Web.Helper
 {
@@ -31,7 +32,7 @@ namespace HandStack.Web.Helper
                 object? result = new DeserializerBuilder().Build().Deserialize<object>(input);
                 return result is not null and not string;
             }
-            catch (Exception)
+            catch
             {
                 return false;
             }

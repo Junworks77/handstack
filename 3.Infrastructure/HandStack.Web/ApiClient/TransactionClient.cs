@@ -14,6 +14,11 @@ using HandStack.Web.MessageContract.Message;
 using RestSharp;
 
 using Serilog;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Threading;
+using System.IO;
 
 namespace HandStack.Web.ApiClient
 {

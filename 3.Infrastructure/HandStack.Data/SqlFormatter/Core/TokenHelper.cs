@@ -1,4 +1,6 @@
-﻿namespace HandStack.Data.SqlFormatter.Core
+﻿using System;
+
+namespace HandStack.Data.SqlFormatter.Core
 {
     internal static class TokenHelper
     {

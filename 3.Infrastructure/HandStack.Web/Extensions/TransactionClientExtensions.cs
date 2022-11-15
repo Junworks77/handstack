@@ -1,4 +1,6 @@
-﻿using HandStack.Web.Entity;
+﻿using System.Collections.Generic;
+
+using HandStack.Web.Entity;
 
 namespace HandStack.Core.Extensions
 {

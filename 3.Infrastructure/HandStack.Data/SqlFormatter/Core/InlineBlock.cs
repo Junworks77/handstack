@@ -1,4 +1,7 @@
-﻿namespace HandStack.Data.SqlFormatter.Core
+﻿using System;
+using System.Collections.Generic;
+
+namespace HandStack.Data.SqlFormatter.Core
 {
     internal sealed class InlineBlock
     {

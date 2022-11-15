@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 
 using HandStack.Web.MessageContract.Contract;
+using System.Collections.Generic;
 
 namespace HandStack.Web.Entity
 {

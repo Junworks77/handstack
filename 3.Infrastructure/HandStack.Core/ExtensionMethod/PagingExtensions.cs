@@ -1,4 +1,7 @@
-﻿namespace HandStack.Core.ExtensionMethod
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace HandStack.Core.ExtensionMethod
 {
     public class PagingExtensions<T> : List<T>
     {

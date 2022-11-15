@@ -1,4 +1,7 @@
-﻿using Serilog.Core;
+﻿using System;
+using System.Collections.Generic;
+
+using Serilog.Core;
 using Serilog.Events;
 
 namespace HandStack.Web.Encapsulation

@@ -1,4 +1,6 @@
-﻿namespace HandStack.Core.DataModel.Rules
+﻿using System;
+
+namespace HandStack.Core.DataModel.Rules
 {
     public class CompareRule : BusinessRule
     {

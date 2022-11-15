@@ -9,11 +9,9 @@
 		<desc>MYSQL 거래 테스트</desc>
 	</header>
 	<commands>
-        <statement id="MD01" seq="0" use="Y" timeout="0" desc="스마트일보 근태 정보 병합" modified="2020-02-10 00:00:00">
+        <statement id="MD01" seq="0" use="Y" timeout="0" desc="테스트 근태 정보 병합" modified="2020-02-10 00:00:00">
             <![CDATA[
 			SELECT @COMPANY_NO AS COMPANY_NO
-                , @SMARTILBO_USER_NO AS SMARTILBO_USER_NO
-                , @SMARTILBO_USER_NAME AS SMARTILBO_USER_NAME
                 , @START_YN AS START_YN
                 , @START_DATE AS START_DATE
                 , @END_YN AS END_YN

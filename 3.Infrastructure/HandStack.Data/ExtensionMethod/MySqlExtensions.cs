@@ -6,6 +6,8 @@ using System.Text.RegularExpressions;
 using MySql.Data.MySqlClient;
 
 using HandStack.Core.ExtensionMethod;
+using System;
+using System.Collections.Generic;
 
 namespace HandStack.Data.ExtensionMethod
 {

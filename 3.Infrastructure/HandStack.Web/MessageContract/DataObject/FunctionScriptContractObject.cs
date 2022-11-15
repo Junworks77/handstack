@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 
 using HandStack.Web.MessageContract.Converter;
+using System;
+using System.Collections.Generic;
 
 namespace HandStack.Web.MessageContract.DataObject
 {
