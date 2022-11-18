@@ -6,9 +6,9 @@ using System.Data.Common;
 using System.Dynamic;
 using System.Linq;
 
-using Oracle.ManagedDataAccess.Client;
-
 using HandStack.Core.ExtensionMethod;
+
+using Oracle.ManagedDataAccess.Client;
 
 namespace HandStack.Data.Client
 {

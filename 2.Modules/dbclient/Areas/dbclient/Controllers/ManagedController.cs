@@ -2,12 +2,12 @@
 
 using dbclient.Extensions;
 
+using HandStack.Core.Extensions;
+
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-
-using HandStack.Core.Extensions;
 
 using Serilog;
 

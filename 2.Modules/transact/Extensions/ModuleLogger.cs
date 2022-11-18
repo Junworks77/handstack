@@ -5,12 +5,12 @@ using System.IO;
 using System.Net;
 using System.Threading;
 
+using HandStack.Core.ExtensionMethod;
+using HandStack.Web.MessageContract.Message;
+
 using Microsoft.Extensions.Configuration;
 
 using Newtonsoft.Json;
-
-using HandStack.Core.ExtensionMethod;
-using HandStack.Web.MessageContract.Message;
 
 using Polly;
 using Polly.CircuitBreaker;

@@ -388,6 +388,27 @@
                 if (context.domainPageLoad) {
                     context.domainPageLoad();
                 }
+                else {
+                    var hidden = null;
+                    if (document.forms) {
+                        for (var i = 0; i < document.forms.length; i++) {
+                            var form = document.forms[i];
+                            hidden = form.getAttribute('hidden');
+                            if ($object.isNullOrUndefined(hidden) == false && $string.toBoolean(hidden) == false) {
+                                form.removeAttribute('hidden');
+                                syn.$m.removeClass(form, 'hidden');
+                                form.style.display = '';
+                            }
+                        }
+                    }
+
+                    hidden = document.body.getAttribute('hidden');
+                    if ($object.isNullOrUndefined(hidden) == false && $string.toBoolean(hidden) == false) {
+                        document.body.removeAttribute('hidden');
+                        syn.$m.removeClass(document.body, 'hidden');
+                        document.body.style.display = '';
+                    }
+                }
 
                 setTimeout(function () {
                     if (mod && mod.context.synControls && ($object.isNullOrUndefined(mod.context.tabOrderControls) == true || mod.context.tabOrderControls.length == 0)) {
@@ -611,61 +632,62 @@
                         }
 
                         var controlModule = null;
-
-                        if (tagName.indexOf('SYN_') > -1) {
-                            var moduleName = tagName.substring(4).toLowerCase();
-                            controlModule = syn.uicontrols['$' + moduleName];
-                            controlType = moduleName;
-                        }
-                        else {
-                            switch (tagName) {
-                                case 'BUTTON':
-                                    controlModule = syn.uicontrols.$button;
-                                    controlType = 'button';
-                                    break;
-                                case 'INPUT':
-                                    controlType = synControl.getAttribute('type').toLowerCase();
-                                    switch (controlType) {
-                                        case 'hidden':
-                                        case 'text':
-                                        case 'password':
-                                        case 'color':
-                                        case 'email':
-                                        case 'number':
-                                        case 'search':
-                                        case 'tel':
-                                        case 'url':
-                                            controlModule = syn.uicontrols.$textbox;
-                                            break;
-                                        case 'submit':
-                                        case 'reset':
-                                        case 'button':
-                                            controlModule = syn.uicontrols.$button;
-                                            break;
-                                        case 'radio':
-                                            controlModule = syn.uicontrols.$radio;
-                                            break;
-                                        case 'checkbox':
-                                            controlModule = syn.uicontrols.$checkbox;
-                                            break;
-                                    }
-                                    break;
-                                case 'TEXTAREA':
-                                    controlModule = syn.uicontrols.$textarea;
-                                    controlType = 'textarea';
-                                    break;
-                                case 'SELECT':
-                                    if (synControl.getAttribute('multiple') == null) {
-                                        controlModule = syn.uicontrols.$select;
-                                        controlType = 'select';
-                                    }
-                                    else {
-                                        controlModule = syn.uicontrols.$multiselect;
-                                        controlType = 'multiselect';
-                                    }
-                                    break;
-                                default:
-                                    break;
+                        if (syn.uicontrols) {
+                            if (tagName.indexOf('SYN_') > -1) {
+                                var moduleName = tagName.substring(4).toLowerCase();
+                                controlModule = syn.uicontrols['$' + moduleName];
+                                controlType = moduleName;
+                            }
+                            else {
+                                switch (tagName) {
+                                    case 'BUTTON':
+                                        controlModule = syn.uicontrols.$button;
+                                        controlType = 'button';
+                                        break;
+                                    case 'INPUT':
+                                        controlType = synControl.getAttribute('type').toLowerCase();
+                                        switch (controlType) {
+                                            case 'hidden':
+                                            case 'text':
+                                            case 'password':
+                                            case 'color':
+                                            case 'email':
+                                            case 'number':
+                                            case 'search':
+                                            case 'tel':
+                                            case 'url':
+                                                controlModule = syn.uicontrols.$textbox;
+                                                break;
+                                            case 'submit':
+                                            case 'reset':
+                                            case 'button':
+                                                controlModule = syn.uicontrols.$button;
+                                                break;
+                                            case 'radio':
+                                                controlModule = syn.uicontrols.$radio;
+                                                break;
+                                            case 'checkbox':
+                                                controlModule = syn.uicontrols.$checkbox;
+                                                break;
+                                        }
+                                        break;
+                                    case 'TEXTAREA':
+                                        controlModule = syn.uicontrols.$textarea;
+                                        controlType = 'textarea';
+                                        break;
+                                    case 'SELECT':
+                                        if (synControl.getAttribute('multiple') == null) {
+                                            controlModule = syn.uicontrols.$select;
+                                            controlType = 'select';
+                                        }
+                                        else {
+                                            controlModule = syn.uicontrols.$multiselect;
+                                            controlType = 'multiselect';
+                                        }
+                                        break;
+                                    default:
+                                        break;
+                                }
                             }
                         }
 
@@ -890,8 +912,10 @@
                     context[syn.$w.pageScript] = mod;
                     context['$this'] = mod;
 
-                    for (var control in syn.uicontrols) {
-                        mod.uicontrols[control] = syn.uicontrols[control];
+                    if (syn.uicontrols) {
+                        for (var control in syn.uicontrols) {
+                            mod.uicontrols[control] = syn.uicontrols[control];
+                        }
                     }
 
                     if (context.domainLibraryLoad) {

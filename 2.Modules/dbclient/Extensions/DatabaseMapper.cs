@@ -12,19 +12,19 @@ using Dapper;
 
 using dbclient.NativeParameters;
 
-using HtmlAgilityPack;
-
-using Microsoft.Extensions.Configuration;
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
 using HandStack.Core.ExtensionMethod;
 using HandStack.Core.Extensions;
 using HandStack.Core.Helpers;
 using HandStack.Data;
 using HandStack.Web;
 using HandStack.Web.MessageContract.DataObject;
+
+using HtmlAgilityPack;
+
+using Microsoft.Extensions.Configuration;
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 using Serilog;
 

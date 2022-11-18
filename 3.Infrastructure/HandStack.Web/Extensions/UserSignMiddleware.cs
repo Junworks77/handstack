@@ -1,5 +1,12 @@
-﻿using System.Net;
+﻿using System;
+using System.Collections.Generic;
+using System.Net;
 using System.Security.Claims;
+using System.Threading.Tasks;
+
+using HandStack.Core.ExtensionMethod;
+using HandStack.Web;
+using HandStack.Web.Entity;
 
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.DataProtection;
@@ -8,14 +15,7 @@ using Microsoft.AspNetCore.Session;
 
 using Newtonsoft.Json;
 
-using HandStack.Core.ExtensionMethod;
-using HandStack.Web;
-using HandStack.Web.Entity;
-
 using Serilog;
-using System.Threading.Tasks;
-using System;
-using System.Collections.Generic;
 
 namespace HandStack.Core.Extensions
 {

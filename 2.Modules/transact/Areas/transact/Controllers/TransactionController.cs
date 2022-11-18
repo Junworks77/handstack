@@ -13,16 +13,6 @@ using System.Threading.Tasks;
 
 using ChoETL;
 
-using MediatR;
-
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
 using HandStack.Core.ExtensionMethod;
 using HandStack.Core.Extensions;
 using HandStack.Core.Helpers;
@@ -32,6 +22,16 @@ using HandStack.Web.MessageContract.Contract;
 using HandStack.Web.MessageContract.DataObject;
 using HandStack.Web.MessageContract.Enumeration;
 using HandStack.Web.MessageContract.Message;
+
+using MediatR;
+
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 using RestSharp;
 

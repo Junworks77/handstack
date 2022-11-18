@@ -1,16 +1,17 @@
-﻿using Microsoft.AspNetCore.DataProtection;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Session;
-
-using Newtonsoft.Json;
+﻿using System;
+using System.Threading.Tasks;
 
 using HandStack.Core.ExtensionMethod;
 using HandStack.Web;
 using HandStack.Web.Entity;
 
+using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Session;
+
+using Newtonsoft.Json;
+
 using Serilog;
-using System.Threading.Tasks;
-using System;
 
 namespace HandStack.Core.Extensions
 {

@@ -1,15 +1,15 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 
+using HandStack.Core.ExtensionMethod;
+
 using Npgsql;
 
 using NpgsqlTypes;
-
-using HandStack.Core.ExtensionMethod;
-using System;
-using System.Collections.Generic;
 
 namespace HandStack.Data.ExtensionMethod
 {

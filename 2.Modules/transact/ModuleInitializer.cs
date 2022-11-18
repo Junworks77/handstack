@@ -1,5 +1,11 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
+
+using HandStack.Core.ExtensionMethod;
+using HandStack.Logger.Logging.Handlers;
+using HandStack.Web;
+using HandStack.Web.Modules;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,16 +16,10 @@ using Microsoft.Extensions.FileProviders;
 
 using Newtonsoft.Json;
 
-using HandStack.Core.ExtensionMethod;
-using HandStack.Logger.Logging.Handlers;
-using HandStack.Web;
-using HandStack.Web.Modules;
-
 using Serilog;
 
 using transact.Entity;
 using transact.Extensions;
-using System;
 
 namespace transact
 {

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 
 using dbclient.DataClient;
@@ -6,6 +7,11 @@ using dbclient.Encapsulation;
 using dbclient.Entity;
 using dbclient.Events;
 using dbclient.Extensions;
+
+using HandStack.Logger;
+using HandStack.Logger.Logging.Handlers;
+using HandStack.Web;
+using HandStack.Web.Modules;
 
 using LiteDB;
 
@@ -21,13 +27,7 @@ using Microsoft.Extensions.Logging;
 
 using Newtonsoft.Json;
 
-using HandStack.Logger;
-using HandStack.Logger.Logging.Handlers;
-using HandStack.Web;
-using HandStack.Web.Modules;
-
 using Serilog;
-using System;
 
 namespace dbclient
 {

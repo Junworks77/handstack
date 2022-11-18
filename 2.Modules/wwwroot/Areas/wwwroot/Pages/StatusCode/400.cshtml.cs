@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using HandStack.Web.Extensions;
 
-using HandStack.Web.Extensions;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace wwwroot.Areas.wwwroot.Pages.StatusCode
 {

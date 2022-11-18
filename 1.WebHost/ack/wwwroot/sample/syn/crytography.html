@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>crytography</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <form autocomplete="off" id="form1" syn-datafield="MainForm">
+        <div id="wrap" class="sub">
+            <div class="bx_sep">
+                <header>
+                    syn.crytography (syn.$c)
+                </header>
+                <div class="tb_ly_a">
+                    <table>
+                        <colgroup>
+                            <col style="width:25%" />
+                            <col />
+                        </colgroup>
+                        <tr>
+                            <th scope="col">
+                                $crytography.base64Encode
+                            </th>
+                            <td>
+                                <input type="text" id="txtBase64Encode" value="">
+                                <input type="button" id="btnBase64Encode" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $crytography.base64Decode
+                            </th>
+                            <td>
+                                <input type="text" id="txtBase64Decode" value="">
+                                <input type="button" id="btnBase64Decode" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="/assets/js/syn.loader.js"></script>
+</body>
+</html>

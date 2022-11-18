@@ -53,18 +53,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "transact", "2.Modules\trans
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandStack.Data", "3.Infrastructure\HandStack.Data\HandStack.Data.csproj", "{6AE92154-8ADD-41C2-8C0F-CF1997EC9D2A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assemblies", "Assemblies", "{3AD4BB16-6D7D-42A2-AC45-E8870E72FBFA}"
-	ProjectSection(SolutionItems) = preProject
-		3.Infrastructure\Assemblies\HandStack.Core.dll = 3.Infrastructure\Assemblies\HandStack.Core.dll
-		3.Infrastructure\Assemblies\HandStack.Core.pdb = 3.Infrastructure\Assemblies\HandStack.Core.pdb
-		3.Infrastructure\Assemblies\HandStack.Data.dll = 3.Infrastructure\Assemblies\HandStack.Data.dll
-		3.Infrastructure\Assemblies\HandStack.Data.pdb = 3.Infrastructure\Assemblies\HandStack.Data.pdb
-		3.Infrastructure\Assemblies\HandStack.Logger.dll = 3.Infrastructure\Assemblies\HandStack.Logger.dll
-		3.Infrastructure\Assemblies\HandStack.Logger.pdb = 3.Infrastructure\Assemblies\HandStack.Logger.pdb
-		3.Infrastructure\Assemblies\HandStack.Web.dll = 3.Infrastructure\Assemblies\HandStack.Web.dll
-		3.Infrastructure\Assemblies\HandStack.Web.pdb = 3.Infrastructure\Assemblies\HandStack.Web.pdb
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "syncrypto", "4.Tool\Console\syncrypto\syncrypto.csproj", "{B3DE8D6F-C503-41DD-966C-CAAA53C80066}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "function-test", "4.Tool\Console\function-test\function-test.csproj", "{AFC63CF6-8AEF-4B66-88E2-4F499AD0C38B}"
@@ -170,7 +158,6 @@ Global
 		{CF63E5EB-7D3B-49AD-A1C5-2A7855283567} = {43B577AB-74FA-4B53-A2BE-E369622F970F}
 		{A2907FF2-9AA7-4128-9965-A9FE6D7EFA1B} = {43B577AB-74FA-4B53-A2BE-E369622F970F}
 		{6AE92154-8ADD-41C2-8C0F-CF1997EC9D2A} = {62D4FF65-F118-4D0E-8518-C6F4679EA63E}
-		{3AD4BB16-6D7D-42A2-AC45-E8870E72FBFA} = {62D4FF65-F118-4D0E-8518-C6F4679EA63E}
 		{B3DE8D6F-C503-41DD-966C-CAAA53C80066} = {A2BED698-3342-407F-B10B-53B32168CCFE}
 		{AFC63CF6-8AEF-4B66-88E2-4F499AD0C38B} = {A2BED698-3342-407F-B10B-53B32168CCFE}
 		{308D3CF6-1DCF-4967-B0EE-A5DBD223C76A} = {43B577AB-74FA-4B53-A2BE-E369622F970F}

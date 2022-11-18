@@ -2,13 +2,13 @@
 using System.IO;
 using System.Threading.Tasks;
 
+using HandStack.Core.Extensions;
+using HandStack.Web.MessageContract.Message;
+
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Net.Http.Headers;
 
 using Newtonsoft.Json;
-
-using HandStack.Core.Extensions;
-using HandStack.Web.MessageContract.Message;
 
 using Serilog;
 

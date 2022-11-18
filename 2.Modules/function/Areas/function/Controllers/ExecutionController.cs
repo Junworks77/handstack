@@ -8,17 +8,17 @@ using function.Encapsulation;
 using function.Entity;
 using function.Extensions;
 
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-
-using Newtonsoft.Json;
-
 using HandStack.Core.ExtensionMethod;
 using HandStack.Core.Extensions;
 using HandStack.Web;
 using HandStack.Web.MessageContract.Enumeration;
 using HandStack.Web.MessageContract.Message;
+
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+
+using Newtonsoft.Json;
 
 namespace function.Areas.function.Controllers
 {

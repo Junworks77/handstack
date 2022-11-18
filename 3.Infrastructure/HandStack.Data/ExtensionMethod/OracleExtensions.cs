@@ -1,13 +1,13 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 
-using Oracle.ManagedDataAccess.Client;
-
 using HandStack.Core.ExtensionMethod;
-using System;
-using System.Collections.Generic;
+
+using Oracle.ManagedDataAccess.Client;
 
 namespace HandStack.Data.ExtensionMethod
 {

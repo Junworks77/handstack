@@ -200,9 +200,11 @@
                     el[bind] = $resource.translateText(control, options);
                 }
                 else {
-                    var controlModule = syn.uicontrols['$' + control.module];
-                    if (controlModule && controlModule.setLocale) {
-                        controlModule.setLocale(control.elID, $resource.translations, control, options);
+                    if (syn.uicontrols) {
+                        var controlModule = syn.uicontrols['$' + control.module];
+                        if (controlModule && controlModule.setLocale) {
+                            controlModule.setLocale(control.elID, $resource.translations, control, options);
+                        }
                     }
                 }
             }

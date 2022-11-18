@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>keyboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <form autocomplete="off" id="form1" syn-datafield="MainForm">
+        <div id="wrap" class="sub">
+            <div class="bx_sep">
+                <header>
+                    syn.keyboard (syn.$k)
+                </header>
+                <div class="tb_ly_a">
+                    <table>
+                        <colgroup>
+                            <col style="width:25%" />
+                            <col />
+                        </colgroup>
+                        <tr>
+                            <th scope="col">
+                                $keyboard.addKeyDown,$keyboard.removeKeyDown
+                            </th>
+                            <td>
+                                <input type="text" id="txtAddKeyDown" value="" />
+                                <input type="button" id="btnAddKeyDown" value="AddKeyDown" syn-events="['click']" />
+                                <input type="button" id="btnRemoveKeyDown" value="RemoveKeyDown" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $keyboard.addKeyUp,$keyboard.removeKeyUp
+                            </th>
+                            <td>
+                                <input type="text" id="txtAddKeyUp" value="" />
+                                <input type="button" id="btnAddKeyUp" value="AddKeyUp" syn-events="['click']" />
+                                <input type="button" id="btnRemoveKeyUp" value="RemoveKeyUp" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $keyboard.addKeyPress,$keyboard.removeKeyPress
+                            </th>
+                            <td>
+                                <input type="text" id="txtAddKeyPress" value="" />
+                                <input type="button" id="btnAddKeyPress" value="AddKeyPress" syn-events="['click']" />
+                                <input type="button" id="btnRemoveKeyPress" value="RemoveKeyPress" syn-events="['click']" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="/assets/js/syn.loader.js"></script>
+</body>
+</html>

@@ -1,9 +1,11 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Dynamic;
+using System.IO;
 using System.Net;
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 using HandStack.Core.ExtensionMethod;
 using HandStack.Web.Entity;
@@ -11,14 +13,12 @@ using HandStack.Web.MessageContract.Contract;
 using HandStack.Web.MessageContract.Enumeration;
 using HandStack.Web.MessageContract.Message;
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 using RestSharp;
 
 using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Threading;
-using System.IO;
 
 namespace HandStack.Web.ApiClient
 {

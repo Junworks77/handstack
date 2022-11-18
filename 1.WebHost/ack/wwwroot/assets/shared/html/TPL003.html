@@ -1,7 +1,0 @@
-<!--업무문서 (EST010, EST020, EST040) 화면의 첨부파일목록-->
-{{#document_files}}
-<li class="col-12 leading-4 p-1 cursor-pointer">
-    <i class="ri-attachment-2" id="file_{{FILE_ID}}" onclick="$this.documentFileDownload('{{FILE_ID}}')"> {{FILE_NAME}}</i>
-    <button type="button" class="icon-delete" onclick="$this.deleteDocumentFile('{{FILE_ID}}')"></button>
-</li>
-{{/document_files}}

@@ -1,9 +1,9 @@
-﻿using System.ComponentModel;
-
-using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 
 using HandStack.Web.MessageContract.Enumeration;
-using System.Collections.Generic;
+
+using Newtonsoft.Json;
 
 namespace HandStack.Web.Messages
 {

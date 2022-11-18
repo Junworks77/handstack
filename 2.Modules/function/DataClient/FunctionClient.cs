@@ -11,12 +11,6 @@ using function.Encapsulation;
 using function.Entity;
 using function.Extensions;
 
-using Jering.Javascript.NodeJS;
-
-using Microsoft.Extensions.Logging;
-
-using Newtonsoft.Json;
-
 using HandStack.Core.Extensions;
 using HandStack.Web;
 using HandStack.Web.Entity;
@@ -24,6 +18,12 @@ using HandStack.Web.Extensions;
 using HandStack.Web.MessageContract.DataObject;
 using HandStack.Web.MessageContract.Enumeration;
 using HandStack.Web.MessageContract.Message;
+
+using Jering.Javascript.NodeJS;
+
+using Microsoft.Extensions.Logging;
+
+using Newtonsoft.Json;
 
 namespace function.DataClient
 {

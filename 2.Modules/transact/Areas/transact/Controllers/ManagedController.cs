@@ -1,13 +1,13 @@
 ﻿using System;
 
+using HandStack.Core.Extensions;
+using HandStack.Core.Helpers;
+using HandStack.Web;
+
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-
-using HandStack.Core.Extensions;
-using HandStack.Core.Helpers;
-using HandStack.Web;
 
 using Serilog;
 

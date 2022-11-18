@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 using function.Encapsulation;
 using function.Extensions;
 
+using HandStack.Core.Extensions;
+using HandStack.Web;
+using HandStack.Web.MessageContract.Enumeration;
+using HandStack.Web.MessageContract.Message;
+
 using MediatR;
 
 using Microsoft.Extensions.Logging;
 
 using Newtonsoft.Json;
-
-using HandStack.Core.Extensions;
-using HandStack.Web;
-using HandStack.Web.MessageContract.Enumeration;
-using HandStack.Web.MessageContract.Message;
 
 namespace function.Events
 {

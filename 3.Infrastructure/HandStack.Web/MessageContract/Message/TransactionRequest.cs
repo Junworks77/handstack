@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
-
-using HandStack.Web.MessageContract.Contract;
+﻿using HandStack.Web.MessageContract.Contract;
 using HandStack.Web.Messages;
+
+using Newtonsoft.Json;
 
 namespace HandStack.Web.MessageContract.Message
 {

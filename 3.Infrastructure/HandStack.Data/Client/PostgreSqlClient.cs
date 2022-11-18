@@ -6,11 +6,11 @@ using System.Data.Common;
 using System.Dynamic;
 using System.Linq;
 
+using HandStack.Core.ExtensionMethod;
+
 using Npgsql;
 
 using NpgsqlTypes;
-
-using HandStack.Core.ExtensionMethod;
 
 namespace HandStack.Data.Client
 {

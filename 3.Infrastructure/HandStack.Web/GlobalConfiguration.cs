@@ -1,20 +1,20 @@
-﻿using System.Net;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
 using System.Text;
+
+using HandStack.Web.Helpers;
+using HandStack.Web.Model;
+using HandStack.Web.Modules;
 
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 
 using Newtonsoft.Json.Linq;
 
-using HandStack.Web.Helpers;
-using HandStack.Web.Model;
-using HandStack.Web.Modules;
-
 using Serilog;
-using System.Collections.Generic;
-using System;
-using System.Linq;
-using System.IO;
 
 namespace HandStack.Web
 {

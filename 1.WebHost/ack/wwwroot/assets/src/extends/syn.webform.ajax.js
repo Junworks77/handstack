@@ -185,6 +185,10 @@
                             module.transaction = syn.$w.argumentsExtend($base.transaction, module.transaction);
                             module.method = syn.$w.argumentsExtend($base.method, module.method);
                             module.message = syn.$w.argumentsExtend($base.message, module.message);
+
+                            if (base.hook.extendLoad) {
+                                base.hook.extendLoad();
+                            }
                         }
                     }
 

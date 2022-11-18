@@ -1,5 +1,9 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
+
+using HandStack.Web;
+using HandStack.Web.Modules;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -7,10 +11,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
-
-using HandStack.Web;
-using HandStack.Web.Modules;
-using System;
 
 namespace wwwroot
 {
@@ -30,7 +30,7 @@ namespace wwwroot
         public void Configure(IApplicationBuilder app, IWebHostEnvironment? webHostEnvironment)
         {
             ModuleInfo? module = GlobalConfiguration.Modules.FirstOrDefault(p => p.ModuleID == typeof(ModuleInitializer).Assembly.GetName().Name);
-            if (module != null)
+            if (string.IsNullOrEmpty(ModuleID) == false && module != null)
             {
                 app.UseStatusCodePagesWithReExecute("/error/{0}");
                 app.UseExceptionHandler("/error/500");

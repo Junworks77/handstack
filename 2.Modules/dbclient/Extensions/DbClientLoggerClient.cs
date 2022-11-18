@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading;
 
-using Newtonsoft.Json;
-
 using HandStack.Web;
 using HandStack.Web.MessageContract.Message;
+
+using Newtonsoft.Json;
 
 using Polly;
 using Polly.CircuitBreaker;

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -7,6 +8,11 @@ using function.Encapsulation;
 using function.Entity;
 using function.Events;
 using function.Extensions;
+
+using HandStack.Logger;
+using HandStack.Logger.Logging.Handlers;
+using HandStack.Web;
+using HandStack.Web.Modules;
 
 using Jering.Javascript.NodeJS;
 
@@ -24,13 +30,7 @@ using Microsoft.Extensions.Logging;
 
 using Newtonsoft.Json;
 
-using HandStack.Logger;
-using HandStack.Logger.Logging.Handlers;
-using HandStack.Web;
-using HandStack.Web.Modules;
-
 using Serilog;
-using System;
 
 namespace function
 {

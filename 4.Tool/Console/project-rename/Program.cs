@@ -19,7 +19,7 @@ namespace project_rename
         private static int replaceInFileNamesCount;
         private static int replaceInDirectoryNamesCount;
 
-        /// <param name="args">project_rename /source=C:\projects\handsoft.handstack\2.Modules\template\ /target=C:\projects\handsoft.handstack\2.Modules\destination /find=template /replace=destination</param>
+        /// <param name="args">project_rename /source=C:\projects\handstack\2.Modules\template\ /target=C:\projects\handstack.modules\starter /find=template /replace=starter</param>
         static void Main(string[] args)
         {
             TraceLogger.LoggerHandlerManager

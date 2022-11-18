@@ -4,14 +4,14 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 
+using HandStack.Core.Extensions;
+using HandStack.Web;
+using HandStack.Web.MessageContract.DataObject;
+
 using Microsoft.Extensions.Configuration;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-
-using HandStack.Core.Extensions;
-using HandStack.Web;
-using HandStack.Web.MessageContract.DataObject;
 
 using Serilog;
 

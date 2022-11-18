@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 
-using Microsoft.Extensions.Configuration;
-
 using HandStack.Web.MessageContract.Message;
+
+using Microsoft.Extensions.Configuration;
 
 using Polly.CircuitBreaker;
 

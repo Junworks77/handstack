@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>dimension</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <form autocomplete="off" id="form1" syn-datafield="MainForm">
+        <div id="wrap" class="sub">
+            <div class="bx_sep">
+                <header>
+                    syn.dimension (syn.$d)
+                </header>
+                <div class="tb_ly_a">
+                    <table>
+                        <colgroup>
+                            <col style="width:25%" />
+                            <col />
+                        </colgroup>
+                        <tr>
+                            <th scope="col">
+                                $dimension.getDocumentSize
+                            </th>
+                            <td>
+                                <input type="text" id="txtGetDocumentSize" value="">
+                                <input type="button" id="btnGetDocumentSize" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $dimension.getWindowSize
+                            </th>
+                            <td>
+                                <input type="text" id="txtGetWindowSize" value="">
+                                <input type="button" id="btnGetWindowSize" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $dimension.getScrollSize
+                            </th>
+                            <td>
+                                <input type="text" id="txtGetScrollSize" value="">
+                                <input type="button" id="btnGetScrollSize" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $dimension.getMousePosition
+                            </th>
+                            <td>
+                                <input type="text" id="txtGetMousePosition" value="">
+                                <input type="button" id="btnGetMousePosition" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $dimension.offsetLeft
+                            </th>
+                            <td>
+                                <input type="text" id="txtOffsetLeft" value="txtGetMousePosition 텍스트박스의 left 위치">
+                                <input type="button" id="btnOffsetLeft" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $dimension.parentOffsetLeft
+                            </th>
+                            <td id="tdParntOffLeft">
+                                <input type="text" id="txtParentOffsetLeft" value="tdParntOffLeft <td>의 부모요소와의 상대적 left 위치">
+                                <input type="button" id="btnParentOffsetLeft" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $dimension.offsetTop
+                            </th>
+                            <td>
+                                <input type="text" id="txtOffsetTop" value="txtOffsetTop 텍스트 박스의 top위치">
+                                <input type="button" id="btnOffsetTop" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $dimension.parentOffsetTop
+                            </th>
+                            <td id="tdParentOffsetTop">
+                                <input type="text" id="txtParentOffsetTop" value="tdParentOffsetTop <td>의 부모요소와의 상대적 top 위치">
+                                <input type="button" id="btnParentOffsetTop" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $dimension.getBounds
+                            </th>
+                            <td id="tdGetBounds">
+                                <input type="text" id="txtGetBounds" value="tdGetBounds <td>의 부모요소와의 상대적 위치">
+                                <input type="button" id="btnGetBounds" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $dimension.getPosition
+                            </th>
+                            <td>
+                                <input type="text" id="txtGetPosition" value="txtGetPosition 텍스트박스의 위치">
+                                <input type="button" id="btnGetPosition" value="호출" syn-events="['click']" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="/assets/js/syn.loader.js"></script>
+</body>
+</html>

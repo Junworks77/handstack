@@ -6,17 +6,17 @@ using System.Linq;
 using dbclient.Encapsulation;
 using dbclient.Extensions;
 
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-
-using Newtonsoft.Json;
-
 using HandStack.Core.ExtensionMethod;
 using HandStack.Core.Extensions;
 using HandStack.Web;
 using HandStack.Web.MessageContract.Enumeration;
 using HandStack.Web.MessageContract.Message;
+
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+
+using Newtonsoft.Json;
 
 namespace dbclient.Areas.dbclient.Controllers
 {

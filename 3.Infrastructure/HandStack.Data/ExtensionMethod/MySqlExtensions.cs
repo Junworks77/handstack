@@ -1,13 +1,13 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 
-using MySql.Data.MySqlClient;
-
 using HandStack.Core.ExtensionMethod;
-using System;
-using System.Collections.Generic;
+
+using MySql.Data.MySqlClient;
 
 namespace HandStack.Data.ExtensionMethod
 {

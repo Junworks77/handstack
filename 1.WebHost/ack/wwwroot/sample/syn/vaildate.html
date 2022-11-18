@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>validation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <form autocomplete="off" id="form1" syn-datafield="MainForm">
+        <div id="wrap" class="sub">
+            <div class="bx_sep">
+                <header>
+                    syn.$vaildation (syn.$v)
+                </header>
+                <div class="tb_ly_a">
+                    <table>
+                        <colgroup>
+                            <col style="width:25%" />
+                            <col />
+                        </colgroup>
+                        <tr>
+                            <th scope="col">
+                                $v.setElement
+                            </th>
+                            <td>
+                                <input type="text" id="txtSetElement" value="Element!" />
+                                <input type="button" id="btnConfirmSetElement" value="Element 확인" syn-events="['click']" />
+                                <input type="button" id="btnSetElement" value="Element 지정" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $v.required
+                            </th>
+                            <td>
+                                <input type="text" id="txtRequired" value="" />
+                                <input type="button" id="btnRequired" value="Required" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $v.addPattern
+                            </th>
+                            <td>
+                                <input type="text" id="txtAddPattern" value="" />
+                                <input type="button" id="btnAddPattern" value="AddPattern" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $v.addRange
+                            </th>
+                            <td>
+                                <input type="text" id="txtAddRange" value="" />
+                                <input type="button" id="btnAddRange" value="AddRange" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $v.addCustom
+                            </th>
+                            <td>
+                                <input type="text" id="txtAddCustom" value="" />
+                                <input type="button" id="btnAddCustom" value="AddCustom" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $v.remove
+                            </th>
+                            <td>
+                                <input type="button" id="btnRemove" value="txtSetElement 유효성 검사기 삭제" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $v.clear
+                            </th>
+                            <td>
+                                <input type="button" id="btnClear" value="txtRequired 유효성 검사기 초기화" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $v.validateControls
+                            </th>
+                            <td>
+                                <input type="button" id="btnValidateControls" value="ValidateControls" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $v.validateForm
+                            <td>
+                                <input type="text" id="txtValidateForm" value="" />
+                                <input type="button" id="btntxtValidateForm" value="ValidateForm" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $v.toInvalidMessages
+                            <td>
+                                <input type="text" id="txtToInvalidMessages" value="" />
+                                <input type="button" id="btnToInvalidMessages" value="ToInvalidMessages" syn-events="['click']" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                $v.init
+                            <td>
+                                <input type="button" id="btnInit" value="Init" syn-events="['click']" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="/assets/js/syn.loader.js"></script>
+</body>
+</html>

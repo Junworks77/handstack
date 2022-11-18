@@ -18,7 +18,6 @@
     "ManagedServer": "http://localhost:8001",
     "FileManagerServer": "http://localhost:8004",
     "FindClientIPServer": "https://checkip.amazonaws.com",
-    "BundlingServer": "",
     "FileServerType": "L",
     "FileBusinessIDSource": "None",
     "Environment": "Development",

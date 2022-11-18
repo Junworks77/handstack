@@ -1,7 +1,0 @@
-<!--업무문서 (EST020, EST030) 화면의 관련문서목록-->
-{{#related_documents}}
-<li class="col-12 leading-4 p-1 cursor-pointer">
-    <i class="vertical-middle ri-file-mark-line" id="doc_{{RELATED_APPROVAL_NO}}" onclick="$this.relatedDocumentView('{{RELATED_APPROVAL_NO}}', '{{COMPANY_NO}}', '{{DOCUMENT_NO}}')"> {{APPROVAL_NAME}}</i>
-    <button type="button" class="icon-delete" onclick="$this.relatedDocumentDelete('{{RELATED_APPROVAL_NO}}')"></button>
-</li>
-{{/related_documents}}
