@@ -38,6 +38,7 @@ using HandStack.Web.Extensions;
 using HandStack.Web.Modules;
 
 using Serilog;
+using HandStack.Core.ExtensionMethod;
 
 namespace ack
 {
@@ -396,6 +397,12 @@ namespace ack
                     };
                     context.Response.Headers["Content-Type"] = "application/json";
                     await context.Response.WriteAsync(JsonConvert.SerializeObject(result));
+                });
+
+                endpoints.MapGet("/checkip", async context =>
+                {
+                    context.Response.Headers["Content-Type"] = "text/html";
+                    await context.Response.WriteAsync(context.GetRemoteIpAddress().ToStringSafe());
                 });
             });
 

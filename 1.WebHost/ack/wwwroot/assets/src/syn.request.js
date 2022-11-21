@@ -103,7 +103,7 @@
                 timeout = 0;
             }
 
-            var xhr = new syn.$w.xmlHttp();
+            var xhr = syn.$w.xmlHttp();
             xhr.timeout = timeout;
             xhr.open(method, url, true);
 
@@ -209,7 +209,7 @@
                 timeout = 0;
             }
 
-            var xhr = new syn.$w.xmlHttp();
+            var xhr = syn.$w.xmlHttp();
             xhr.open('POST', url, true);
 
             if (syn.$w.setServiceClientHeader) {
@@ -313,7 +313,7 @@
                 return;
             }
 
-            var xhr = new syn.$w.xmlHttp();
+            var xhr = syn.$w.xmlHttp();
             xhr.open('GET', url);
 
             if (syn.$w.setServiceClientHeader) {
@@ -338,7 +338,7 @@
                 return;
             }
 
-            var xhr = new syn.$w.xmlHttp();
+            var xhr = syn.$w.xmlHttp();
             xhr.open('GET', url);
 
             if (syn.$w.setServiceClientHeader) {

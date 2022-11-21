@@ -2597,6 +2597,11 @@
                     });
                 }, null, isAsyncLoad);
             }
+
+            if (globalRoot.devicePlatform === 'browser') {
+                syn.$b.appName = syn.Config.HostName;
+                syn.$b.appCodeName = syn.Config.ApplicationID;
+            }
         }
     }
 })(globalRoot);
