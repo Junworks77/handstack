@@ -176,8 +176,9 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    var $resource = $resource || new syn.module();
-    var document = globalThis.document;
+    var $resource = context.$resource || new syn.module();
+    var document = context.document;
+
     $resource.extend({
         version: '1.0',
         localeID: 'ko-KR',
@@ -374,9 +375,11 @@ globalRoot.syn = syn;
                     el[bind] = $resource.translateText(control, options);
                 }
                 else {
-                    var controlModule = syn.uicontrols['$' + control.module];
-                    if (controlModule && controlModule.setLocale) {
-                        controlModule.setLocale(control.elID, $resource.translations, control, options);
+                    if (syn.uicontrols) {
+                        var controlModule = syn.uicontrols['$' + control.module];
+                        if (controlModule && controlModule.setLocale) {
+                            controlModule.setLocale(control.elID, $resource.translations, control, options);
+                        }
                     }
                 }
             }
@@ -464,7 +467,7 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    var $ref = $ref || new syn.module();
+    var $ref = context.$ref || new syn.module();
 
     $ref.extend({
         version: '1.0',
@@ -738,7 +741,7 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    var $crytography = $crytography || new syn.module();
+    var $crytography = context.$crytography || new syn.module();
 
     $crytography.extend({
         version: '1.0',
@@ -752,8 +755,6 @@ globalRoot.syn = syn;
                     return String.fromCharCode(parseInt(p1, 16));
                 }));
             }
-
-            return null;
         },
 
         base64Decode(val) {
@@ -765,11 +766,9 @@ globalRoot.syn = syn;
                     return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
                 }).join(''));
             }
-
-            return null;
         },
 
-        utf8Encode(unicodeString) {
+        utf8Encode: function (unicodeString) {
             if (typeof unicodeString != 'string') {
                 throw new TypeError('parameter ‘unicodeString’ is not a string');
             }
@@ -777,14 +776,15 @@ globalRoot.syn = syn;
             var utf8String = unicodeString.replace(/[\u0080-\u07ff]/g, function (c) {
                 var cc = c.charCodeAt(0);
                 return String.fromCharCode(0xc0 | cc >> 6, 0x80 | cc & 0x3f);
-            }).replace(/[\u0800-\uffff]/g, function (c) {
-                var cc = c.charCodeAt(0);
-                return String.fromCharCode(0xe0 | cc >> 12, 0x80 | cc >> 6 & 0x3F, 0x80 | cc & 0x3f);
-            });
+            }).replace(/[\u0800-\uffff]/g,
+                function (c) {
+                    var cc = c.charCodeAt(0);
+                    return String.fromCharCode(0xe0 | cc >> 12, 0x80 | cc >> 6 & 0x3F, 0x80 | cc & 0x3f);
+                });
             return utf8String;
         },
 
-        utf8Decode(utf8String) {
+        utf8Decode: function (utf8String) {
             if (typeof utf8String != 'string') {
                 throw new TypeError('parameter ‘utf8String’ is not a string');
             }
@@ -1470,8 +1470,7 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-
-    var $stringbuilder = $stringbuilder || new syn.module();
+    var $stringbuilder = context.$stringbuilder || new syn.module();
 
     $stringbuilder.extend({
         version: '1.0',
@@ -1527,11 +1526,11 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    var $date = $date || new syn.module();
-    var $array = $array || new syn.module();
-    var $string = $string || new syn.module();
-    var $number = $number || new syn.module();
-    var $object = $object || new syn.module();
+    var $date = context.$date || new syn.module();
+    var $array = context.$array || new syn.module();
+    var $string = context.$string || new syn.module();
+    var $number = context.$number || new syn.module();
+    var $object = context.$object || new syn.module();
 
     (function () {
         var UID = {
@@ -2887,7 +2886,7 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    var $library = $library || new syn.module();
+    var $library = context.$library || new syn.module();
     var document = null;
     if (globalRoot.devicePlatform === 'node') {
     }
@@ -3964,7 +3963,7 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    var $webform = $webform || new syn.module();
+    var $webform = context.$webform || new syn.module();
     var document = null;
     if (globalRoot.devicePlatform === 'node') {
     }
@@ -4349,6 +4348,27 @@ globalRoot.syn = syn;
                 if (context.domainPageLoad) {
                     context.domainPageLoad();
                 }
+                else {
+                    var hidden = null;
+                    if (document.forms) {
+                        for (var i = 0; i < document.forms.length; i++) {
+                            var form = document.forms[i];
+                            hidden = form.getAttribute('hidden');
+                            if ($object.isNullOrUndefined(hidden) == false && $string.toBoolean(hidden) == false) {
+                                form.removeAttribute('hidden');
+                                syn.$m.removeClass(form, 'hidden');
+                                form.style.display = '';
+                            }
+                        }
+                    }
+
+                    hidden = document.body.getAttribute('hidden');
+                    if ($object.isNullOrUndefined(hidden) == false && $string.toBoolean(hidden) == false) {
+                        document.body.removeAttribute('hidden');
+                        syn.$m.removeClass(document.body, 'hidden');
+                        document.body.style.display = '';
+                    }
+                }
 
                 setTimeout(function () {
                     if (mod && mod.context.synControls && ($object.isNullOrUndefined(mod.context.tabOrderControls) == true || mod.context.tabOrderControls.length == 0)) {
@@ -4572,61 +4592,62 @@ globalRoot.syn = syn;
                         }
 
                         var controlModule = null;
-
-                        if (tagName.indexOf('SYN_') > -1) {
-                            var moduleName = tagName.substring(4).toLowerCase();
-                            controlModule = syn.uicontrols['$' + moduleName];
-                            controlType = moduleName;
-                        }
-                        else {
-                            switch (tagName) {
-                                case 'BUTTON':
-                                    controlModule = syn.uicontrols.$button;
-                                    controlType = 'button';
-                                    break;
-                                case 'INPUT':
-                                    controlType = synControl.getAttribute('type').toLowerCase();
-                                    switch (controlType) {
-                                        case 'hidden':
-                                        case 'text':
-                                        case 'password':
-                                        case 'color':
-                                        case 'email':
-                                        case 'number':
-                                        case 'search':
-                                        case 'tel':
-                                        case 'url':
-                                            controlModule = syn.uicontrols.$textbox;
-                                            break;
-                                        case 'submit':
-                                        case 'reset':
-                                        case 'button':
-                                            controlModule = syn.uicontrols.$button;
-                                            break;
-                                        case 'radio':
-                                            controlModule = syn.uicontrols.$radio;
-                                            break;
-                                        case 'checkbox':
-                                            controlModule = syn.uicontrols.$checkbox;
-                                            break;
-                                    }
-                                    break;
-                                case 'TEXTAREA':
-                                    controlModule = syn.uicontrols.$textarea;
-                                    controlType = 'textarea';
-                                    break;
-                                case 'SELECT':
-                                    if (synControl.getAttribute('multiple') == null) {
-                                        controlModule = syn.uicontrols.$select;
-                                        controlType = 'select';
-                                    }
-                                    else {
-                                        controlModule = syn.uicontrols.$multiselect;
-                                        controlType = 'multiselect';
-                                    }
-                                    break;
-                                default:
-                                    break;
+                        if (syn.uicontrols) {
+                            if (tagName.indexOf('SYN_') > -1) {
+                                var moduleName = tagName.substring(4).toLowerCase();
+                                controlModule = syn.uicontrols['$' + moduleName];
+                                controlType = moduleName;
+                            }
+                            else {
+                                switch (tagName) {
+                                    case 'BUTTON':
+                                        controlModule = syn.uicontrols.$button;
+                                        controlType = 'button';
+                                        break;
+                                    case 'INPUT':
+                                        controlType = synControl.getAttribute('type').toLowerCase();
+                                        switch (controlType) {
+                                            case 'hidden':
+                                            case 'text':
+                                            case 'password':
+                                            case 'color':
+                                            case 'email':
+                                            case 'number':
+                                            case 'search':
+                                            case 'tel':
+                                            case 'url':
+                                                controlModule = syn.uicontrols.$textbox;
+                                                break;
+                                            case 'submit':
+                                            case 'reset':
+                                            case 'button':
+                                                controlModule = syn.uicontrols.$button;
+                                                break;
+                                            case 'radio':
+                                                controlModule = syn.uicontrols.$radio;
+                                                break;
+                                            case 'checkbox':
+                                                controlModule = syn.uicontrols.$checkbox;
+                                                break;
+                                        }
+                                        break;
+                                    case 'TEXTAREA':
+                                        controlModule = syn.uicontrols.$textarea;
+                                        controlType = 'textarea';
+                                        break;
+                                    case 'SELECT':
+                                        if (synControl.getAttribute('multiple') == null) {
+                                            controlModule = syn.uicontrols.$select;
+                                            controlType = 'select';
+                                        }
+                                        else {
+                                            controlModule = syn.uicontrols.$multiselect;
+                                            controlType = 'multiselect';
+                                        }
+                                        break;
+                                    default:
+                                        break;
+                                }
                             }
                         }
 
@@ -4851,8 +4872,10 @@ globalRoot.syn = syn;
                     context[syn.$w.pageScript] = mod;
                     context['$this'] = mod;
 
-                    for (var control in syn.uicontrols) {
-                        mod.uicontrols[control] = syn.uicontrols[control];
+                    if (syn.uicontrols) {
+                        for (var control in syn.uicontrols) {
+                            mod.uicontrols[control] = syn.uicontrols[control];
+                        }
                     }
 
                     if (context.domainLibraryLoad) {
@@ -6446,16 +6469,6 @@ globalRoot.syn = syn;
         if (process.env.SYN_CONFIG) {
             syn.Config = JSON.parse(process.env.SYN_CONFIG);
         }
-        else {
-            var synConfigPath = path.join(path.dirname(require.main.filename), 'syn.config.json')
-            if (fs.existsSync(synConfigPath) == true) {
-                syn.Config = JSON.parse(fs.readFileSync(synConfigPath, 'utf8'));
-
-                process.env.SYN_LogMinimumLevel = syn.Config.LogMinimumLevel;
-                process.env.SYN_FileLogBasePath = syn.Config.FileLogBasePath;
-                process.env.SYN_LocalStoragePath = syn.Config.LocalStoragePath;
-            }
-        }
 
         if (syn.Config && $string.isNullOrEmpty(syn.Config.DataSourceFilePath) == true) {
             syn.Config.DataSourceFilePath = path.join(process.cwd(), 'BusinessContract/Database/DataSource.xml');
@@ -6544,6 +6557,11 @@ globalRoot.syn = syn;
                     });
                 }, null, isAsyncLoad);
             }
+
+            if (globalRoot.devicePlatform === 'browser') {
+                syn.$b.appName = syn.Config.HostName;
+                syn.$b.appCodeName = syn.Config.ApplicationID;
+            }
         }
     }
 })(globalRoot);
@@ -6553,7 +6571,7 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    var $request = $request || new syn.module();
+    var $request = context.$request || new syn.module();
     var document = null;
     if (globalRoot.devicePlatform === 'node') {
     }
@@ -7169,6 +7187,10 @@ globalRoot.syn = syn;
                             module.transaction = syn.$w.argumentsExtend($base.transaction, module.transaction);
                             module.method = syn.$w.argumentsExtend($base.method, module.method);
                             module.message = syn.$w.argumentsExtend($base.message, module.message);
+
+                            if ($base.hook && $base.hook.extendLoad) {
+                                base.hook.extendLoad(module);
+                            }
                         }
                     }
 
@@ -7898,7 +7920,8 @@ globalRoot.syn = syn;
 /// AP Node.js 전용 라이브러리
 /// </summary>
 (function (context) {
-    var $system = $system || new syn.module();
+    'use strict';
+    var $system = context.$system || new syn.module();
 
     $system.extend({
         version: "1.0",

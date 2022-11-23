@@ -3,7 +3,7 @@
 
 (function (context) {
     'use strict';
-    var $validation = $validation || new syn.module();
+    var $validation = context.$validation || new syn.module();
     var document = context.document;
 
     $validation.extend({

@@ -2,6 +2,21 @@
 
 (function (context) {
     'use strict';
+    var $channel = context.$channel || new syn.module();
+    var document = context.document;
+
+    $channel.extend({
+        version: "1.0",
+
+        method() {
+            return this;
+        }
+    });
+    syn.$channel = $channel;
+})(globalRoot);
+
+(function (context) {
+    'use strict';
     if (syn && !syn.$channel) {
         syn.$channel = (function () {
             var currentTransactionID = Math.floor(Math.random() * 1000001);
@@ -159,13 +174,7 @@
 
             return {
                 connect(options) {
-                    var channelID = (function () {
-                        var text = '';
-                        var alpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-                        for (var i = 0; i < 5; i++) text += alpha.charAt(Math.floor(Math.random() * alpha.length));
-                        return text;
-                    })();
-
+                    var channelID = syn.$l.random();
                     var debug = function (message) {
                         if (options.debugOutput) {
                             try {

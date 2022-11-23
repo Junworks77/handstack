@@ -2,7 +2,7 @@
 
 (function (context) {
     'use strict';
-    var $manipulation = $manipulation || new syn.module();
+    var $manipulation = context.$manipulation || new syn.module();
     var document = context.document;
 
     $manipulation.extend({

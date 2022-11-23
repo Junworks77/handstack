@@ -2,11 +2,11 @@
 
 (function (context) {
     'use strict';
-    var $date = $date || new syn.module();
-    var $array = $array || new syn.module();
-    var $string = $string || new syn.module();
-    var $number = $number || new syn.module();
-    var $object = $object || new syn.module();
+    var $date = context.$date || new syn.module();
+    var $array = context.$array || new syn.module();
+    var $string = context.$string || new syn.module();
+    var $number = context.$number || new syn.module();
+    var $object = context.$object || new syn.module();
 
     (function () {
         var UID = {

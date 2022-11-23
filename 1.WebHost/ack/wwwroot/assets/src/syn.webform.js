@@ -3,7 +3,7 @@
 
 (function (context) {
     'use strict';
-    var $webform = $webform || new syn.module();
+    var $webform = context.$webform || new syn.module();
     var document = null;
     if (globalRoot.devicePlatform === 'node') {
     }

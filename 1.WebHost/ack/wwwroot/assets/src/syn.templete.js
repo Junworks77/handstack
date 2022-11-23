@@ -2,8 +2,9 @@
 /// (개발용) 신규 모듈 개발 템플릿입니다.
 /// </summary>
 (function (context) {
-    var $templete = $templete || new syn.module();
-    var document = window.document;
+    'use strict';
+    var $templete = context.$templete || new syn.module();
+    var document = context.document;
 
     $templete.extend({
         version: "1.0",

@@ -2,8 +2,9 @@
 
 (function (context) {
     'use strict';
-    var $resource = $resource || new syn.module();
-    var document = globalThis.document;
+    var $resource = context.$resource || new syn.module();
+    var document = context.document;
+
     $resource.extend({
         version: '1.0',
         localeID: 'ko-KR',

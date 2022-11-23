@@ -187,7 +187,7 @@
                             module.message = syn.$w.argumentsExtend($base.message, module.message);
 
                             if ($base.hook && $base.hook.extendLoad) {
-                                base.hook.extendLoad();
+                                base.hook.extendLoad(module);
                             }
                         }
                     }
