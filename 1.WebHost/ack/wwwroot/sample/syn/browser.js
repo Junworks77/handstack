@@ -32,10 +32,14 @@ let $browser = {
     },
     event: {
         btnEvent_getSystemFonts_click () {
-            syn.$l.get('txtProperty_getSystemFonts').value = syn.$b.getSystemFonts();
+            syn.$l.get('txtProperty_getSystemFonts').value = syn.$b.getSystemFonts().split(',').map((item) => {
+                return item.trim();
+            }).join('\n');
         },
         btnEvent_getPlugins_click () {
-            syn.$l.get('txtProperty_getPlugins').value = syn.$b.getPlugins().split(',').join('\n');
+            syn.$l.get('txtProperty_getPlugins').value = syn.$b.getPlugins().split(',').map((item) => {
+                return item.trim();
+            }).join('\n');
         },
         async btnEvent_fingerPrint_click () {
             syn.$l.get('txtProperty_fingerPrint').value = await syn.$b.fingerPrint();
