@@ -2,7 +2,7 @@
 
 (function (context) {
     'use strict';
-    var $crytography = $crytography || new syn.module();
+    var $crytography = context.$crytography || new syn.module();
 
     $crytography.extend({
         version: '1.0',

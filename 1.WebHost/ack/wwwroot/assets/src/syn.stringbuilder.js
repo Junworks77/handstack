@@ -2,8 +2,7 @@
 
 (function (context) {
     'use strict';
-
-    var $stringbuilder = $stringbuilder || new syn.module();
+    var $stringbuilder = context.$stringbuilder || new syn.module();
 
     $stringbuilder.extend({
         version: '1.0',

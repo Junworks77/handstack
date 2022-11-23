@@ -2,7 +2,7 @@
 
 (function (context) {
     'use strict';
-    var $library = $library || new syn.module();
+    var $library = context.$library || new syn.module();
     var document = null;
     if (globalRoot.devicePlatform === 'node') {
     }

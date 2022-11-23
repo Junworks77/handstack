@@ -3,7 +3,7 @@
 
 (function (context) {
     'use strict';
-    var $keyboard = $keyboard || new syn.module();
+    var $keyboard = context.$keyboard || new syn.module();
 
     $keyboard.extend({
         version: '1.0',

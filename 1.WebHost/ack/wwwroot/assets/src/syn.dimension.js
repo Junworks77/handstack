@@ -3,7 +3,7 @@
 
 (function (context) {
     'use strict';
-    var $dimension = $dimension || new syn.module();
+    var $dimension = context.$dimension || new syn.module();
     var document = context.document;
 
     $dimension.extend({

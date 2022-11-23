@@ -4,7 +4,8 @@
 /// AP Node.js 전용 라이브러리
 /// </summary>
 (function (context) {
-    var $system = $system || new syn.module();
+    'use strict';
+    var $system = context.$system || new syn.module();
 
     $system.extend({
         version: "1.0",

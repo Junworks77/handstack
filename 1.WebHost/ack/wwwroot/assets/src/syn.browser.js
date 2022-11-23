@@ -2,7 +2,7 @@
 
 (function (context) {
     'use strict';
-    var $browser = $browser || new syn.module();
+    var $browser = context.$browser || new syn.module();
     var document = context.document;
 
     $browser.extend({

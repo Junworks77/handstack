@@ -3,7 +3,7 @@
 
 (function (context) {
     'use strict';
-    var $request = $request || new syn.module();
+    var $request = context.$request || new syn.module();
     var document = null;
     if (globalRoot.devicePlatform === 'node') {
     }

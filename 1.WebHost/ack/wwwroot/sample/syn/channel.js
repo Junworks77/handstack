@@ -1,16 +1,25 @@
-﻿syn.Config.IsViewMappingModel = false;
+﻿'use strict';
+let $channel = {
+    extends: [
+        'parsehtml'
+    ],
+    hook: {
+        pageLoad() {
+            var channelID = 'local-channelID';
+            var iframe = syn.$l.get('ifmChannel');
+            iframe.src = 'channel2.html?channelID=' + channelID;
 
-$w.initializeScript({
-    btnBase64Encode_click: function () {
-        syn.$l.get('txtBase64Encode').value = syn.$c.base64Encode(syn.$l.get('txtBase64Encode').value);
+            var room = syn.$channel.rooms.connect({
+                debugOutput: true,
+                context: iframe.contentWindow,
+                scope: channelID
+            });
+
+            room.bind('pageLoad', function (evt, val) {
+                debugger;
+            });
+        }
     },
-    btnBase64Decode_click: function () {
-        syn.$l.get('txtBase64Decode').value = syn.$c.base64Decode(syn.$l.get('txtBase64Decode').value);
+    event: {
     },
-    btnUtf8Encode_click: function () {
-        syn.$l.get('txtUtf8Encode').value = syn.$c.utf8Encode(syn.$l.get('txtUtf8Encode').value);
-    },
-    btnUtf8Decode_click: function () {
-        syn.$l.get('txtUtf8Decode').value = syn.$c.utf8Decode(syn.$l.get('txtUtf8Decode').value);
-    },
-})
+};

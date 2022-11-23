@@ -200,7 +200,7 @@ globalRoot.syn = syn;
 /// </code>
 (function (context) {
     'use strict';
-    var $exception = $exception || new syn.module();
+    var $exception = context.$exception || new syn.module();
 
     $exception.extend({
         version: '1.0',
@@ -248,8 +248,9 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    var $resource = $resource || new syn.module();
-    var document = globalThis.document;
+    var $resource = context.$resource || new syn.module();
+    var document = context.document;
+
     $resource.extend({
         version: '1.0',
         localeID: 'ko-KR',
@@ -538,7 +539,7 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    var $browser = $browser || new syn.module();
+    var $browser = context.$browser || new syn.module();
     var document = context.document;
 
     $browser.extend({
@@ -762,7 +763,7 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    var $manipulation = $manipulation || new syn.module();
+    var $manipulation = context.$manipulation || new syn.module();
     var document = context.document;
 
     $manipulation.extend({
@@ -1291,7 +1292,7 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    var $dimension = $dimension || new syn.module();
+    var $dimension = context.$dimension || new syn.module();
     var document = context.document;
 
     $dimension.extend({
@@ -1546,7 +1547,7 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    var $ref = $ref || new syn.module();
+    var $ref = context.$ref || new syn.module();
 
     $ref.extend({
         version: '1.0',
@@ -1837,7 +1838,7 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    var $crytography = $crytography || new syn.module();
+    var $crytography = context.$crytography || new syn.module();
 
     $crytography.extend({
         version: '1.0',
@@ -1864,7 +1865,7 @@ globalRoot.syn = syn;
             }
         },
 
-        utf8Encode (unicodeString) {
+        utf8Encode: function (unicodeString) {
             if (typeof unicodeString != 'string') {
                 throw new TypeError('parameter ‘unicodeString’ is not a string');
             }
@@ -1880,7 +1881,7 @@ globalRoot.syn = syn;
             return utf8String;
         },
 
-        utf8Decode (utf8String) {
+        utf8Decode: function (utf8String) {
             if (typeof utf8String != 'string') {
                 throw new TypeError('parameter ‘utf8String’ is not a string');
             }
@@ -2566,8 +2567,7 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-
-    var $stringbuilder = $stringbuilder || new syn.module();
+    var $stringbuilder = context.$stringbuilder || new syn.module();
 
     $stringbuilder.extend({
         version: '1.0',
@@ -2624,7 +2624,7 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    var $keyboard = $keyboard || new syn.module();
+    var $keyboard = context.$keyboard || new syn.module();
 
     $keyboard.extend({
         version: '1.0',
@@ -2814,7 +2814,7 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    var $validation = $validation || new syn.module();
+    var $validation = context.$validation || new syn.module();
     var document = context.document;
 
     $validation.extend({
@@ -3113,11 +3113,11 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    var $date = $date || new syn.module();
-    var $array = $array || new syn.module();
-    var $string = $string || new syn.module();
-    var $number = $number || new syn.module();
-    var $object = $object || new syn.module();
+    var $date = context.$date || new syn.module();
+    var $array = context.$array || new syn.module();
+    var $string = context.$string || new syn.module();
+    var $number = context.$number || new syn.module();
+    var $object = context.$object || new syn.module();
 
     (function () {
         var UID = {
@@ -4473,7 +4473,7 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    var $library = $library || new syn.module();
+    var $library = context.$library || new syn.module();
     var document = null;
     if (globalRoot.devicePlatform === 'node') {
     }
@@ -4809,16 +4809,16 @@ globalRoot.syn = syn;
         createEventHub() {
             return {
                 hub: Object.create(null),
-                emit: function (event, data) {
+                emit: function emit(event, data) {
                     (this.hub[event] || []).forEach(function (handler) {
                         return handler(data);
                     });
                 },
-                on: function (event, handler) {
+                on: function on(event, handler) {
                     if (!this.hub[event]) this.hub[event] = [];
                     this.hub[event].push(handler);
                 },
-                off: function (event, handler) {
+                off: function off(event, handler) {
                     var i = (this.hub[event] || []).findIndex(function (h) {
                         return h === handler;
                     });
@@ -5550,7 +5550,7 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    var $request = $request || new syn.module();
+    var $request = context.$request || new syn.module();
     var document = null;
     if (globalRoot.devicePlatform === 'node') {
     }
@@ -5983,8 +5983,14 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    if (syn && !syn.$channel) {
-        syn.$channel = (function () {
+    var $channel = context.$channel || new syn.module();
+    var document = context.document;
+
+    $channel.extend({
+        version: "1.0",
+
+        connections: [],
+        rooms: (function () {
             var currentTransactionID = Math.floor(Math.random() * 1000001);
             var boundChannels = {};
 
@@ -6138,14 +6144,15 @@ globalRoot.syn = syn;
                 context.attachEvent('onmessage', onPostMessage);
             }
 
-            return {
+            var connectChannel = {
                 connect(options) {
-                    var channelID = (function () {
-                        var text = '';
-                        var alpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-                        for (var i = 0; i < 5; i++) text += alpha.charAt(Math.floor(Math.random() * alpha.length));
-                        return text;
-                    })();
+                    var channelID = options.scope || syn.$l.random();
+
+                    var channel = $channel.findChannel(channelID);
+                    if (channel) {
+                        syn.$l.eventLog('$channel.connect', 'channelID: {0} 중복 확인 필요'.format(channelID), 'Warning');
+                        return;
+                    }
 
                     var debug = function (message) {
                         if (options.debugOutput) {
@@ -6155,9 +6162,10 @@ globalRoot.syn = syn;
                                 }
                             }
                             catch (error) {
+                                syn.$l.eventLog('$channel.debug', 'channelID: {0}, message: {1}'.format(channelID, error.message), 'Error');
                             }
 
-                            syn.$l.eventLog('$channel.debug', 'channelID: ' + message, 'Information');
+                            syn.$l.eventLog('$channel.debug', 'channelID: {0}, message: {1}'.format(channelID, message), 'Information');
                         }
                     };
 
@@ -6174,6 +6182,10 @@ globalRoot.syn = syn;
                     if (context === options.context) {
                         syn.$l.eventLog('$channel.context', '동일한 화면에서 거래되는 채널 생성은 허용되지 않음', 'Error');
                         return;
+                    }
+
+                    if (!options.origin) {
+                        options.origin = '*';
                     }
 
                     var validOrigin = false;
@@ -6579,11 +6591,66 @@ globalRoot.syn = syn;
                         postMessage({ method: scopeMethod('__ready'), params: 'T' }, true);
                     }, 0);
 
+                    boundMessage.options = options;
+                    $channel.connections.push(boundMessage);
                     return boundMessage;
                 }
             };
-        })();
-    }
+
+            return connectChannel;
+        })(),
+
+        findChannel(channelID) {
+            return $channel.connections.find((item) => { return item.options.scope == channelID });
+        },
+
+        // syn.$channel.call('local-channelID', 'pageLoad', '?')
+        call(channelID, evt, params) {
+            var connection = $channel.findChannel(channelID);
+            if (connection) {
+                var val = {
+                    method: evt,
+                    params: params
+                };
+
+                if (connection.options.debugOutput === true) {
+                    val.error = function (error, message) {
+                        syn.$l.eventLog('$channel.call.error', '"{0}" call error: {1}, message: {2}'.format(evt, error, message), 'Information');
+                    };
+
+                    val.success = function (val) {
+                        syn.$l.eventLog('$channel.call.success', '"{0}" call returns: {1}'.format(evt, val), 'Information');
+                    };
+                }
+
+                connection.call(val);
+            }
+        },
+
+        // syn.$channel.notify('local-channelID', 'pageLoad', '?')
+        notify(channelID, evt, params) {
+            var connection = $channel.findChannel(channelID);
+            if (connection) {
+                var val = {
+                    method: evt,
+                    params: params
+                };
+
+                if (connection.options.debugOutput === true) {
+                    val.error = function (error, message) {
+                        syn.$l.eventLog('$channel.notify.error', '"{0}" notify error: {1}, message: {2}'.format(evt, error, message), 'Information');
+                    };
+
+                    val.success = function (val) {
+                        syn.$l.eventLog('$channel.notify.success', '"{0}" notify returns: {1}'.format(evt, val), 'Information');
+                    };
+                }
+
+                connection.notify(val);
+            }
+        }
+    });
+    syn.$channel = $channel;
 })(globalRoot);
 
 /// <reference path='syn.core.js' />
@@ -6591,7 +6658,7 @@ globalRoot.syn = syn;
 
 (function (context) {
     'use strict';
-    var $webform = $webform || new syn.module();
+    var $webform = context.$webform || new syn.module();
     var document = null;
     if (globalRoot.devicePlatform === 'node') {
     }
@@ -9097,16 +9164,6 @@ globalRoot.syn = syn;
         if (process.env.SYN_CONFIG) {
             syn.Config = JSON.parse(process.env.SYN_CONFIG);
         }
-        else {
-            var synConfigPath = path.join(path.dirname(require.main.filename), 'syn.config.json')
-            if (fs.existsSync(synConfigPath) == true) {
-                syn.Config = JSON.parse(fs.readFileSync(synConfigPath, 'utf8'));
-
-                process.env.SYN_LogMinimumLevel = syn.Config.LogMinimumLevel;
-                process.env.SYN_FileLogBasePath = syn.Config.FileLogBasePath;
-                process.env.SYN_LocalStoragePath = syn.Config.LocalStoragePath;
-            }
-        }
 
         if (syn.Config && $string.isNullOrEmpty(syn.Config.DataSourceFilePath) == true) {
             syn.Config.DataSourceFilePath = path.join(process.cwd(), 'BusinessContract/Database/DataSource.xml');
@@ -9248,7 +9305,7 @@ globalRoot.syn = syn;
 
         proxyHttp(url) {
             return new Proxy({}, {
-                get: function (target, path) {
+                get: function get(target, path) {
                     return async function (raw, method, headers) {
                         if ($ref.isString(raw) == true) {
                             if ($object.isNullOrUndefined(method) == true) {
@@ -9392,8 +9449,8 @@ globalRoot.syn = syn;
                             module.method = syn.$w.argumentsExtend($base.method, module.method);
                             module.message = syn.$w.argumentsExtend($base.message, module.message);
 
-                            if ($base.hook.extendLoad) {
-                                $base.hook.extendLoad(module);
+                            if ($base.hook && $base.hook.extendLoad) {
+                                base.hook.extendLoad(module);
                             }
                         }
                     }
@@ -9851,6 +9908,8 @@ globalRoot.syn = syn;
                                 if (transactionObject.transactionResult == true) {
                                     if (transactionResponse.acknowledge == 1) {
                                         var jsonResult = [];
+                                        debugger;
+
                                         var mdo = transactionResponse.message;
                                         if (transactionResponse.result.dataSet != null && transactionResponse.result.dataSet.length > 0) {
                                             var mapID = transactionResponse.result.mapID;

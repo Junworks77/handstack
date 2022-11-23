@@ -2,7 +2,7 @@
 
 (function (context) {
     'use strict';
-    var $ref = $ref || new syn.module();
+    var $ref = context.$ref || new syn.module();
 
     $ref.extend({
         version: '1.0',

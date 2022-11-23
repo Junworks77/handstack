@@ -1,64 +1,35 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <title>channel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
-    <form autocomplete="off" id="form1" syn-datafield="MainForm">
-        <div id="wrap" class="sub">
-            <div class="bx_sep">
-                <header>
-                    syn.channel (syn.$c)
-                </header>
-                <div class="tb_ly_a">
-                    <table>
-                        <colgroup>
-                            <col style="width:25%" />
-                            <col />
-                        </colgroup>
-                        <tr>
-                            <th scope="col">
-                                $crytography.base64Encode
-                            </th>
-                            <td>
-                                <input type="text" id="txtBase64Encode" value="">
-                                <input type="button" id="btnBase64Encode" value="호출" syn-events="['click']" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col">
-                                $crytography.base64Decode
-                            </th>
-                            <td>
-                                <input type="text" id="txtBase64Decode" value="">
-                                <input type="button" id="btnBase64Decode" value="호출" syn-events="['click']" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col">
-                                $crytography.utf8Encode
-                            </th>
-                            <td>
-                                <input type="text" id="txtUtf8Encode" value="">
-                                <input type="button" id="btnUtf8Encode" value="호출" syn-events="['click']" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col">
-                                $crytography.utf8Decode
-                            </th>
-                            <td>
-                                <input type="text" id="txtUtf8Decode" value="">
-                                <input type="button" id="btnUtf8Decode" value="호출" syn-events="['click']" />
-                            </td>
-                        </tr>
-                    </table>
+<body hidden="N">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <pre><text>
+# syn.channel (syn.$channel)
+iframe 간의 메시지 전달을 관리합니다.
+
+## 속성
+                </text></pre>
+
+                <div class="row p-2 mt-1 b:1|solid|#e5e5e5">
+                    <div class="col-12">
+                        <label class="form-label">syn.$channel.appName</label>
+                        <input type="text" id="txtProperty_appName" class="form-control">
+                        <div class="form-text">
+                            syn.config.json의 HostName 또는 navigator.appName을 반환합니다.
+                        </div>
+                    </div>
                 </div>
+
+                <iframe id="ifmChannel"></iframe>
             </div>
         </div>
-    </form>
+    </div>
+
     <script src="/assets/js/syn.loader.js"></script>
 </body>
 </html>

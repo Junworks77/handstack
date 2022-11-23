@@ -26,7 +26,7 @@
 /// </code>
 (function (context) {
     'use strict';
-    var $exception = $exception || new syn.module();
+    var $exception = context.$exception || new syn.module();
 
     $exception.extend({
         version: '1.0',
