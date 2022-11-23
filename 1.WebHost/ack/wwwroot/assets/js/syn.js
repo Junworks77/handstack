@@ -1,4 +1,4 @@
-/*!
+﻿/*!
 HAND Stack Javascript Library v1.0.0
 https://syn.handshake.kr
 
@@ -5972,17 +5972,8 @@ globalRoot.syn = syn;
     $channel.extend({
         version: "1.0",
 
-        method() {
-            return this;
-        }
-    });
-    syn.$channel = $channel;
-})(globalRoot);
-
-(function (context) {
-    'use strict';
-    if (syn && !syn.$channel) {
-        syn.$channel = (function () {
+        connections: [],
+        rooms: (function () {
             var currentTransactionID = Math.floor(Math.random() * 1000001);
             var boundChannels = {};
 
@@ -6136,9 +6127,16 @@ globalRoot.syn = syn;
                 context.attachEvent('onmessage', onPostMessage);
             }
 
-            return {
+            var connectChannel = {
                 connect(options) {
-                    var channelID = syn.$l.random();
+                    var channelID = options.scope || syn.$l.random();
+
+                    var channel = $channel.findChannel(channelID);
+                    if (channel) {
+                        syn.$l.eventLog('$channel.connect', 'channelID: {0} 중복 확인 필요'.format(channelID), 'Warning');
+                        return;
+                    }
+
                     var debug = function (message) {
                         if (options.debugOutput) {
                             try {
@@ -6147,9 +6145,10 @@ globalRoot.syn = syn;
                                 }
                             }
                             catch (error) {
+                                syn.$l.eventLog('$channel.debug', 'channelID: {0}, message: {1}'.format(channelID, error.message), 'Error');
                             }
 
-                            syn.$l.eventLog('$channel.debug', 'channelID: ' + message, 'Information');
+                            syn.$l.eventLog('$channel.debug', 'channelID: {0}, message: {1}'.format(channelID, message), 'Information');
                         }
                     };
 
@@ -6166,6 +6165,10 @@ globalRoot.syn = syn;
                     if (context === options.context) {
                         syn.$l.eventLog('$channel.context', '동일한 화면에서 거래되는 채널 생성은 허용되지 않음', 'Error');
                         return;
+                    }
+
+                    if (!options.origin) {
+                        options.origin = '*';
                     }
 
                     var validOrigin = false;
@@ -6571,11 +6574,66 @@ globalRoot.syn = syn;
                         postMessage({ method: scopeMethod('__ready'), params: 'T' }, true);
                     }, 0);
 
+                    boundMessage.options = options;
+                    $channel.connections.push(boundMessage);
                     return boundMessage;
                 }
             };
-        })();
-    }
+
+            return connectChannel;
+        })(),
+
+        findChannel(channelID) {
+            return $channel.connections.find((item) => { return item.options.scope == channelID });
+        },
+
+        // syn.$channel.call('local-channelID', 'pageLoad', '?')
+        call(channelID, evt, params) {
+            var connection = $channel.findChannel(channelID);
+            if (connection) {
+                var val = {
+                    method: evt,
+                    params: params
+                };
+
+                if (connection.options.debugOutput === true) {
+                    val.error = function (error, message) {
+                        syn.$l.eventLog('$channel.call.error', '"{0}" call error: {1}, message: {2}'.format(evt, error, message), 'Information');
+                    };
+
+                    val.success = function (val) {
+                        syn.$l.eventLog('$channel.call.success', '"{0}" call returns: {1}'.format(evt, val), 'Information');
+                    };
+                }
+
+                connection.call(val);
+            }
+        },
+
+        // syn.$channel.notify('local-channelID', 'pageLoad', '?')
+        notify(channelID, evt, params) {
+            var connection = $channel.findChannel(channelID);
+            if (connection) {
+                var val = {
+                    method: evt,
+                    params: params
+                };
+
+                if (connection.options.debugOutput === true) {
+                    val.error = function (error, message) {
+                        syn.$l.eventLog('$channel.notify.error', '"{0}" notify error: {1}, message: {2}'.format(evt, error, message), 'Information');
+                    };
+
+                    val.success = function (val) {
+                        syn.$l.eventLog('$channel.notify.success', '"{0}" notify returns: {1}'.format(evt, val), 'Information');
+                    };
+                }
+
+                connection.notify(val);
+            }
+        }
+    });
+    syn.$channel = $channel;
 })(globalRoot);
 
 /// <reference path='syn.core.js' />
