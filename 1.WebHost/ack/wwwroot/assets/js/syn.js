@@ -1673,7 +1673,24 @@ globalRoot.syn = syn;
         },
 
         isBoolean(val) {
-            return typeof val == 'boolean';
+            if ($object.isNullOrUndefined(val) == true) {
+                return false;
+            }
+
+            if (typeof val == 'boolean') {
+                return true;
+            }
+            else if (typeof val == 'string' || typeof val == 'number') {
+                val = val.toString();
+                return (val.toUpperCase() === 'TRUE' ||
+                    val.toUpperCase() === 'FALSE' ||
+                    val === 'Y' ||
+                    val === 'N' ||
+                    val == '1' ||
+                    val == '0');
+            }
+
+            return false;
         },
 
         isEmpty(val) {

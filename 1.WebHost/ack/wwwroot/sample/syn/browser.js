@@ -3,6 +3,7 @@ let $browser = {
     extends: [
         'parsehtml'
     ],
+
     hook: {
         pageLoad() {
             syn.$l.get('txtProperty_appName').value = syn.$b.appName;
@@ -30,22 +31,28 @@ let $browser = {
             syn.$l.get('txtProperty_isMobile').value = syn.$b.isMobile;
         }
     },
+
     event: {
         btnEvent_getSystemFonts_click () {
             syn.$l.get('txtProperty_getSystemFonts').value = syn.$b.getSystemFonts();
         },
+
         btnEvent_getPlugins_click () {
             syn.$l.get('txtProperty_getPlugins').value = syn.$b.getPlugins().split(',').join('\n');
         },
+
         async btnEvent_fingerPrint_click () {
             syn.$l.get('txtProperty_fingerPrint').value = await syn.$b.fingerPrint();
         },
+
         btnEvent_windowWidth_click() {
             syn.$l.get('txtProperty_windowWidth').value = syn.$b.windowWidth();
         },
+
         btnEvent_windowHeight_click() {
             syn.$l.get('txtProperty_windowHeight').value = syn.$b.windowHeight();
         },
+
         async btnEvent_getIpAddress_click() {
             syn.$l.get('txtProperty_getIpAddress').value = await syn.$b.getIpAddress();
         }
