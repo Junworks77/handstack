@@ -1,4 +1,4 @@
-﻿/*!
+/*!
 HAND Stack Javascript Library v1.0.0
 https://syn.handshake.kr
 
@@ -5989,7 +5989,12 @@ globalRoot.syn = syn;
     $channel.extend({
         version: "1.0",
 
+        myChannelID: null,
         connections: [],
+        concreate($channel) {
+            $channel.myChannelID = syn.$r.query('channelID') || syn.$r.query('ChannelID') || syn.$r.query('CHANNELID') || syn.$r.query('channelid') || '';
+        },
+
         rooms: (function () {
             var currentTransactionID = Math.floor(Math.random() * 1000001);
             var boundChannels = {};
@@ -6447,7 +6452,7 @@ globalRoot.syn = syn;
                         debug('ready message accepted');
 
                         if (type === 'T') {
-                            boundMessage.notify({ method: '__ready', params: 'A' });
+                            boundMessage.emit({ method: '__ready', params: 'A' });
                         }
 
                         while (pendingQueue.length) {
@@ -6552,15 +6557,15 @@ globalRoot.syn = syn;
 
                             postMessage(message);
                         },
-                        notify(data) {
+                        emit(data) {
                             if (!data) {
-                                throw 'missing arguments to notify function';
-                                syn.$l.eventLog('$channel.notify', 'notify params 데이터 없음', 'Warning');
+                                throw 'missing arguments to emit function';
+                                syn.$l.eventLog('$channel.emit', 'emit params 데이터 없음', 'Warning');
                                 return;
                             }
 
                             if (!data.method || typeof data.method !== 'string') {
-                                syn.$l.eventLog('$channel.notify', 'method 매개변수 확인 필요', 'Warning');
+                                syn.$l.eventLog('$channel.emit', 'method 매개변수 확인 필요', 'Warning');
                                 return;
                             }
 
@@ -6615,11 +6620,11 @@ globalRoot.syn = syn;
 
                 if (connection.options.debugOutput === true) {
                     val.error = function (error, message) {
-                        syn.$l.eventLog('$channel.call.error', '"{0}" call error: {1}, message: {2}'.format(evt, error, message), 'Information');
+                        syn.$l.eventLog('$channel.call.error', '"{0}" call error: {1}, message: {2}, channelID: {3}'.format(evt, error, message, connection.options.scope), 'Information');
                     };
 
                     val.success = function (val) {
-                        syn.$l.eventLog('$channel.call.success', '"{0}" call returns: {1}'.format(evt, val), 'Information');
+                        syn.$l.eventLog('$channel.call.success', '"{0}" call returns: {1}, channelID: {2}'.format(evt, val, connection.options.scope), 'Information');
                     };
                 }
 
@@ -6627,26 +6632,53 @@ globalRoot.syn = syn;
             }
         },
 
-        // syn.$channel.notify('local-channelID', 'pageLoad', '?')
-        notify(channelID, evt, params) {
-            var connection = $channel.findChannel(channelID);
-            if (connection) {
-                var val = {
-                    method: evt,
-                    params: params
-                };
-
-                if (connection.options.debugOutput === true) {
-                    val.error = function (error, message) {
-                        syn.$l.eventLog('$channel.notify.error', '"{0}" notify error: {1}, message: {2}'.format(evt, error, message), 'Information');
+        // syn.$channel.broadCast('pageLoad', '?')
+        broadCast(evt, params) {
+            for (var i = 0; i < connections.length; i++) {
+                var connection = connections[i];
+                if (connection) {
+                    var val = {
+                        method: evt,
+                        params: params
                     };
 
-                    val.success = function (val) {
-                        syn.$l.eventLog('$channel.notify.success', '"{0}" notify returns: {1}'.format(evt, val), 'Information');
-                    };
+                    if (connection.options.debugOutput === true) {
+                        val.error = function (error, message) {
+                            syn.$l.eventLog('$channel.call.error', '"{0}" call error: {1}, message: {2}, channelID: {3}'.format(evt, error, message, connection.options.scope), 'Information');
+                        };
+
+                        val.success = function (val) {
+                            syn.$l.eventLog('$channel.call.success', '"{0}" call returns: {1}, channelID: {2}'.format(evt, val, connection.options.scope), 'Information');
+                        };
+                    }
+
+                    connection.call(val);
                 }
+            }
+        },
 
-                connection.notify(val);
+        // syn.$channel.emit('pageLoad', '?')
+        emit(evt, params) {
+            if ($string.isNullOrEmpty($channel.myChannelID) == false) {
+                var connection = $channel.findChannel($channel.myChannelID);
+                if (connection) {
+                    var val = {
+                        method: evt,
+                        params: params
+                    };
+
+                    if (connection.options.debugOutput === true) {
+                        val.error = function (error, message) {
+                            syn.$l.eventLog('$channel.emit.error', '"{0}" emit error: {1}, message: {2}'.format(evt, error, message), 'Information');
+                        };
+
+                        val.success = function (val) {
+                            syn.$l.eventLog('$channel.emit.success', '"{0}" emit returns: {1}'.format(evt, val), 'Information');
+                        };
+                    }
+
+                    connection.emit(val);
+                }
             }
         }
     });

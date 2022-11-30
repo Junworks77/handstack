@@ -13,10 +13,10 @@ let $channel2 = {
                 });
 
                 room.bind('request', function (evt, params) {
-                    $l.eventLog('channel request', channelID + ': ' + JSON.stringify(params), 'Debug');
+                    syn.$l.eventLog('channel request', channelID + ': ' + ($ref.isString(params) == true ? params : JSON.stringify(params)), 'Debug');
                 });
 
-                room.notify({
+                room.emit({
                     method: 'pageLoad',
                     params: syn.$d.getDocumentSize(document),
                     error: function (error, message) {
