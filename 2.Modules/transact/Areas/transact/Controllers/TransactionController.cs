@@ -999,6 +999,12 @@ namespace transact.Areas.transact.Controllers
                     return LoggingAndReturn(response, "N", transactionInfo);
                 }
 
+                // 거래 프로그램 ID가 선언되었다면 요청 정보를 ByPass 한다
+                if (string.IsNullOrEmpty(businessContract.TransactionApplicationID) == false)
+                {
+                    // request를 TransactionApplicationID에 요청하고 응답값을 반환
+                }
+
                 // 마스킹 개별 필드 복호화
                 foreach (var items in request.Transaction.Maskings)
                 {

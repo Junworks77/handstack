@@ -81,10 +81,13 @@ namespace function
                         ModuleConfiguration.IsSingleThread = moduleConfig.NodeFunctionConfig.IsSingleThread;
                         ModuleConfiguration.WatchGracefulShutdown = moduleConfig.NodeFunctionConfig.WatchGracefulShutdown;
                         ModuleConfiguration.EnableFileWatching = moduleConfig.NodeFunctionConfig.EnableFileWatching;
-                        ModuleConfiguration.WatchFileNamePatterns = moduleConfig.NodeFunctionConfig.WatchFileNamePatterns;
                         ModuleConfiguration.NodeAndV8Options = moduleConfig.NodeFunctionConfig.NodeAndV8Options;
                         ModuleConfiguration.EnvironmentVariables = moduleConfig.NodeFunctionConfig.EnvironmentVariables;
 
+                        ModuleConfiguration.WatchFileNamePatterns.Clear();
+                        ModuleConfiguration.WatchFileNamePatterns = moduleConfig.NodeFunctionConfig.WatchFileNamePatterns;
+
+                        ModuleConfiguration.FunctionSource.Clear();
                         if (moduleConfig.FunctionSource != null && moduleConfig.FunctionSource.Count > 0)
                         {
                             foreach (var item in moduleConfig.FunctionSource)

@@ -15,7 +15,7 @@ namespace Microsoft.Extensions.Logging
         private readonly ConcurrentDictionary<string, FileLogger> loggers = new ConcurrentDictionary<string, FileLogger>();
         private readonly BlockingCollection<string> entryQueue = new BlockingCollection<string>(1024);
         private readonly Task processQueueTask;
-        private readonly FileWriter fWriter;
+        private readonly FileWriter fileWriter;
 
         private readonly bool Append = true;
         private readonly long FileSizeLimitBytes = 0;
@@ -44,7 +44,7 @@ namespace Microsoft.Extensions.Logging
             FormatLogEntry = options.FormatLogEntry;
             FormatLogFileName = options.FormatLogFileName;
 
-            fWriter = new FileWriter(this);
+            fileWriter = new FileWriter(this);
             processQueueTask = Task.Factory.StartNew(ProcessQueue, this, TaskCreationOptions.LongRunning);
         }
 
@@ -64,7 +64,7 @@ namespace Microsoft.Extensions.Logging
             catch (AggregateException ex) when (ex.InnerExceptions.Count == 1 && ex.InnerExceptions[0] is TaskCanceledException) { }
 
             loggers.Clear();
-            fWriter.Close();
+            fileWriter.Close();
         }
 
         private FileLogger CreateLoggerImplementation(string name)
@@ -89,7 +89,7 @@ namespace Microsoft.Extensions.Logging
         {
             foreach (var message in entryQueue.GetConsumingEnumerable())
             {
-                fWriter.WriteMessage(message, entryQueue.Count == 0);
+                fileWriter.WriteMessage(message, entryQueue.Count == 0);
             }
         }
 
@@ -170,7 +170,7 @@ namespace Microsoft.Extensions.Logging
                     fileInfo.Directory.Create();
                 }
 
-                logFileStream = new FileStream(logFileName, FileMode.OpenOrCreate, FileAccess.Write);
+                logFileStream = new FileStream(logFileName, FileMode.OpenOrCreate, FileAccess.Write, FileShare.ReadWrite);
 
                 if (append)
                 {

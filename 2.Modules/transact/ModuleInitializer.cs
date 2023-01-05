@@ -65,8 +65,11 @@ namespace transact
                         ModuleConfiguration.LogServerUrl = moduleConfig.LogServerUrl;
                         ModuleConfiguration.ContractBasePath = moduleConfig.ContractBasePath;
                         ModuleConfiguration.TransactionLogFilePath = moduleConfig.TransactionLogFilePath;
+
+                        ModuleConfiguration.PublicTransactions?.Clear();
                         ModuleConfiguration.PublicTransactions = moduleConfig.PublicTransactions;
 
+                        ModuleConfiguration.RouteCommandUrl.Clear();
                         foreach (var item in moduleConfig.RouteCommandUrl.AsEnumerable())
                         {
                             ModuleConfiguration.RouteCommandUrl.Add(item.Key, item.Value);

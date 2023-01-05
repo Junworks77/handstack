@@ -2419,6 +2419,545 @@
             }
         },
 
+        getterValue(functionID) {
+            try {
+                var errorText = '';
+                var responseObject = {
+                    ErrorText: [],
+                    InputStat: []
+                };
+
+                if ($this && $this.mappingModel && $this.mappingModel.Transactions) {
+                    var transactions = $this.mappingModel.Transactions.filter(function (item) {
+                        return item.FunctionID == functionID;
+                    });
+
+                    if (transactions.length == 1) {
+                        var transaction = transactions[0];
+
+                        var synControls = context[$w.pageScript]['synControls'];
+
+                        var inputLength = transaction.Inputs.length;
+                        for (var inputIndex = 0; inputIndex < inputLength; inputIndex++) {
+                            var inputMapping = transaction.Inputs[inputIndex];
+                            var inputObjects = [];
+
+                            if (inputMapping.RequestType == 'Row') {
+                                var bindingControlInfos = synControls.filter(function (item) {
+                                    return item.field == inputMapping.DataFieldID;
+                                });
+
+                                if (bindingControlInfos.length == 1) {
+                                    var controlInfo = bindingControlInfos[0];
+
+                                    if (['grid', 'chart'].indexOf(controlInfo.type) > -1) {
+                                        var dataFieldID = inputMapping.DataFieldID;
+
+                                        var controlValue = '';
+                                        if (synControls && synControls.length > 0) {
+                                            bindingControlInfos = synControls.filter(function (item) {
+                                                return item.field == dataFieldID;
+                                            });
+
+                                            if (bindingControlInfos.length == 1) {
+                                                var controlInfo = bindingControlInfos[0];
+                                                var controlModule = null;
+                                                var currings = controlInfo.module.split('.');
+                                                if (currings.length > 0) {
+                                                    for (var i = 0; i < currings.length; i++) {
+                                                        var curring = currings[i];
+                                                        if (controlModule) {
+                                                            controlModule = controlModule[curring];
+                                                        }
+                                                        else {
+                                                            controlModule = context[curring];
+                                                        }
+                                                    }
+                                                }
+                                                else {
+                                                    controlModule = context[controlInfo.module];
+                                                }
+
+                                                inputObjects = controlModule.getValue(controlInfo.id, 'Row', inputMapping.Items)[0];
+                                            }
+                                            else {
+                                                $l.eventLog('$w.getterValue', '"{0}" Row List Input Mapping 확인 필요'.format(dataFieldID), 'Warning');
+                                            }
+                                        }
+                                    }
+                                    else {
+                                        for (var key in inputMapping.Items) {
+                                            var meta = inputMapping.Items[key];
+                                            var dataFieldID = key;
+                                            var fieldID = meta.FieldID;
+                                            var dataType = meta.DataType;
+                                            var serviceObject = { prop: fieldID, val: '' };
+
+                                            var controlValue = '';
+                                            if (synControls.length > 0) {
+                                                bindingControlInfos = synControls.filter(function (item) {
+                                                    return item.field == dataFieldID && item.formDataFieldID == inputMapping.DataFieldID;
+                                                });
+
+                                                if (bindingControlInfos.length == 1) {
+                                                    var controlInfo = bindingControlInfos[0];
+                                                    var controlModule = null;
+                                                    var currings = controlInfo.module.split('.');
+                                                    if (currings.length > 0) {
+                                                        for (var i = 0; i < currings.length; i++) {
+                                                            var curring = currings[i];
+                                                            if (controlModule) {
+                                                                controlModule = controlModule[curring];
+                                                            }
+                                                            else {
+                                                                controlModule = context[curring];
+                                                            }
+                                                        }
+                                                    }
+                                                    else {
+                                                        controlModule = context[controlInfo.module];
+                                                    }
+
+                                                    controlValue = controlModule.getValue(controlInfo.id, meta);
+
+                                                    if (!controlValue && dataType == 'int') {
+                                                        controlValue = 0;
+                                                    }
+                                                }
+                                                else {
+                                                    $l.eventLog('$w.getterValue', '"{0}" Row Control Input Mapping 확인 필요'.format(dataFieldID), 'Warning');
+                                                }
+                                            }
+
+                                            serviceObject.val = controlValue;
+                                            inputObjects.push(serviceObject);
+                                        }
+                                    }
+                                }
+                                else {
+                                    if ($this.$data && $this.$data.storeList.length > 0) {
+                                        for (var key in inputMapping.Items) {
+                                            var isMapping = false;
+                                            var meta = inputMapping.Items[key];
+                                            var dataFieldID = key;
+                                            var fieldID = meta.FieldID;
+                                            var dataType = meta.DataType;
+                                            var serviceObject = { prop: fieldID, val: '' };
+
+                                            var controlValue = '';
+                                            for (var k = 0; k < $this.$data.storeList.length; k++) {
+                                                var store = $this.$data.storeList[k];
+                                                if (store.storeType == 'Form' && store.dataSourceID == inputMapping.DataFieldID) {
+                                                    isMapping = true;
+                                                    bindingControlInfos = store.columns.filter(function (item) {
+                                                        return item.data == dataFieldID;
+                                                    });
+
+                                                    if (bindingControlInfos.length == 1) {
+                                                        var controlInfo = bindingControlInfos[0];
+                                                        controlValue = $this.store[store.dataSourceID][controlInfo.data];
+
+                                                        if (!controlValue && dataType == 'int') {
+                                                            controlValue = 0;
+                                                        }
+
+                                                        if ($object.isNullOrUndefined(controlValue) == true) {
+                                                            controlValue = '';
+                                                        }
+                                                    }
+                                                    else {
+                                                        $l.eventLog('$w.getterValue', '"{0}" Row Input Mapping 확인 필요'.format(dataFieldID), 'Warning');
+                                                    }
+
+                                                    break;
+                                                }
+                                            }
+
+                                            if (isMapping == true) {
+                                                serviceObject.val = controlValue;
+                                                inputObjects.push(serviceObject);
+                                            }
+                                            else {
+                                                $l.eventLog('$w.getterValue', '{0} Row 컨트롤 ID 중복 또는 존재여부 확인 필요'.format(inputMapping.DataFieldID), 'Warning');
+                                            }
+                                        }
+                                    }
+                                }
+
+                                var input = {};
+                                for (var i = 0; i < inputObjects.length; i++) {
+                                    var inputObject = inputObjects[i];
+                                    input[inputObject.prop] = inputObject.val;
+                                }
+                                responseObject.InputStat.push(input);
+                            }
+                            else if (inputMapping.RequestType == 'List') {
+                                var dataFieldID = inputMapping.DataFieldID;
+
+                                var controlValue = '';
+                                if (synControls && synControls.length > 0) {
+                                    var bindingControlInfos = synControls.filter(function (item) {
+                                        return item.field == dataFieldID;
+                                    });
+
+                                    if (bindingControlInfos.length == 1) {
+                                        var controlInfo = bindingControlInfos[0];
+                                        var controlModule = null;
+                                        var currings = controlInfo.module.split('.');
+                                        if (currings.length > 0) {
+                                            for (var i = 0; i < currings.length; i++) {
+                                                var curring = currings[i];
+                                                if (controlModule) {
+                                                    controlModule = controlModule[curring];
+                                                }
+                                                else {
+                                                    controlModule = context[curring];
+                                                }
+                                            }
+                                        }
+                                        else {
+                                            controlModule = context[controlInfo.module];
+                                        }
+
+                                        inputObjects = controlModule.getValue(controlInfo.id, 'List', inputMapping.Items);
+                                    }
+                                    else {
+                                        var isMapping = false;
+                                        if ($this.$data && $this.$data.storeList.length > 0) {
+                                            for (var k = 0; k < $this.$data.storeList.length; k++) {
+                                                var store = $this.$data.storeList[k];
+                                                if (store.storeType == 'Grid' && store.dataSourceID == dataFieldID) {
+                                                    isMapping = true;
+                                                    var bindingInfo = $this.$data.bindingList.find(function (item) {
+                                                        return (item.dataSourceID == store.dataSourceID && item.controlType == 'grid');
+                                                    });
+
+                                                    if (bindingInfo) {
+                                                        inputObjects = $this.store[store.dataSourceID][bindingInfo.dataFieldID];
+                                                    }
+                                                    else {
+                                                        var controlValue = [];
+                                                        var items = $this.store[store.dataSourceID];
+                                                        var length = items.length;
+                                                        for (var i = 0; i < length; i++) {
+                                                            var item = items[i];
+
+                                                            var row = [];
+                                                            for (var key in item) {
+                                                                var serviceObject = { prop: key, val: item[key] };
+                                                                row.push(serviceObject);
+                                                            }
+                                                            controlValue.push(row);
+                                                        }
+
+                                                        inputObjects = controlValue;
+                                                    }
+
+                                                    break;
+                                                }
+                                            }
+                                        }
+
+                                        if (isMapping == false) {
+                                            $l.eventLog('$w.getterValue', '"{0}" List Input Mapping 확인 필요'.format(dataFieldID), 'Warning');
+                                        }
+                                    }
+                                }
+
+                                for (var key in inputObjects) {
+                                    var input = {};
+                                    var inputList = inputObjects[key];
+                                    for (var i = 0; i < inputList.length; i++) {
+                                        var inputObject = inputList[i];
+                                        input[inputObject.prop] = inputObject.val;
+                                    }
+                                    responseObject.InputStat.push(input);
+                                }
+                            }
+                        }
+
+                        return responseObject;
+                    }
+                    else {
+                        errorText = '"{0}" 거래 중복 또는 존재여부 확인 필요'.format(functionID);
+                        responseObject.ErrorText.push(errorText);
+                        $l.eventLog('$w.getterValue', errorText, 'Error');
+
+                        return responseObject;
+                    }
+                }
+                else {
+                    errorText = '화면 매핑 정의 데이터가 없습니다';
+                    responseObject.ErrorText.push(errorText);
+                    $l.eventLog('$w.getterValue', errorText, 'Error');
+
+                    return responseObject;
+                }
+            } catch (error) {
+                $l.eventLog('$w.getterValue', error, 'Error');
+
+                responseObject.ErrorText.push(error.message);
+                return responseObject;
+            }
+        },
+
+        setterValue(functionID, responseData) {
+            try {
+                var errorText = '';
+                var responseObject = {
+                    ErrorText: [],
+                    OutputStat: []
+                };
+
+                if ($this && $this.mappingModel && $this.mappingModel.Transactions) {
+                    var transactions = $this.mappingModel.Transactions.filter(function (item) {
+                        return item.FunctionID == functionID;
+                    });
+
+                    if (transactions.length == 1) {
+                        var transaction = transactions[0];
+                        var synControls = context[$w.pageScript]['synControls'];
+                        var outputLength = transaction.Outputs.length;
+                        for (var outputIndex = 0; outputIndex < outputLength; outputIndex++) {
+                            var outputMapping = transaction.Outputs[outputIndex];
+                            var responseFieldID = 'RES_FIELD_ID' + outputIndex.toString();
+                            var outputData = responseData[outputIndex];
+
+                            if (outputMapping.ResponseType == 'Form') {
+                                if ($object.isNullOrUndefined(outputData) == true || outputData.length) {
+                                    responseObject.OutputStat.push({
+                                        FieldID: responseFieldID,
+                                        Count: 0
+                                    });
+                                }
+                                else {
+                                    responseObject.OutputStat.push({
+                                        FieldID: responseFieldID,
+                                        Count: 1
+                                    });
+
+                                    for (var key in outputMapping.Items) {
+                                        var meta = outputMapping.Items[key];
+                                        var dataFieldID = key;
+                                        var fieldID = meta.FieldID;
+
+                                        var controlValue = outputData[fieldID];
+                                        if (controlValue != undefined && synControls && synControls.length > 0) {
+                                            var bindingControlInfos = synControls.filter(function (item) {
+                                                return item.field == dataFieldID && item.formDataFieldID == outputMapping.DataFieldID;
+                                            });
+
+                                            if (bindingControlInfos.length == 1) {
+                                                var controlInfo = bindingControlInfos[0];
+                                                var controlModule = null;
+                                                var currings = controlInfo.module.split('.');
+                                                if (currings.length > 0) {
+                                                    for (var i = 0; i < currings.length; i++) {
+                                                        var curring = currings[i];
+                                                        if (controlModule) {
+                                                            controlModule = controlModule[curring];
+                                                        }
+                                                        else {
+                                                            controlModule = context[curring];
+                                                        }
+                                                    }
+                                                }
+                                                else {
+                                                    controlModule = context[controlInfo.module];
+                                                }
+
+                                                controlModule.setValue(controlInfo.id, controlValue, meta);
+                                            }
+                                            else {
+                                                var isMapping = false;
+                                                if ($this.$data && $this.$data.storeList.length > 0) {
+                                                    for (var k = 0; k < $this.$data.storeList.length; k++) {
+                                                        var store = $this.$data.storeList[k];
+                                                        if ($object.isNullOrUndefined($this.store[store.dataSourceID]) == true) {
+                                                            $this.store[store.dataSourceID] = {};
+                                                        }
+
+                                                        if (store.storeType == 'Form' && store.dataSourceID == outputMapping.DataFieldID) {
+                                                            isMapping = true;
+                                                            bindingControlInfos = store.columns.filter(function (item) {
+                                                                return item.data == dataFieldID;
+                                                            });
+
+                                                            if (bindingControlInfos.length == 1) {
+                                                                $this.store[store.dataSourceID][dataFieldID] = controlValue;
+                                                            }
+
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+
+                                                if (isMapping == false) {
+                                                    errorText = '"{0}" Form Output Mapping 확인 필요'.format(dataFieldID);
+                                                    responseObject.ErrorText.push(errorText);
+                                                    $l.eventLog('$w.transaction', errorText, 'Error');
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            else if (outputMapping.ResponseType == 'Grid') {
+                                if (outputData.length && outputData.length > 0) {
+                                    responseObject.OutputStat.push({
+                                        FieldID: responseFieldID,
+                                        Count: outputData.length
+                                    });
+                                    var dataFieldID = outputMapping.DataFieldID;
+                                    if (synControls && synControls.length > 0) {
+                                        var bindingControlInfos = synControls.filter(function (item) {
+                                            return item.field == dataFieldID;
+                                        });
+
+                                        if (bindingControlInfos.length == 1) {
+                                            var controlInfo = bindingControlInfos[0];
+                                            var controlModule = null;
+                                            var currings = controlInfo.module.split('.');
+                                            if (currings.length > 0) {
+                                                for (var i = 0; i < currings.length; i++) {
+                                                    var curring = currings[i];
+                                                    if (controlModule) {
+                                                        controlModule = controlModule[curring];
+                                                    }
+                                                    else {
+                                                        controlModule = context[curring];
+                                                    }
+                                                }
+                                            }
+                                            else {
+                                                controlModule = context[controlInfo.module];
+                                            }
+
+                                            controlModule.setValue(controlInfo.id, outputData, outputMapping.Items);
+                                        }
+                                        else {
+                                            var isMapping = false;
+                                            if ($this.$data && $this.$data.storeList.length > 0) {
+                                                for (var k = 0; k < $this.$data.storeList.length; k++) {
+                                                    var store = $this.$data.storeList[k];
+                                                    if ($object.isNullOrUndefined($this.store[store.dataSourceID]) == true) {
+                                                        $this.store[store.dataSourceID] = [];
+                                                    }
+
+                                                    if (store.storeType == 'Grid' && store.dataSourceID == outputMapping.DataFieldID) {
+                                                        isMapping = true;
+                                                        var bindingInfos = $this.$data.bindingList.filter(function (item) {
+                                                            return (item.dataSourceID == store.dataSourceID && item.controlType == 'grid');
+                                                        });
+
+                                                        var length = outputData.length;
+                                                        for (var i = 0; i < length; i++) {
+                                                            outputData[i].Flag = 'R';
+                                                        }
+
+                                                        if (bindingInfos.length > 0) {
+                                                            for (var binding_i = 0; binding_i < bindingInfos.length; binding_i++) {
+                                                                var bindingInfo = bindingInfos[binding_i];
+                                                                $this.store[store.dataSourceID][bindingInfo.dataFieldID] = outputData;
+                                                            }
+                                                        }
+                                                        else {
+                                                            $this.store[store.dataSourceID] = outputData;
+                                                        }
+                                                        break;
+                                                    }
+                                                }
+                                            }
+
+                                            if (isMapping == false) {
+                                                errorText = '"{0}" Grid Output Mapping 확인 필요'.format(dataFieldID);
+                                                responseObject.ErrorText.push(errorText);
+                                                $l.eventLog('$w.transaction', errorText, 'Error');
+                                            }
+                                        }
+                                    }
+                                }
+                                else {
+                                    responseObject.OutputStat.push({
+                                        FieldID: responseFieldID,
+                                        Count: 0
+                                    });
+                                }
+                            }
+                            else if (outputMapping.ResponseType == 'Chart') {
+                                if (outputData.length && outputData.length > 0) {
+                                    responseObject.OutputStat.push({
+                                        FieldID: responseFieldID,
+                                        Count: outputData.length
+                                    });
+                                    var dataFieldID = outputMapping.DataFieldID;
+
+                                    if (synControls && synControls.length > 0) {
+                                        var bindingControlInfos = synControls.filter(function (item) {
+                                            return item.field == dataFieldID;
+                                        });
+
+                                        if (bindingControlInfos.length == 1) {
+                                            var controlInfo = bindingControlInfos[0];
+                                            var controlModule = null;
+                                            var currings = controlInfo.module.split('.');
+                                            if (currings.length > 0) {
+                                                for (var i = 0; i < currings.length; i++) {
+                                                    var curring = currings[i];
+                                                    if (controlModule) {
+                                                        controlModule = controlModule[curring];
+                                                    }
+                                                    else {
+                                                        controlModule = context[curring];
+                                                    }
+                                                }
+                                            }
+                                            else {
+                                                controlModule = context[controlInfo.module];
+                                            }
+
+                                            controlModule.setValue(controlInfo.id, outputData, outputMapping.Items);
+                                        }
+                                        else {
+                                            errorText = '"{0}" Chart Output Mapping 확인 필요'.format(dataFieldID);
+                                            responseObject.ErrorText.push(errorText);
+                                            $l.eventLog('$w.transaction', errorText, 'Error');
+                                        }
+                                    }
+                                }
+                                else {
+                                    responseObject.OutputStat.push({
+                                        FieldID: responseFieldID,
+                                        Count: 0
+                                    });
+                                }
+                            }
+                        }
+
+                        return responseObject;
+                    }
+                    else {
+                        errorText = '"{0}" 거래 중복 또는 존재여부 확인 필요'.format(functionID);
+                        responseObject.ErrorText.push(errorText);
+                        $l.eventLog('$w.transaction', errorText, 'Error');
+
+                        return responseObject;
+                    }
+                }
+                else {
+                    errorText = '화면 매핑 정의 데이터가 없습니다';
+                    responseObject.ErrorText.push(errorText);
+                    $l.eventLog('$w.transaction', errorText, 'Error');
+
+                    return responseObject;
+                }
+            } catch (error) {
+                $l.eventLog('$w.transaction', error, 'Error');
+                responseObject.ErrorText.push(error.message);
+                return responseObject;
+            }
+        },
+
         scrollToTop() {
             var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 

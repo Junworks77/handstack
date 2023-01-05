@@ -71,6 +71,7 @@ namespace dbclient
                         ModuleConfiguration.IsProfileLogging = string.IsNullOrEmpty(moduleConfig.ProfileLogFilePath) == false;
                         ModuleConfiguration.ProfileLogFilePath = moduleConfig.ProfileLogFilePath;
 
+                        ModuleConfiguration.DataSource.Clear();
                         if (moduleConfig.DataSource != null && moduleConfig.DataSource.Count > 0)
                         {
                             foreach (var item in moduleConfig.DataSource)

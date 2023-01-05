@@ -15,6 +15,9 @@ namespace HandStack.Web.MessageContract.DataObject
         [JsonProperty("ProjectID")]
         public string ProjectID { get; set; }
 
+        [JsonProperty("TransactionApplicationID")]
+        public string? TransactionApplicationID { get; set; }
+
         [JsonProperty("TransactionProjectID")]
         public string TransactionProjectID { get; set; }
 

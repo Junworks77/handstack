@@ -118,11 +118,8 @@ namespace ack
                 Log.Error("");
                 Log.Fatal("");
 
-                var host = BootstrappingVariables(args, configuration);
-
-                await host.StartAsync();
-                ThreadPool.QueueUserWorkItem(BackgroundTaskAsync);
-                await host.WaitForShutdownAsync();
+                var applicationManager = ApplicationManager.Load();
+                await applicationManager.StartAsync(args, configuration);
             }
             catch (Exception exception)
             {
